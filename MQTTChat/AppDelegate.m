@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LCTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    LCTabBarController *mainVc = [[LCTabBarController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainVc];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

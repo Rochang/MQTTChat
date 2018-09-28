@@ -9,6 +9,10 @@
 #import "LCTabBarController.h"
 #import "LCChatListViewController.h"
 #import "LCNavigationController.h"
+#import "LCContactsViewController.h"
+#import "LCContactsViewController.h"
+#import "LCDiscoverViewController.h"
+#import "LCMeViewController.h"
 
 @interface LCTabBarController ()
 
@@ -29,17 +33,25 @@
     LCNavigationController *chatNav = [[LCNavigationController alloc] initWithRootViewController:chatVc];
     [self addChildViewController:chatNav];
     
-    LCChatListViewController *chatVc1 = [[LCChatListViewController alloc] init];
-    LCNavigationController *chatNav1 = [[LCNavigationController alloc] initWithRootViewController:chatVc1];
-    [self addChildViewController:chatNav1];
+    LCContactsViewController *contactVc = [[LCContactsViewController alloc] init];
+    LCNavigationController *contactNav = [[LCNavigationController alloc] initWithRootViewController:contactVc];
+    [self addChildViewController:contactNav];
     
-    LCChatListViewController *chatVc2 = [[LCChatListViewController alloc] init];
-    LCNavigationController *chatNav2 = [[LCNavigationController alloc] initWithRootViewController:chatVc2];
-    [self addChildViewController:chatNav2];
+    LCDiscoverViewController *discoverVc = [[LCDiscoverViewController alloc] init];
+    LCNavigationController *discoverNav = [[LCNavigationController alloc] initWithRootViewController:discoverVc];
+    [self addChildViewController:discoverNav];
+    
+    LCMeViewController *meVc = [[LCMeViewController alloc] init];
+    LCNavigationController *meNav = [[LCNavigationController alloc] initWithRootViewController:meVc];
+    [self addChildViewController:meNav];
 }
 
 - (void)setupTabBarButtons {
-    
+    UIEdgeInsets edge = UIEdgeInsetsZero;
+    [self setupTabBarButtonsWithIndex:0 image:@"tabbar_mainframe" selectImage:@"tabbar_mainframeHL" imageInsets:edge title:@"会话"];
+    [self setupTabBarButtonsWithIndex:1 image:@"tabbar_contacts" selectImage:@"tabbar_contactsHL" imageInsets:edge title:@"通讯录"];
+    [self setupTabBarButtonsWithIndex:2 image:@"tabbar_discover" selectImage:@"tabbar_discoverHL" imageInsets:edge title:@"朋友圈"];
+    [self setupTabBarButtonsWithIndex:3 image:@"tabbar_me" selectImage:@"tabbar_meHL" imageInsets:edge title:@"我的"];
 }
 
 

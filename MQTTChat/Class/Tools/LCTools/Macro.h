@@ -31,10 +31,25 @@
 
 #pragma mark - UI
 /************************* UI ***************************/
-#define kIPhone5s (ScreenWidth == 320)
-#define kIPhone6 (ScreenWidth == 375)
-#define kIPhone6p (ScreenWidth == 414)
-#define kScreenScale ScreenWidth/375
+#define KScreen_H [UIScreen mainScreen].bounds.size.height
+#define KScreen_W [UIScreen mainScreen].bounds.size.width
+#define KStatusBar_H [[UIApplication sharedApplication] statusBarFrame].size.height
+#define KNavBar_H self.navigationController.navigationBar.frame.size.height
+#define KTopBar_H (Height_StatusBar+Height_NavBar)
+#define KIsiPhoneX_ ((int)((KScreen_H/KScreen_W)*100) == 216)?YES:NO
+#define KTabBar_H   KIsIphone_X_series?83:49
+
+#define KIs4_inch CGSizeEqualToSize(CGSizeMake(320, 568), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIs4_7_inch CGSizeEqualToSize(CGSizeMake(375, 667), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIs5_5_inch CGSizeEqualToSize(CGSizeMake(414, 736), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIsIphoneX CGSizeEqualToSize(CGSizeMake(375, 812), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIsIphoneXR CGSizeEqualToSize(CGSizeMake(414, 896), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIsIphoneXS CGSizeEqualToSize(CGSizeMake(375, 812), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIsIphoneXS_Max CGSizeEqualToSize(CGSizeMake(414, 896), [UIScreen mainScreen].bounds.size) ? YES : NO
+#define KIsIphone_X_series (KIsIphoneX || KIsIphoneXR || KIsIphoneXS || KIsIphoneXS_Max) ? YES : NO
+
+#define KTitle_H    44
+
 
 #pragma mark - 字体
 /************************* 字体 ***************************/
@@ -51,5 +66,7 @@
 
 #define ColorHexA(s, alpha)   [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s &0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0 alpha:alpha]
 #define ColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define Color_white [UIColor whiteColor]
 
 #endif /* Macro_h */

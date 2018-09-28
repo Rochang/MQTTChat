@@ -10,5 +10,7 @@
 #define LCTools_h
 
 #import "Macro.h"
+#import "UIView+LCLayout.h"
+#import "NSString+LC.h"
 
 #endif /* LCTools_h */

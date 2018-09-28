@@ -10,5 +10,6 @@
 #define prefix_Header_h
 
 #import "LCTools.h"
+#import "LCBaseViewController.h"
 
 #endif /* prefix_Header_h */

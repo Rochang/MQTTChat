@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03A56994F4374F5C229EEC15 /* libPods-MQTTChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */; };
 		C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4938C215CC8CF0089BABE /* AppDelegate.m */; };
 		C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49391215CC8CF0089BABE /* Main.storyboard */; };
 		C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E49394215CC8D00089BABE /* Assets.xcassets */; };
@@ -15,6 +16,13 @@
 		C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D1215CCB360089BABE /* LCTabBarController.m */; };
 		C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D4215CCB5A0089BABE /* LCNavigationController.m */; };
 		C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D7215CCBE00089BABE /* LCChatListViewController.m */; };
+		C0E493EB215E0FC00089BABE /* LCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493EA215E0FC00089BABE /* LCContactsViewController.m */; };
+		C0E493EE215E0FCD0089BABE /* LCDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493ED215E0FCD0089BABE /* LCDiscoverViewController.m */; };
+		C0E493F1215E0FD70089BABE /* LCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F0215E0FD70089BABE /* LCMeViewController.m */; };
+		C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F3215E10990089BABE /* LCBaseViewController.m */; };
+		C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */; };
+		C0E493FB215E27700089BABE /* LCFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FA215E27700089BABE /* LCFMDBManager.m */; };
+		C0E493FE215E28720089BABE /* NSString+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FD215E28720089BABE /* NSString+LC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,23 @@
 		C0E493D9215CCD080089BABE /* prefix-Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prefix-Header.pch"; sourceTree = "<group>"; };
 		C0E493DA215CCDCD0089BABE /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		C0E493DC215CDEBE0089BABE /* LCTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTools.h; sourceTree = "<group>"; };
+		C0E493E9215E0FC00089BABE /* LCContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCContactsViewController.h; sourceTree = "<group>"; };
+		C0E493EA215E0FC00089BABE /* LCContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCContactsViewController.m; sourceTree = "<group>"; };
+		C0E493EC215E0FCD0089BABE /* LCDiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCDiscoverViewController.h; sourceTree = "<group>"; };
+		C0E493ED215E0FCD0089BABE /* LCDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCDiscoverViewController.m; sourceTree = "<group>"; };
+		C0E493EF215E0FD70089BABE /* LCMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMeViewController.h; sourceTree = "<group>"; };
+		C0E493F0215E0FD70089BABE /* LCMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMeViewController.m; sourceTree = "<group>"; };
+		C0E493F2215E10990089BABE /* LCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCBaseViewController.h; sourceTree = "<group>"; };
+		C0E493F3215E10990089BABE /* LCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBaseViewController.m; sourceTree = "<group>"; };
+		C0E493F5215E11DC0089BABE /* UIView+LCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCLayout.h"; sourceTree = "<group>"; };
+		C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LCLayout.m"; sourceTree = "<group>"; };
+		C0E493F9215E27700089BABE /* LCFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFMDBManager.h; sourceTree = "<group>"; };
+		C0E493FA215E27700089BABE /* LCFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCFMDBManager.m; sourceTree = "<group>"; };
+		C0E493FC215E28720089BABE /* NSString+LC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LC.h"; sourceTree = "<group>"; };
+		C0E493FD215E28720089BABE /* NSString+LC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LC.m"; sourceTree = "<group>"; };
+		DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MQTTChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC3D25B76F0BCC74AC57544 /* Pods-MQTTChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTTChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MQTTChat/Pods-MQTTChat.release.xcconfig"; sourceTree = "<group>"; };
+		FC145E30A8A102E93F185AA5 /* Pods-MQTTChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTTChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MQTTChat/Pods-MQTTChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +67,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A56994F4374F5C229EEC15 /* libPods-MQTTChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66CA445EAB6A65120F5ED824 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C0E4937F215CC8CF0089BABE = {
 			isa = PBXGroup;
 			children = (
 				C0E4938A215CC8CF0089BABE /* MQTTChat */,
 				C0E49389215CC8CF0089BABE /* Products */,
+				E3619BC31683BE45427EAF98 /* Pods */,
+				66CA445EAB6A65120F5ED824 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,9 +119,12 @@
 		C0E493C3215CCAB30089BABE /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				C0E493C9215CCAB30089BABE /* Main */,
 				C0E493C4215CCAB30089BABE /* Tools */,
 				C0E493C5215CCAB30089BABE /* Wechat */,
-				C0E493C9215CCAB30089BABE /* Main */,
+				C0E493DD215E0F920089BABE /* Contacts */,
+				C0E493E1215E0F920089BABE /* Discover */,
+				C0E493E5215E0F920089BABE /* Me */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -93,6 +132,7 @@
 		C0E493C4215CCAB30089BABE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C0E493F8215E27460089BABE /* FMDB */,
 				C0E493DB215CDEA00089BABE /* LCTools */,
 			);
 			path = Tools;
@@ -134,6 +174,8 @@
 		C0E493C9215CCAB30089BABE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C0E493F2215E10990089BABE /* LCBaseViewController.h */,
+				C0E493F3215E10990089BABE /* LCBaseViewController.m */,
 				C0E493D0215CCB360089BABE /* LCTabBarController.h */,
 				C0E493D1215CCB360089BABE /* LCTabBarController.m */,
 				C0E493D3215CCB5A0089BABE /* LCNavigationController.h */,
@@ -145,10 +187,131 @@
 		C0E493DB215CDEA00089BABE /* LCTools */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493DA215CCDCD0089BABE /* Macro.h */,
 				C0E493DC215CDEBE0089BABE /* LCTools.h */,
+				C0E493DA215CCDCD0089BABE /* Macro.h */,
+				C0E493F5215E11DC0089BABE /* UIView+LCLayout.h */,
+				C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */,
+				C0E493FC215E28720089BABE /* NSString+LC.h */,
+				C0E493FD215E28720089BABE /* NSString+LC.m */,
 			);
 			path = LCTools;
+			sourceTree = "<group>";
+		};
+		C0E493DD215E0F920089BABE /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493DE215E0F920089BABE /* Model */,
+				C0E493DF215E0F920089BABE /* View */,
+				C0E493E0215E0F920089BABE /* ViewController */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		C0E493DE215E0F920089BABE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0E493DF215E0F920089BABE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0E493E0215E0F920089BABE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493E9215E0FC00089BABE /* LCContactsViewController.h */,
+				C0E493EA215E0FC00089BABE /* LCContactsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0E493E1215E0F920089BABE /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493E2215E0F920089BABE /* Model */,
+				C0E493E3215E0F920089BABE /* View */,
+				C0E493E4215E0F920089BABE /* ViewController */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		C0E493E2215E0F920089BABE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0E493E3215E0F920089BABE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0E493E4215E0F920089BABE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493EC215E0FCD0089BABE /* LCDiscoverViewController.h */,
+				C0E493ED215E0FCD0089BABE /* LCDiscoverViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0E493E5215E0F920089BABE /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493E6215E0F920089BABE /* Model */,
+				C0E493E7215E0F920089BABE /* View */,
+				C0E493E8215E0F920089BABE /* ViewController */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		C0E493E6215E0F920089BABE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0E493E7215E0F920089BABE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0E493E8215E0F920089BABE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493EF215E0FD70089BABE /* LCMeViewController.h */,
+				C0E493F0215E0FD70089BABE /* LCMeViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0E493F8215E27460089BABE /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493F9215E27700089BABE /* LCFMDBManager.h */,
+				C0E493FA215E27700089BABE /* LCFMDBManager.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		E3619BC31683BE45427EAF98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC145E30A8A102E93F185AA5 /* Pods-MQTTChat.debug.xcconfig */,
+				DDC3D25B76F0BCC74AC57544 /* Pods-MQTTChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,9 +321,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0E4939E215CC8D00089BABE /* Build configuration list for PBXNativeTarget "MQTTChat" */;
 			buildPhases = (
+				D33D5DA5464595B4F7FC5D79 /* [CP] Check Pods Manifest.lock */,
 				C0E49384215CC8CF0089BABE /* Sources */,
 				C0E49385215CC8CF0089BABE /* Frameworks */,
 				C0E49386215CC8CF0089BABE /* Resources */,
+				406E4841EE4CE66EC5741AB6 /* [CP] Embed Pods Frameworks */,
+				AA30D35D009D34D00DE41285 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,16 +383,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		406E4841EE4CE66EC5741AB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MQTTChat/Pods-MQTTChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA30D35D009D34D00DE41285 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MQTTChat/Pods-MQTTChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D33D5DA5464595B4F7FC5D79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MQTTChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0E49384215CC8CF0089BABE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */,
+				C0E493EE215E0FCD0089BABE /* LCDiscoverViewController.m in Sources */,
 				C0E4939B215CC8D00089BABE /* main.m in Sources */,
 				C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */,
 				C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */,
+				C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */,
+				C0E493EB215E0FC00089BABE /* LCContactsViewController.m in Sources */,
+				C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */,
 				C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */,
+				C0E493FB215E27700089BABE /* LCFMDBManager.m in Sources */,
+				C0E493FE215E28720089BABE /* NSString+LC.m in Sources */,
+				C0E493F1215E0FD70089BABE /* LCMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +590,7 @@
 		};
 		C0E4939F215CC8D00089BABE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC145E30A8A102E93F185AA5 /* Pods-MQTTChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -383,6 +608,7 @@
 		};
 		C0E493A0215CC8D00089BABE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDC3D25B76F0BCC74AC57544 /* Pods-MQTTChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
