@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4938C215CC8CF0089BABE /* AppDelegate.m */; };
+		C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49391215CC8CF0089BABE /* Main.storyboard */; };
+		C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E49394215CC8D00089BABE /* Assets.xcassets */; };
+		C0E49398215CC8D00089BABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49396215CC8D00089BABE /* LaunchScreen.storyboard */; };
+		C0E4939B215CC8D00089BABE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4939A215CC8D00089BABE /* main.m */; };
+		C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D1215CCB360089BABE /* LCTabBarController.m */; };
+		C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D4215CCB5A0089BABE /* LCNavigationController.m */; };
+		C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D7215CCBE00089BABE /* LCChatListViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C0E49388215CC8CF0089BABE /* MQTTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQTTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E4938B215CC8CF0089BABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C0E4938C215CC8CF0089BABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C0E49392215CC8CF0089BABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0E49394215CC8D00089BABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0E49397215CC8D00089BABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C0E49399215CC8D00089BABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E4939A215CC8D00089BABE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C0E493D0215CCB360089BABE /* LCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTabBarController.h; sourceTree = "<group>"; };
+		C0E493D1215CCB360089BABE /* LCTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTabBarController.m; sourceTree = "<group>"; };
+		C0E493D3215CCB5A0089BABE /* LCNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCNavigationController.h; sourceTree = "<group>"; };
+		C0E493D4215CCB5A0089BABE /* LCNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCNavigationController.m; sourceTree = "<group>"; };
+		C0E493D6215CCBE00089BABE /* LCChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCChatListViewController.h; sourceTree = "<group>"; };
+		C0E493D7215CCBE00089BABE /* LCChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCChatListViewController.m; sourceTree = "<group>"; };
+		C0E493D9215CCD080089BABE /* prefix-Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prefix-Header.pch"; sourceTree = "<group>"; };
+		C0E493DA215CCDCD0089BABE /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		C0E493DC215CDEBE0089BABE /* LCTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTools.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0E49385215CC8CF0089BABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C0E4937F215CC8CF0089BABE = {
+			isa = PBXGroup;
+			children = (
+				C0E4938A215CC8CF0089BABE /* MQTTChat */,
+				C0E49389215CC8CF0089BABE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0E49389215CC8CF0089BABE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0E49388215CC8CF0089BABE /* MQTTChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0E4938A215CC8CF0089BABE /* MQTTChat */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493C3215CCAB30089BABE /* Class */,
+				C0E4938B215CC8CF0089BABE /* AppDelegate.h */,
+				C0E4938C215CC8CF0089BABE /* AppDelegate.m */,
+				C0E493D9215CCD080089BABE /* prefix-Header.pch */,
+				C0E49391215CC8CF0089BABE /* Main.storyboard */,
+				C0E49394215CC8D00089BABE /* Assets.xcassets */,
+				C0E49396215CC8D00089BABE /* LaunchScreen.storyboard */,
+				C0E49399215CC8D00089BABE /* Info.plist */,
+				C0E4939A215CC8D00089BABE /* main.m */,
+			);
+			path = MQTTChat;
+			sourceTree = "<group>";
+		};
+		C0E493C3215CCAB30089BABE /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493C4215CCAB30089BABE /* Tools */,
+				C0E493C5215CCAB30089BABE /* Wechat */,
+				C0E493C9215CCAB30089BABE /* Main */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		C0E493C4215CCAB30089BABE /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493DB215CDEA00089BABE /* LCTools */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		C0E493C5215CCAB30089BABE /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493C6215CCAB30089BABE /* Model */,
+				C0E493C7215CCAB30089BABE /* View */,
+				C0E493C8215CCAB30089BABE /* ViewController */,
+			);
+			path = Wechat;
+			sourceTree = "<group>";
+		};
+		C0E493C6215CCAB30089BABE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0E493C7215CCAB30089BABE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0E493C8215CCAB30089BABE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493D6215CCBE00089BABE /* LCChatListViewController.h */,
+				C0E493D7215CCBE00089BABE /* LCChatListViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0E493C9215CCAB30089BABE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493D0215CCB360089BABE /* LCTabBarController.h */,
+				C0E493D1215CCB360089BABE /* LCTabBarController.m */,
+				C0E493D3215CCB5A0089BABE /* LCNavigationController.h */,
+				C0E493D4215CCB5A0089BABE /* LCNavigationController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C0E493DB215CDEA00089BABE /* LCTools */ = {
+			isa = PBXGroup;
+			children = (
+				C0E493DA215CCDCD0089BABE /* Macro.h */,
+				C0E493DC215CDEBE0089BABE /* LCTools.h */,
+			);
+			path = LCTools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0E49387215CC8CF0089BABE /* MQTTChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E4939E215CC8D00089BABE /* Build configuration list for PBXNativeTarget "MQTTChat" */;
+			buildPhases = (
+				C0E49384215CC8CF0089BABE /* Sources */,
+				C0E49385215CC8CF0089BABE /* Frameworks */,
+				C0E49386215CC8CF0089BABE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MQTTChat;
+			productName = MQTTChat;
+			productReference = C0E49388215CC8CF0089BABE /* MQTTChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0E49380215CC8CF0089BABE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LC;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Rochang;
+				TargetAttributes = {
+					C0E49387215CC8CF0089BABE = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = C0E49383215CC8CF0089BABE /* Build configuration list for PBXProject "MQTTChat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C0E4937F215CC8CF0089BABE;
+			productRefGroup = C0E49389215CC8CF0089BABE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0E49387215CC8CF0089BABE /* MQTTChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0E49386215CC8CF0089BABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E49398215CC8D00089BABE /* LaunchScreen.storyboard in Resources */,
+				C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */,
+				C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0E49384215CC8CF0089BABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */,
+				C0E4939B215CC8D00089BABE /* main.m in Sources */,
+				C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */,
+				C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */,
+				C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C0E49391215CC8CF0089BABE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0E49392215CC8CF0089BABE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C0E49396215CC8D00089BABE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0E49397215CC8D00089BABE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0E4939C215CC8D00089BABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C0E4939D215CC8D00089BABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0E4939F215CC8D00089BABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MQTTChat/prefix-Header.pch";
+				INFOPLIST_FILE = MQTTChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ETIDG.MQTTChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0E493A0215CC8D00089BABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MQTTChat/prefix-Header.pch";
+				INFOPLIST_FILE = MQTTChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ETIDG.MQTTChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0E49383215CC8CF0089BABE /* Build configuration list for PBXProject "MQTTChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E4939C215CC8D00089BABE /* Debug */,
+				C0E4939D215CC8D00089BABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E4939E215CC8D00089BABE /* Build configuration list for PBXNativeTarget "MQTTChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E4939F215CC8D00089BABE /* Debug */,
+				C0E493A0215CC8D00089BABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0E49380215CC8CF0089BABE /* Project object */;
+}
