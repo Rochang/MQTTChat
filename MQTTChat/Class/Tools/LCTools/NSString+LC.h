@@ -16,10 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getHomePath;
 
 #pragma mark - APP相关
-/** 获取bundle Id*/
+/** 获取bundleId*/
 + (NSString *)getBundleId;
 
-/** 获取version number */
+/** 获取versionnumber */
 + (NSString *)getVersionNumber;
 
 /** 获取build number */
@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 获取手机系统 */
 + (NSString *)getIOSVersion;
+
+/** 获取UUID */
++ (NSString *)getUUID;
 
 #pragma mark - MD5 加密
 /** MD5加密 : 32位小写 */

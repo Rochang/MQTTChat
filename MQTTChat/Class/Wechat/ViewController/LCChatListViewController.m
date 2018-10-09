@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%f", self.tabBarController.tabBar.height_gs);
-    NSLog(@"%f", self.navigationController.navigationBar.height_gs);
 }
 
 /*

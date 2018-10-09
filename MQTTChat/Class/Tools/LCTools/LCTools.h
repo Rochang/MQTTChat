@@ -12,5 +12,8 @@
 #import "Macro.h"
 #import "UIView+LCLayout.h"
 #import "NSString+LC.h"
+#import "UIBarButtonItem+Block.h"
+#import "UIControl+Block.h"
+#import "LCView.h"
 
 #endif /* LCTools_h */

@@ -19,6 +19,10 @@
     return [NSString stringWithFormat:@"%f",[[[UIDevice currentDevice] systemVersion] floatValue]];
 }
 
++ (NSString *)getUUID {
+    return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+}
+
 + (NSString *)getBuildNumber {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 }

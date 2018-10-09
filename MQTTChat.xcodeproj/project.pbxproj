@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		03A56994F4374F5C229EEC15 /* libPods-MQTTChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */; };
+		C0BA6F29216C9CB50097D28C /* LCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F27216C9CB50097D28C /* LCLoginViewController.m */; };
+		C0BA6F2A216C9CB50097D28C /* LCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BA6F28216C9CB50097D28C /* LCLoginViewController.xib */; };
+		C0BA6F2E216C9F9B0097D28C /* LCAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2D216C9F9B0097D28C /* LCAccountViewController.m */; };
+		C0BA6F31216CA1510097D28C /* LCView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2F216CA1510097D28C /* LCView.m */; };
+		C0BA6F36216CA1780097D28C /* UIBarButtonItem+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F32216CA1770097D28C /* UIBarButtonItem+Block.m */; };
+		C0BA6F37216CA1780097D28C /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F34216CA1780097D28C /* UIControl+Block.m */; };
+		C0BA6F3C216CA3110097D28C /* LCAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F3B216CA3110097D28C /* LCAccountModel.m */; };
+		C0BA6F40216CA5C00097D28C /* LCMQTTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F3F216CA5C00097D28C /* LCMQTTManager.m */; };
+		C0BA6F45216CAC7A0097D28C /* IMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F44216CAC7A0097D28C /* IMTools.m */; };
 		C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4938C215CC8CF0089BABE /* AppDelegate.m */; };
 		C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49391215CC8CF0089BABE /* Main.storyboard */; };
 		C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E49394215CC8D00089BABE /* Assets.xcassets */; };
@@ -26,6 +35,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0BA6F26216C9CB50097D28C /* LCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginViewController.h; sourceTree = "<group>"; };
+		C0BA6F27216C9CB50097D28C /* LCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginViewController.m; sourceTree = "<group>"; };
+		C0BA6F28216C9CB50097D28C /* LCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCLoginViewController.xib; sourceTree = "<group>"; };
+		C0BA6F2C216C9F9B0097D28C /* LCAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAccountViewController.h; sourceTree = "<group>"; };
+		C0BA6F2D216C9F9B0097D28C /* LCAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAccountViewController.m; sourceTree = "<group>"; };
+		C0BA6F2F216CA1510097D28C /* LCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCView.m; sourceTree = "<group>"; };
+		C0BA6F30216CA1510097D28C /* LCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCView.h; sourceTree = "<group>"; };
+		C0BA6F32216CA1770097D28C /* UIBarButtonItem+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Block.m"; sourceTree = "<group>"; };
+		C0BA6F33216CA1770097D28C /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
+		C0BA6F34216CA1780097D28C /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
+		C0BA6F35216CA1780097D28C /* UIBarButtonItem+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Block.h"; sourceTree = "<group>"; };
+		C0BA6F3A216CA3110097D28C /* LCAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAccountModel.h; sourceTree = "<group>"; };
+		C0BA6F3B216CA3110097D28C /* LCAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAccountModel.m; sourceTree = "<group>"; };
+		C0BA6F3E216CA5C00097D28C /* LCMQTTManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMQTTManager.h; sourceTree = "<group>"; };
+		C0BA6F3F216CA5C00097D28C /* LCMQTTManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMQTTManager.m; sourceTree = "<group>"; };
+		C0BA6F41216CAAF20097D28C /* Project-Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Macro.h"; sourceTree = "<group>"; };
+		C0BA6F43216CAC7A0097D28C /* IMTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMTools.h; sourceTree = "<group>"; };
+		C0BA6F44216CAC7A0097D28C /* IMTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMTools.m; sourceTree = "<group>"; };
 		C0E49388215CC8CF0089BABE /* MQTTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQTTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E4938B215CC8CF0089BABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0E4938C215CC8CF0089BABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +109,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C0BA6F2B216C9F6A0097D28C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F39216CA2FF0097D28C /* Model */,
+				C0BA6F38216CA2E60097D28C /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C0BA6F38216CA2E60097D28C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F26216C9CB50097D28C /* LCLoginViewController.h */,
+				C0BA6F27216C9CB50097D28C /* LCLoginViewController.m */,
+				C0BA6F28216C9CB50097D28C /* LCLoginViewController.xib */,
+				C0BA6F2C216C9F9B0097D28C /* LCAccountViewController.h */,
+				C0BA6F2D216C9F9B0097D28C /* LCAccountViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0BA6F39216CA2FF0097D28C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F3A216CA3110097D28C /* LCAccountModel.h */,
+				C0BA6F3B216CA3110097D28C /* LCAccountModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0BA6F3D216CA5A00097D28C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F3E216CA5C00097D28C /* LCMQTTManager.h */,
+				C0BA6F3F216CA5C00097D28C /* LCMQTTManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C0BA6F42216CAC680097D28C /* IMTools */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F43216CAC7A0097D28C /* IMTools.h */,
+				C0BA6F44216CAC7A0097D28C /* IMTools.m */,
+			);
+			path = IMTools;
+			sourceTree = "<group>";
+		};
 		C0E4937F215CC8CF0089BABE = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +182,7 @@
 				C0E4938B215CC8CF0089BABE /* AppDelegate.h */,
 				C0E4938C215CC8CF0089BABE /* AppDelegate.m */,
 				C0E493D9215CCD080089BABE /* prefix-Header.pch */,
+				C0BA6F41216CAAF20097D28C /* Project-Macro.h */,
 				C0E49391215CC8CF0089BABE /* Main.storyboard */,
 				C0E49394215CC8D00089BABE /* Assets.xcassets */,
 				C0E49396215CC8D00089BABE /* LaunchScreen.storyboard */,
@@ -121,6 +197,7 @@
 			children = (
 				C0E493C9215CCAB30089BABE /* Main */,
 				C0E493C4215CCAB30089BABE /* Tools */,
+				C0BA6F2B216C9F6A0097D28C /* Login */,
 				C0E493C5215CCAB30089BABE /* Wechat */,
 				C0E493DD215E0F920089BABE /* Contacts */,
 				C0E493E1215E0F920089BABE /* Discover */,
@@ -132,6 +209,8 @@
 		C0E493C4215CCAB30089BABE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C0BA6F42216CAC680097D28C /* IMTools */,
+				C0BA6F3D216CA5A00097D28C /* Manager */,
 				C0E493F8215E27460089BABE /* FMDB */,
 				C0E493DB215CDEA00089BABE /* LCTools */,
 			);
@@ -193,6 +272,12 @@
 				C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */,
 				C0E493FC215E28720089BABE /* NSString+LC.h */,
 				C0E493FD215E28720089BABE /* NSString+LC.m */,
+				C0BA6F30216CA1510097D28C /* LCView.h */,
+				C0BA6F2F216CA1510097D28C /* LCView.m */,
+				C0BA6F35216CA1780097D28C /* UIBarButtonItem+Block.h */,
+				C0BA6F32216CA1770097D28C /* UIBarButtonItem+Block.m */,
+				C0BA6F33216CA1770097D28C /* UIControl+Block.h */,
+				C0BA6F34216CA1780097D28C /* UIControl+Block.m */,
 			);
 			path = LCTools;
 			sourceTree = "<group>";
@@ -376,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E49398215CC8D00089BABE /* LaunchScreen.storyboard in Resources */,
+				C0BA6F2A216C9CB50097D28C /* LCLoginViewController.xib in Resources */,
 				C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */,
 				C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */,
 			);
@@ -440,17 +526,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */,
+				C0BA6F2E216C9F9B0097D28C /* LCAccountViewController.m in Sources */,
 				C0E493EE215E0FCD0089BABE /* LCDiscoverViewController.m in Sources */,
+				C0BA6F40216CA5C00097D28C /* LCMQTTManager.m in Sources */,
 				C0E4939B215CC8D00089BABE /* main.m in Sources */,
 				C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */,
 				C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */,
+				C0BA6F36216CA1780097D28C /* UIBarButtonItem+Block.m in Sources */,
 				C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */,
 				C0E493EB215E0FC00089BABE /* LCContactsViewController.m in Sources */,
 				C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */,
 				C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */,
+				C0BA6F37216CA1780097D28C /* UIControl+Block.m in Sources */,
+				C0BA6F3C216CA3110097D28C /* LCAccountModel.m in Sources */,
 				C0E493FB215E27700089BABE /* LCFMDBManager.m in Sources */,
+				C0BA6F45216CAC7A0097D28C /* IMTools.m in Sources */,
 				C0E493FE215E28720089BABE /* NSString+LC.m in Sources */,
+				C0BA6F29216C9CB50097D28C /* LCLoginViewController.m in Sources */,
 				C0E493F1215E0FD70089BABE /* LCMeViewController.m in Sources */,
+				C0BA6F31216CA1510097D28C /* LCView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

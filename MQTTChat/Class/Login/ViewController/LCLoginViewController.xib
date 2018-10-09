@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LCLoginViewController">
+            <connections>
+                <outlet property="countField" destination="rvy-7N-bQd" id="HCE-SP-I0X"/>
+                <outlet property="passWordField" destination="VMY-Tp-KVR" id="OK9-Gg-wyB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rvy-7N-bQd">
+                    <rect key="frame" x="50" y="198.5" width="275" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-Tp-KVR">
+                    <rect key="frame" x="50" y="258.5" width="275" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS3-f3-QcY">
+                    <rect key="frame" x="50" y="318.5" width="275" height="30"/>
+                    <state key="normal" title="login"/>
+                    <connections>
+                        <action selector="clickLoginBtn:" destination="-1" eventType="touchUpInside" id="8Ll-f4-hbt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY8-Vc-87g">
+                    <rect key="frame" x="50" y="438.5" width="275" height="30"/>
+                    <state key="normal" title="reset OB"/>
+                    <connections>
+                        <action selector="clickResetOBBtn:" destination="-1" eventType="touchUpInside" id="Xg6-jA-QR8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j68-Xf-ONe">
+                    <rect key="frame" x="50" y="378.5" width="275" height="30"/>
+                    <state key="normal" title="test account"/>
+                    <connections>
+                        <action selector="clickTestAccountBtn:" destination="-1" eventType="touchUpInside" id="yKe-Oj-M5L"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fY8-Vc-87g" firstAttribute="width" secondItem="j68-Xf-ONe" secondAttribute="width" id="2fn-hW-IcF"/>
+                <constraint firstItem="VMY-Tp-KVR" firstAttribute="centerX" secondItem="TS3-f3-QcY" secondAttribute="centerX" id="6LU-k8-edo"/>
+                <constraint firstItem="TS3-f3-QcY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6qn-3c-tag"/>
+                <constraint firstItem="VMY-Tp-KVR" firstAttribute="width" secondItem="rvy-7N-bQd" secondAttribute="width" id="BKb-Fl-06E"/>
+                <constraint firstItem="TS3-f3-QcY" firstAttribute="width" secondItem="VMY-Tp-KVR" secondAttribute="width" id="ByH-cz-Pcb"/>
+                <constraint firstItem="j68-Xf-ONe" firstAttribute="width" secondItem="TS3-f3-QcY" secondAttribute="width" id="Cip-vE-oKe"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="rvy-7N-bQd" secondAttribute="trailing" constant="50" id="Hfs-rs-XXV"/>
+                <constraint firstItem="TS3-f3-QcY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mcv-GP-tkO"/>
+                <constraint firstItem="TS3-f3-QcY" firstAttribute="top" secondItem="VMY-Tp-KVR" secondAttribute="bottom" constant="30" id="O51-Ow-PFb"/>
+                <constraint firstItem="rvy-7N-bQd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="Pbh-zV-WYe"/>
+                <constraint firstItem="rvy-7N-bQd" firstAttribute="centerX" secondItem="TS3-f3-QcY" secondAttribute="centerX" id="Q8I-Hh-nb0"/>
+                <constraint firstItem="j68-Xf-ONe" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="QP0-WX-YdF"/>
+                <constraint firstItem="j68-Xf-ONe" firstAttribute="top" secondItem="TS3-f3-QcY" secondAttribute="bottom" constant="30" id="SDh-4z-ZVa"/>
+                <constraint firstItem="fY8-Vc-87g" firstAttribute="top" secondItem="j68-Xf-ONe" secondAttribute="bottom" constant="30" id="YJy-CD-b5M"/>
+                <constraint firstItem="fY8-Vc-87g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cwW-mn-zJg"/>
+                <constraint firstItem="VMY-Tp-KVR" firstAttribute="top" secondItem="rvy-7N-bQd" secondAttribute="bottom" constant="30" id="mw3-MQ-dLp"/>
+                <constraint firstItem="TS3-f3-QcY" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="sNC-a9-OQ6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

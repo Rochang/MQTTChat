@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LCTabBarController.h"
+#import "LCLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    LCTabBarController *mainVc = [[LCTabBarController alloc] init];
+    LCLoginViewController *mainVc = [[LCLoginViewController alloc] init];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainVc];
     [self.window makeKeyAndVisible];
     return YES;
