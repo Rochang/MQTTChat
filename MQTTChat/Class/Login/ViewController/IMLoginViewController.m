@@ -1,16 +1,17 @@
 //
-//  LCLoginViewController.m
+//  IMLoginViewController.m
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/9.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCLoginViewController.h"
-#import "LCAccountViewController.h"
-#import "LCMQTTManager.h"
+#import "IMLoginViewController.h"
+#import "IMAccountViewController.h"
+#import "IMMQTTManager.h"
+#import "LCTabBarController.h"
 
-@interface LCLoginViewController ()
+@interface IMLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *countField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordField;
@@ -18,7 +19,7 @@
 
 @end
 
-@implementation LCLoginViewController
+@implementation IMLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,13 +34,14 @@
         return;
     }
     NSString *clientId = [IMTools clientId:self.countField.text];
-    [LCMQTTManagerShare connectWithHost:kHost port:Kport userName:self.countField.text passWord:self.passWordField.text clientId:clientId];
+    [IMMQTTManagerShare connectWithHost:kHost port:Kport userName:self.countField.text passWord:self.passWordField.text clientId:clientId];
+    [IMMQTTManagerShare addDelegate:self];
 }
 
 - (IBAction)clickTestAccountBtn:(id)sender {
-    LCAccountViewController *accountVc = [[LCAccountViewController alloc] init];
+    IMAccountViewController *accountVc = [[IMAccountViewController alloc] init];
     WEAKSELF
-    accountVc.callBackBlock = ^(LCAccountModel * _Nonnull model) {
+    accountVc.callBackBlock = ^(IMAccountModel * _Nonnull model) {
         weakSelf.countField.text = model.account;
         weakSelf.passWordField.text = model.password;
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
@@ -49,6 +51,11 @@
 
 - (IBAction)clickResetOBBtn:(id)sender {
     
+}
+
+#pragma mark - LCMQTTManagerDelegate
+- (void)MQTTConnect:(MQTTSession *)session {
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc] init];
 }
 
 @end

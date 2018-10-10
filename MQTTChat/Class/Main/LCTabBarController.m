@@ -7,12 +7,12 @@
 //
 
 #import "LCTabBarController.h"
-#import "LCChatListViewController.h"
+#import "IMChatListViewController.h"
 #import "LCNavigationController.h"
-#import "LCContactsViewController.h"
-#import "LCContactsViewController.h"
-#import "LCDiscoverViewController.h"
-#import "LCMeViewController.h"
+#import "IMContactsViewController.h"
+#import "IMContactsViewController.h"
+#import "IMDiscoverViewController.h"
+#import "IMMeViewController.h"
 
 @interface LCTabBarController ()
 
@@ -29,19 +29,19 @@
 }
 
 - (void)setupChildViewControllers {
-    LCChatListViewController *chatVc = [[LCChatListViewController alloc] init];
+    IMChatListViewController *chatVc = [[IMChatListViewController alloc] init];
     LCNavigationController *chatNav = [[LCNavigationController alloc] initWithRootViewController:chatVc];
     [self addChildViewController:chatNav];
     
-    LCContactsViewController *contactVc = [[LCContactsViewController alloc] init];
+    IMContactsViewController *contactVc = [[IMContactsViewController alloc] init];
     LCNavigationController *contactNav = [[LCNavigationController alloc] initWithRootViewController:contactVc];
     [self addChildViewController:contactNav];
     
-    LCDiscoverViewController *discoverVc = [[LCDiscoverViewController alloc] init];
+    IMDiscoverViewController *discoverVc = [[IMDiscoverViewController alloc] init];
     LCNavigationController *discoverNav = [[LCNavigationController alloc] initWithRootViewController:discoverVc];
     [self addChildViewController:discoverNav];
     
-    LCMeViewController *meVc = [[LCMeViewController alloc] init];
+    IMMeViewController *meVc = [[IMMeViewController alloc] init];
     LCNavigationController *meNav = [[LCNavigationController alloc] initWithRootViewController:meVc];
     [self addChildViewController:meNav];
 }

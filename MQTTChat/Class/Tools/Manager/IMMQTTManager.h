@@ -1,18 +1,27 @@
 //
-//  LCMQTTManager.h
+//  IMMQTTManager.h
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/9.
 //  Copyright © 2018年 Rochang. All rights reserved.
-//
+//  
 
 #import <Foundation/Foundation.h>
+#import "IMBaseManager.h"
+#import <MQTTClient.h>
 
-#define LCMQTTManagerShare [LCMQTTManager shareInstance]
+@protocol IMMQTTManagerDelegate <NSObject>
+
+/** MQTT 连接 */
+- (void)MQTTConnect:(MQTTSession *)session;
+
+@end
+
+#define IMMQTTManagerShare [IMMQTTManager shareInstance]
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LCMQTTManager : NSObject
+@interface IMMQTTManager : IMBaseManager
 /** 单利 */
 + (instancetype)shareInstance;
 

@@ -1,8 +1,8 @@
 //
-//  LCDiscoverViewController.h
+//  IMChatListViewController.h
 //  MQTTChat
 //
-//  Created by rochang on 2018/9/28.
+//  Created by rochang on 2018/9/27.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LCDiscoverViewController : LCBaseViewController
+@interface IMChatListViewController : LCBaseViewController
 
 @end
 

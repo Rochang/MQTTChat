@@ -1,28 +1,28 @@
 //
-//  LCFMDBManager.m
+//  IMFMDBManager.m
 //  MQTTChat
 //
 //  Created by rochang on 2018/9/28.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCFMDBManager.h"
+#import "IMFMDBManager.h"
 #import <FMDB.h>
 
 static NSString *fmdbName = @"chatIM";
 
-@interface LCFMDBManager ()
+@interface IMFMDBManager ()
 
 @property (strong, nonatomic) FMDatabase *fmdb;
 
 @end
 
 
-@implementation LCFMDBManager
+@implementation IMFMDBManager
 
 + (instancetype)shareInstance {
     static dispatch_once_t onceToken;
-    static LCFMDBManager *_instance = nil;
+    static IMFMDBManager *_instance = nil;
     dispatch_once(&onceToken, ^{
         _instance = [[self alloc] init];
     });

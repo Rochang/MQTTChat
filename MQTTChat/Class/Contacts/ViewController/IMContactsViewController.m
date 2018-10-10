@@ -1,18 +1,18 @@
 //
-//  LCContactsViewController.m
+//  IMContactsViewController.m
 //  MQTTChat
 //
 //  Created by rochang on 2018/9/28.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCContactsViewController.h"
+#import "IMContactsViewController.h"
 
-@interface LCContactsViewController ()
+@interface IMContactsViewController ()
 
 @end
 
-@implementation LCContactsViewController
+@implementation IMContactsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

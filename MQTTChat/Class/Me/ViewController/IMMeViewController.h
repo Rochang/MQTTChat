@@ -1,5 +1,5 @@
 //
-//  LCContactsViewController.h
+//  IMMeViewController.h
 //  MQTTChat
 //
 //  Created by rochang on 2018/9/28.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LCContactsViewController : LCBaseViewController
+@interface IMMeViewController : LCBaseViewController
 
 @end
 

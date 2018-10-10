@@ -1,5 +1,5 @@
 //
-//  LCFMDBManager.h
+//  IMFMDBManager.h
 //  MQTTChat
 //
 //  Created by rochang on 2018/9/28.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LCFMDBManager : NSObject
+@interface IMFMDBManager : NSObject
 
 + (instancetype)shareInstance;
 

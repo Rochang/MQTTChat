@@ -1,21 +1,22 @@
 //
-//  LCChatListViewController.m
+//  IMMeViewController.m
 //  MQTTChat
 //
-//  Created by rochang on 2018/9/27.
+//  Created by rochang on 2018/9/28.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCChatListViewController.h"
+#import "IMMeViewController.h"
 
-@interface LCChatListViewController ()
+@interface IMMeViewController ()
 
 @end
 
-@implementation LCChatListViewController
+@implementation IMMeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
 /*

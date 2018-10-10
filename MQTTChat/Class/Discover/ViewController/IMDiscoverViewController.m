@@ -1,18 +1,18 @@
 //
-//  LCDiscoverViewController.m
+//  IMDiscoverViewController.m
 //  MQTTChat
 //
 //  Created by rochang on 2018/9/28.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCDiscoverViewController.h"
+#import "IMDiscoverViewController.h"
 
-@interface LCDiscoverViewController ()
+@interface IMDiscoverViewController ()
 
 @end
 
-@implementation LCDiscoverViewController
+@implementation IMDiscoverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

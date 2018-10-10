@@ -1,24 +1,23 @@
 //
-//  LCMQTTManager.m
+//  IMMQTTManager.m
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/9.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCMQTTManager.h"
-#import <MQTTClient.h>
+#import "IMMQTTManager.h"
 
-@interface LCMQTTManager ()<MQTTSessionDelegate>
+@interface IMMQTTManager ()<MQTTSessionDelegate>
 
 @property (strong, nonatomic) MQTTSession *session;
 
 @end
 
-@implementation LCMQTTManager
+@implementation IMMQTTManager
 
 + (instancetype)shareInstance {
-    static LCMQTTManager *_instance = nil;
+    static IMMQTTManager *_instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[self alloc] init];
@@ -57,18 +56,21 @@
 
 #pragma mark - MQTTSessionDelegate
 - (void)connected:(MQTTSession *)session {
-    NSLog(@"连接成功");
+    [self respondsToTargetSelector:@selector(MQTTConnect:) enumerateObjectsWithOptions:^(id  _Nonnull delegate) {
+        [delegate MQTTConnect:session];
+    }];
 }
 
 - (void)handleEvent:(MQTTSession *)session event:(MQTTSessionEvent)eventCode error:(NSError *)error {
-    switch (eventCode) {
-        case <#constant#>:
-            <#statements#>
-            break;
-            
-        default:
-            break;
-    }
+    NSDictionary *states = @{
+                             @(MQTTSessionEventConnected) : @"连接 : Connected",
+                             @(MQTTSessionEventConnectionRefused) : @"连接 : ConnectionRefused",
+                             @(MQTTSessionEventConnectionClosed) : @"连接 : ConnectionClosed",
+                             @(MQTTSessionEventConnectionError) : @"连接 : ConnectionError",
+                             @(MQTTSessionEventProtocolError) : @"连接 : ProtocolError",
+                             @(MQTTSessionEventConnectionClosedByBroker) : @"连接 : ConnectionClosedByBroker"
+                             };
+    NSLog(@"%@", states[@(eventCode)]);
 }
 
 #pragma mark - getter

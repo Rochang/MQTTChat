@@ -8,15 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		03A56994F4374F5C229EEC15 /* libPods-MQTTChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */; };
-		C0BA6F29216C9CB50097D28C /* LCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F27216C9CB50097D28C /* LCLoginViewController.m */; };
-		C0BA6F2A216C9CB50097D28C /* LCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BA6F28216C9CB50097D28C /* LCLoginViewController.xib */; };
-		C0BA6F2E216C9F9B0097D28C /* LCAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2D216C9F9B0097D28C /* LCAccountViewController.m */; };
+		C0BA6F29216C9CB50097D28C /* IMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */; };
+		C0BA6F2A216C9CB50097D28C /* IMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */; };
+		C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2D216C9F9B0097D28C /* IMAccountViewController.m */; };
 		C0BA6F31216CA1510097D28C /* LCView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2F216CA1510097D28C /* LCView.m */; };
 		C0BA6F36216CA1780097D28C /* UIBarButtonItem+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F32216CA1770097D28C /* UIBarButtonItem+Block.m */; };
 		C0BA6F37216CA1780097D28C /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F34216CA1780097D28C /* UIControl+Block.m */; };
-		C0BA6F3C216CA3110097D28C /* LCAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F3B216CA3110097D28C /* LCAccountModel.m */; };
-		C0BA6F40216CA5C00097D28C /* LCMQTTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F3F216CA5C00097D28C /* LCMQTTManager.m */; };
+		C0BA6F3C216CA3110097D28C /* IMAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F3B216CA3110097D28C /* IMAccountModel.m */; };
+		C0BA6F40216CA5C00097D28C /* IMMQTTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F3F216CA5C00097D28C /* IMMQTTManager.m */; };
 		C0BA6F45216CAC7A0097D28C /* IMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F44216CAC7A0097D28C /* IMTools.m */; };
+		C0BA6F48216DE04C0097D28C /* IMBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F47216DE04C0097D28C /* IMBaseManager.m */; };
+		C0BA6F5E216DF0610097D28C /* IMConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F5D216DF0610097D28C /* IMConversationManager.m */; };
+		C0BA6F61216DF0700097D28C /* IMGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F60216DF0700097D28C /* IMGroupManager.m */; };
+		C0BA6F64216DF0FE0097D28C /* IMUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F63216DF0FE0097D28C /* IMUserManager.m */; };
+		C0BA6F67216DF1120097D28C /* IMSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F66216DF1120097D28C /* IMSystemManager.m */; };
+		C0BA6F6A216DF1210097D28C /* IMSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F69216DF1210097D28C /* IMSourceManager.m */; };
+		C0BA6F6E216DF27D0097D28C /* IMConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F6D216DF27D0097D28C /* IMConversationModel.m */; };
+		C0BA6F71216DF28E0097D28C /* IMUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F70216DF28E0097D28C /* IMUserModel.m */; };
+		C0BA6F74216DF69B0097D28C /* IMChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F73216DF69B0097D28C /* IMChatModel.m */; };
+		C0BA6F77216DF9A30097D28C /* IMChatContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */; };
+		C0BA6F7A216DFFC30097D28C /* IMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F79216DFFC30097D28C /* IMGroupModel.m */; };
 		C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4938C215CC8CF0089BABE /* AppDelegate.m */; };
 		C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49391215CC8CF0089BABE /* Main.storyboard */; };
 		C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E49394215CC8D00089BABE /* Assets.xcassets */; };
@@ -24,35 +35,57 @@
 		C0E4939B215CC8D00089BABE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4939A215CC8D00089BABE /* main.m */; };
 		C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D1215CCB360089BABE /* LCTabBarController.m */; };
 		C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D4215CCB5A0089BABE /* LCNavigationController.m */; };
-		C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D7215CCBE00089BABE /* LCChatListViewController.m */; };
-		C0E493EB215E0FC00089BABE /* LCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493EA215E0FC00089BABE /* LCContactsViewController.m */; };
-		C0E493EE215E0FCD0089BABE /* LCDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493ED215E0FCD0089BABE /* LCDiscoverViewController.m */; };
-		C0E493F1215E0FD70089BABE /* LCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F0215E0FD70089BABE /* LCMeViewController.m */; };
+		C0E493D8215CCBE00089BABE /* IMChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493D7215CCBE00089BABE /* IMChatListViewController.m */; };
+		C0E493EB215E0FC00089BABE /* IMContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493EA215E0FC00089BABE /* IMContactsViewController.m */; };
+		C0E493EE215E0FCD0089BABE /* IMDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493ED215E0FCD0089BABE /* IMDiscoverViewController.m */; };
+		C0E493F1215E0FD70089BABE /* IMMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F0215E0FD70089BABE /* IMMeViewController.m */; };
 		C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F3215E10990089BABE /* LCBaseViewController.m */; };
 		C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */; };
-		C0E493FB215E27700089BABE /* LCFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FA215E27700089BABE /* LCFMDBManager.m */; };
+		C0E493FB215E27700089BABE /* IMFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FA215E27700089BABE /* IMFMDBManager.m */; };
 		C0E493FE215E28720089BABE /* NSString+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FD215E28720089BABE /* NSString+LC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C0BA6F26216C9CB50097D28C /* LCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginViewController.h; sourceTree = "<group>"; };
-		C0BA6F27216C9CB50097D28C /* LCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginViewController.m; sourceTree = "<group>"; };
-		C0BA6F28216C9CB50097D28C /* LCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCLoginViewController.xib; sourceTree = "<group>"; };
-		C0BA6F2C216C9F9B0097D28C /* LCAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAccountViewController.h; sourceTree = "<group>"; };
-		C0BA6F2D216C9F9B0097D28C /* LCAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAccountViewController.m; sourceTree = "<group>"; };
+		C0BA6F26216C9CB50097D28C /* IMLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMLoginViewController.h; sourceTree = "<group>"; };
+		C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMLoginViewController.m; sourceTree = "<group>"; };
+		C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMLoginViewController.xib; sourceTree = "<group>"; };
+		C0BA6F2C216C9F9B0097D28C /* IMAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMAccountViewController.h; sourceTree = "<group>"; };
+		C0BA6F2D216C9F9B0097D28C /* IMAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMAccountViewController.m; sourceTree = "<group>"; };
 		C0BA6F2F216CA1510097D28C /* LCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCView.m; sourceTree = "<group>"; };
 		C0BA6F30216CA1510097D28C /* LCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCView.h; sourceTree = "<group>"; };
 		C0BA6F32216CA1770097D28C /* UIBarButtonItem+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Block.m"; sourceTree = "<group>"; };
 		C0BA6F33216CA1770097D28C /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
 		C0BA6F34216CA1780097D28C /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
 		C0BA6F35216CA1780097D28C /* UIBarButtonItem+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Block.h"; sourceTree = "<group>"; };
-		C0BA6F3A216CA3110097D28C /* LCAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAccountModel.h; sourceTree = "<group>"; };
-		C0BA6F3B216CA3110097D28C /* LCAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAccountModel.m; sourceTree = "<group>"; };
-		C0BA6F3E216CA5C00097D28C /* LCMQTTManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMQTTManager.h; sourceTree = "<group>"; };
-		C0BA6F3F216CA5C00097D28C /* LCMQTTManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMQTTManager.m; sourceTree = "<group>"; };
+		C0BA6F3A216CA3110097D28C /* IMAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMAccountModel.h; sourceTree = "<group>"; };
+		C0BA6F3B216CA3110097D28C /* IMAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMAccountModel.m; sourceTree = "<group>"; };
+		C0BA6F3E216CA5C00097D28C /* IMMQTTManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMMQTTManager.h; sourceTree = "<group>"; };
+		C0BA6F3F216CA5C00097D28C /* IMMQTTManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMMQTTManager.m; sourceTree = "<group>"; };
 		C0BA6F41216CAAF20097D28C /* Project-Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Macro.h"; sourceTree = "<group>"; };
 		C0BA6F43216CAC7A0097D28C /* IMTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMTools.h; sourceTree = "<group>"; };
 		C0BA6F44216CAC7A0097D28C /* IMTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMTools.m; sourceTree = "<group>"; };
+		C0BA6F46216DE04C0097D28C /* IMBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMBaseManager.h; sourceTree = "<group>"; };
+		C0BA6F47216DE04C0097D28C /* IMBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMBaseManager.m; sourceTree = "<group>"; };
+		C0BA6F5C216DF0610097D28C /* IMConversationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMConversationManager.h; sourceTree = "<group>"; };
+		C0BA6F5D216DF0610097D28C /* IMConversationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMConversationManager.m; sourceTree = "<group>"; };
+		C0BA6F5F216DF0700097D28C /* IMGroupManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMGroupManager.h; sourceTree = "<group>"; };
+		C0BA6F60216DF0700097D28C /* IMGroupManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMGroupManager.m; sourceTree = "<group>"; };
+		C0BA6F62216DF0FE0097D28C /* IMUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUserManager.h; sourceTree = "<group>"; };
+		C0BA6F63216DF0FE0097D28C /* IMUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMUserManager.m; sourceTree = "<group>"; };
+		C0BA6F65216DF1120097D28C /* IMSystemManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMSystemManager.h; sourceTree = "<group>"; };
+		C0BA6F66216DF1120097D28C /* IMSystemManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMSystemManager.m; sourceTree = "<group>"; };
+		C0BA6F68216DF1210097D28C /* IMSourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMSourceManager.h; sourceTree = "<group>"; };
+		C0BA6F69216DF1210097D28C /* IMSourceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMSourceManager.m; sourceTree = "<group>"; };
+		C0BA6F6C216DF27D0097D28C /* IMConversationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMConversationModel.h; sourceTree = "<group>"; };
+		C0BA6F6D216DF27D0097D28C /* IMConversationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMConversationModel.m; sourceTree = "<group>"; };
+		C0BA6F6F216DF28E0097D28C /* IMUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUserModel.h; sourceTree = "<group>"; };
+		C0BA6F70216DF28E0097D28C /* IMUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMUserModel.m; sourceTree = "<group>"; };
+		C0BA6F72216DF69B0097D28C /* IMChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMChatModel.h; sourceTree = "<group>"; };
+		C0BA6F73216DF69B0097D28C /* IMChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatModel.m; sourceTree = "<group>"; };
+		C0BA6F75216DF9A30097D28C /* IMChatContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMChatContentModel.h; sourceTree = "<group>"; };
+		C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatContentModel.m; sourceTree = "<group>"; };
+		C0BA6F78216DFFC30097D28C /* IMGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMGroupModel.h; sourceTree = "<group>"; };
+		C0BA6F79216DFFC30097D28C /* IMGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMGroupModel.m; sourceTree = "<group>"; };
 		C0E49388215CC8CF0089BABE /* MQTTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQTTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E4938B215CC8CF0089BABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0E4938C215CC8CF0089BABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,23 +98,23 @@
 		C0E493D1215CCB360089BABE /* LCTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTabBarController.m; sourceTree = "<group>"; };
 		C0E493D3215CCB5A0089BABE /* LCNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCNavigationController.h; sourceTree = "<group>"; };
 		C0E493D4215CCB5A0089BABE /* LCNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCNavigationController.m; sourceTree = "<group>"; };
-		C0E493D6215CCBE00089BABE /* LCChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCChatListViewController.h; sourceTree = "<group>"; };
-		C0E493D7215CCBE00089BABE /* LCChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCChatListViewController.m; sourceTree = "<group>"; };
+		C0E493D6215CCBE00089BABE /* IMChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMChatListViewController.h; sourceTree = "<group>"; };
+		C0E493D7215CCBE00089BABE /* IMChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatListViewController.m; sourceTree = "<group>"; };
 		C0E493D9215CCD080089BABE /* prefix-Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prefix-Header.pch"; sourceTree = "<group>"; };
 		C0E493DA215CCDCD0089BABE /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		C0E493DC215CDEBE0089BABE /* LCTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTools.h; sourceTree = "<group>"; };
-		C0E493E9215E0FC00089BABE /* LCContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCContactsViewController.h; sourceTree = "<group>"; };
-		C0E493EA215E0FC00089BABE /* LCContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCContactsViewController.m; sourceTree = "<group>"; };
-		C0E493EC215E0FCD0089BABE /* LCDiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCDiscoverViewController.h; sourceTree = "<group>"; };
-		C0E493ED215E0FCD0089BABE /* LCDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCDiscoverViewController.m; sourceTree = "<group>"; };
-		C0E493EF215E0FD70089BABE /* LCMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMeViewController.h; sourceTree = "<group>"; };
-		C0E493F0215E0FD70089BABE /* LCMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMeViewController.m; sourceTree = "<group>"; };
+		C0E493E9215E0FC00089BABE /* IMContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMContactsViewController.h; sourceTree = "<group>"; };
+		C0E493EA215E0FC00089BABE /* IMContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMContactsViewController.m; sourceTree = "<group>"; };
+		C0E493EC215E0FCD0089BABE /* IMDiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMDiscoverViewController.h; sourceTree = "<group>"; };
+		C0E493ED215E0FCD0089BABE /* IMDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMDiscoverViewController.m; sourceTree = "<group>"; };
+		C0E493EF215E0FD70089BABE /* IMMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMMeViewController.h; sourceTree = "<group>"; };
+		C0E493F0215E0FD70089BABE /* IMMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMMeViewController.m; sourceTree = "<group>"; };
 		C0E493F2215E10990089BABE /* LCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCBaseViewController.h; sourceTree = "<group>"; };
 		C0E493F3215E10990089BABE /* LCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBaseViewController.m; sourceTree = "<group>"; };
 		C0E493F5215E11DC0089BABE /* UIView+LCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCLayout.h"; sourceTree = "<group>"; };
 		C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LCLayout.m"; sourceTree = "<group>"; };
-		C0E493F9215E27700089BABE /* LCFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFMDBManager.h; sourceTree = "<group>"; };
-		C0E493FA215E27700089BABE /* LCFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCFMDBManager.m; sourceTree = "<group>"; };
+		C0E493F9215E27700089BABE /* IMFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMFMDBManager.h; sourceTree = "<group>"; };
+		C0E493FA215E27700089BABE /* IMFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMFMDBManager.m; sourceTree = "<group>"; };
 		C0E493FC215E28720089BABE /* NSString+LC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LC.h"; sourceTree = "<group>"; };
 		C0E493FD215E28720089BABE /* NSString+LC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LC.m"; sourceTree = "<group>"; };
 		DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MQTTChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,11 +154,11 @@
 		C0BA6F38216CA2E60097D28C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C0BA6F26216C9CB50097D28C /* LCLoginViewController.h */,
-				C0BA6F27216C9CB50097D28C /* LCLoginViewController.m */,
-				C0BA6F28216C9CB50097D28C /* LCLoginViewController.xib */,
-				C0BA6F2C216C9F9B0097D28C /* LCAccountViewController.h */,
-				C0BA6F2D216C9F9B0097D28C /* LCAccountViewController.m */,
+				C0BA6F26216C9CB50097D28C /* IMLoginViewController.h */,
+				C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */,
+				C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */,
+				C0BA6F2C216C9F9B0097D28C /* IMAccountViewController.h */,
+				C0BA6F2D216C9F9B0097D28C /* IMAccountViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -133,8 +166,8 @@
 		C0BA6F39216CA2FF0097D28C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C0BA6F3A216CA3110097D28C /* LCAccountModel.h */,
-				C0BA6F3B216CA3110097D28C /* LCAccountModel.m */,
+				C0BA6F3A216CA3110097D28C /* IMAccountModel.h */,
+				C0BA6F3B216CA3110097D28C /* IMAccountModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,8 +175,20 @@
 		C0BA6F3D216CA5A00097D28C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				C0BA6F3E216CA5C00097D28C /* LCMQTTManager.h */,
-				C0BA6F3F216CA5C00097D28C /* LCMQTTManager.m */,
+				C0BA6F46216DE04C0097D28C /* IMBaseManager.h */,
+				C0BA6F47216DE04C0097D28C /* IMBaseManager.m */,
+				C0BA6F3E216CA5C00097D28C /* IMMQTTManager.h */,
+				C0BA6F3F216CA5C00097D28C /* IMMQTTManager.m */,
+				C0BA6F5C216DF0610097D28C /* IMConversationManager.h */,
+				C0BA6F5D216DF0610097D28C /* IMConversationManager.m */,
+				C0BA6F5F216DF0700097D28C /* IMGroupManager.h */,
+				C0BA6F60216DF0700097D28C /* IMGroupManager.m */,
+				C0BA6F62216DF0FE0097D28C /* IMUserManager.h */,
+				C0BA6F63216DF0FE0097D28C /* IMUserManager.m */,
+				C0BA6F65216DF1120097D28C /* IMSystemManager.h */,
+				C0BA6F66216DF1120097D28C /* IMSystemManager.m */,
+				C0BA6F68216DF1210097D28C /* IMSourceManager.h */,
+				C0BA6F69216DF1210097D28C /* IMSourceManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -155,6 +200,23 @@
 				C0BA6F44216CAC7A0097D28C /* IMTools.m */,
 			);
 			path = IMTools;
+			sourceTree = "<group>";
+		};
+		C0BA6F6B216DF2510097D28C /* IMModel */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F6C216DF27D0097D28C /* IMConversationModel.h */,
+				C0BA6F6D216DF27D0097D28C /* IMConversationModel.m */,
+				C0BA6F78216DFFC30097D28C /* IMGroupModel.h */,
+				C0BA6F79216DFFC30097D28C /* IMGroupModel.m */,
+				C0BA6F72216DF69B0097D28C /* IMChatModel.h */,
+				C0BA6F73216DF69B0097D28C /* IMChatModel.m */,
+				C0BA6F6F216DF28E0097D28C /* IMUserModel.h */,
+				C0BA6F70216DF28E0097D28C /* IMUserModel.m */,
+				C0BA6F75216DF9A30097D28C /* IMChatContentModel.h */,
+				C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */,
+			);
+			path = IMModel;
 			sourceTree = "<group>";
 		};
 		C0E4937F215CC8CF0089BABE = {
@@ -209,6 +271,7 @@
 		C0E493C4215CCAB30089BABE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C0BA6F6B216DF2510097D28C /* IMModel */,
 				C0BA6F42216CAC680097D28C /* IMTools */,
 				C0BA6F3D216CA5A00097D28C /* Manager */,
 				C0E493F8215E27460089BABE /* FMDB */,
@@ -244,8 +307,8 @@
 		C0E493C8215CCAB30089BABE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493D6215CCBE00089BABE /* LCChatListViewController.h */,
-				C0E493D7215CCBE00089BABE /* LCChatListViewController.m */,
+				C0E493D6215CCBE00089BABE /* IMChatListViewController.h */,
+				C0E493D7215CCBE00089BABE /* IMChatListViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -309,8 +372,8 @@
 		C0E493E0215E0F920089BABE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493E9215E0FC00089BABE /* LCContactsViewController.h */,
-				C0E493EA215E0FC00089BABE /* LCContactsViewController.m */,
+				C0E493E9215E0FC00089BABE /* IMContactsViewController.h */,
+				C0E493EA215E0FC00089BABE /* IMContactsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -342,8 +405,8 @@
 		C0E493E4215E0F920089BABE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493EC215E0FCD0089BABE /* LCDiscoverViewController.h */,
-				C0E493ED215E0FCD0089BABE /* LCDiscoverViewController.m */,
+				C0E493EC215E0FCD0089BABE /* IMDiscoverViewController.h */,
+				C0E493ED215E0FCD0089BABE /* IMDiscoverViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -375,8 +438,8 @@
 		C0E493E8215E0F920089BABE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493EF215E0FD70089BABE /* LCMeViewController.h */,
-				C0E493F0215E0FD70089BABE /* LCMeViewController.m */,
+				C0E493EF215E0FD70089BABE /* IMMeViewController.h */,
+				C0E493F0215E0FD70089BABE /* IMMeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -384,8 +447,8 @@
 		C0E493F8215E27460089BABE /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493F9215E27700089BABE /* LCFMDBManager.h */,
-				C0E493FA215E27700089BABE /* LCFMDBManager.m */,
+				C0E493F9215E27700089BABE /* IMFMDBManager.h */,
+				C0E493FA215E27700089BABE /* IMFMDBManager.m */,
 			);
 			path = FMDB;
 			sourceTree = "<group>";
@@ -428,7 +491,7 @@
 		C0E49380215CC8CF0089BABE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = LC;
+				CLASSPREFIX = IM;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Rochang;
 				TargetAttributes = {
@@ -461,7 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E49398215CC8D00089BABE /* LaunchScreen.storyboard in Resources */,
-				C0BA6F2A216C9CB50097D28C /* LCLoginViewController.xib in Resources */,
+				C0BA6F2A216C9CB50097D28C /* IMLoginViewController.xib in Resources */,
 				C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */,
 				C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */,
 			);
@@ -526,24 +589,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */,
-				C0BA6F2E216C9F9B0097D28C /* LCAccountViewController.m in Sources */,
-				C0E493EE215E0FCD0089BABE /* LCDiscoverViewController.m in Sources */,
-				C0BA6F40216CA5C00097D28C /* LCMQTTManager.m in Sources */,
+				C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */,
+				C0BA6F71216DF28E0097D28C /* IMUserModel.m in Sources */,
+				C0E493EE215E0FCD0089BABE /* IMDiscoverViewController.m in Sources */,
+				C0BA6F40216CA5C00097D28C /* IMMQTTManager.m in Sources */,
 				C0E4939B215CC8D00089BABE /* main.m in Sources */,
 				C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */,
-				C0E493D8215CCBE00089BABE /* LCChatListViewController.m in Sources */,
+				C0BA6F61216DF0700097D28C /* IMGroupManager.m in Sources */,
+				C0BA6F7A216DFFC30097D28C /* IMGroupModel.m in Sources */,
+				C0BA6F74216DF69B0097D28C /* IMChatModel.m in Sources */,
+				C0E493D8215CCBE00089BABE /* IMChatListViewController.m in Sources */,
 				C0BA6F36216CA1780097D28C /* UIBarButtonItem+Block.m in Sources */,
 				C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */,
-				C0E493EB215E0FC00089BABE /* LCContactsViewController.m in Sources */,
+				C0BA6F64216DF0FE0097D28C /* IMUserManager.m in Sources */,
+				C0E493EB215E0FC00089BABE /* IMContactsViewController.m in Sources */,
 				C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */,
+				C0BA6F67216DF1120097D28C /* IMSystemManager.m in Sources */,
 				C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */,
 				C0BA6F37216CA1780097D28C /* UIControl+Block.m in Sources */,
-				C0BA6F3C216CA3110097D28C /* LCAccountModel.m in Sources */,
-				C0E493FB215E27700089BABE /* LCFMDBManager.m in Sources */,
+				C0BA6F6A216DF1210097D28C /* IMSourceManager.m in Sources */,
+				C0BA6F3C216CA3110097D28C /* IMAccountModel.m in Sources */,
+				C0E493FB215E27700089BABE /* IMFMDBManager.m in Sources */,
 				C0BA6F45216CAC7A0097D28C /* IMTools.m in Sources */,
 				C0E493FE215E28720089BABE /* NSString+LC.m in Sources */,
-				C0BA6F29216C9CB50097D28C /* LCLoginViewController.m in Sources */,
-				C0E493F1215E0FD70089BABE /* LCMeViewController.m in Sources */,
+				C0BA6F48216DE04C0097D28C /* IMBaseManager.m in Sources */,
+				C0BA6F6E216DF27D0097D28C /* IMConversationModel.m in Sources */,
+				C0BA6F77216DF9A30097D28C /* IMChatContentModel.m in Sources */,
+				C0BA6F29216C9CB50097D28C /* IMLoginViewController.m in Sources */,
+				C0E493F1215E0FD70089BABE /* IMMeViewController.m in Sources */,
+				C0BA6F5E216DF0610097D28C /* IMConversationManager.m in Sources */,
 				C0BA6F31216CA1510097D28C /* LCView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

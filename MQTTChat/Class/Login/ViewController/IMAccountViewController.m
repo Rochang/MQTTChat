@@ -1,24 +1,24 @@
 //
-//  LCAccountViewController.m
+//  IMAccountViewController.m
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/9.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
-#import "LCAccountViewController.h"
+#import "IMAccountViewController.h"
 #import "MJExtension.h"
 
 static NSString * const cellId = @"cellId";
 
-@interface LCAccountViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface IMAccountViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *accounts;
 
 @end
 
-@implementation LCAccountViewController
+@implementation IMAccountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +35,7 @@ static NSString * const cellId = @"cellId";
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
-    LCAccountModel *model = self.accounts[indexPath.row];
+    IMAccountModel *model = self.accounts[indexPath.row];
     cell.textLabel.text = model.account;
     cell.detailTextLabel.text = model.name;
     return cell;
@@ -44,7 +44,7 @@ static NSString * const cellId = @"cellId";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.callBackBlock) {
-        LCAccountModel *model = self.accounts[indexPath.row];
+        IMAccountModel *model = self.accounts[indexPath.row];
         self.callBackBlock(model);
     }
 }
@@ -64,7 +64,7 @@ static NSString * const cellId = @"cellId";
                       @{@"name":@"tw654321",@"account":@"1120130000000308",@"password":@"xXJCKcYYFpIekG1a"},
                       @{@"name":@"朱锐",@"account":@"13824342251",@"password":@""}
                       ];
-        _accounts = [LCAccountModel mj_objectArrayWithKeyValuesArray:array];
+        _accounts = [IMAccountModel mj_objectArrayWithKeyValuesArray:array];
     }
     return _accounts;
 }

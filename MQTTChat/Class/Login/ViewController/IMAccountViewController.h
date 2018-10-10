@@ -1,5 +1,5 @@
 //
-//  LCAccountViewController.h
+//  IMAccountViewController.h
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/9.
@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LCAccountModel.h"
+#import "IMAccountModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LCAccountViewController : UIViewController
+@interface IMAccountViewController : UIViewController
 
-@property (nonatomic, copy) void (^callBackBlock)(LCAccountModel *model);
+@property (nonatomic, copy) void (^callBackBlock)(IMAccountModel *model);
 
 @end
 

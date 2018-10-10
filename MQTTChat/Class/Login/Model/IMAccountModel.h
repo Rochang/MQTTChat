@@ -1,5 +1,5 @@
 //
-//  LCAccountModel.h
+//  IMAccountModel.h
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/9.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LCAccountModel : NSObject
+@interface IMAccountModel : NSObject
 
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *account;
