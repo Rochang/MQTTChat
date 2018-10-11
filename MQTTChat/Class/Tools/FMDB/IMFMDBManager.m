@@ -2,68 +2,36 @@
 //  IMFMDBManager.m
 //  MQTTChat
 //
-//  Created by rochang on 2018/9/28.
+//  Created by rochang on 2018/10/11.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
 #import "IMFMDBManager.h"
-#import <FMDB.h>
-
-static NSString *fmdbName = @"chatIM";
-
-@interface IMFMDBManager ()
-
-@property (strong, nonatomic) FMDatabase *fmdb;
-
-@end
-
+#import "FMDBBase.h"
+#import "MJExtension.h"
 
 @implementation IMFMDBManager
 
-+ (instancetype)shareInstance {
-    static dispatch_once_t onceToken;
-    static IMFMDBManager *_instance = nil;
-    dispatch_once(&onceToken, ^{
-        _instance = [[self alloc] init];
-    });
-    return _instance;
+- (void)createConversationTable {
+     NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT)", kConversationTableName, IMConversationModel.db_conversation_id, IMConversationModel.db_conversation_unReadCount, IMConversationModel.db_lastConversation];
+    [FMDBBaseShare creatTable:kConversationTableName sqlstr:sqlStr];
 }
 
-- (void)creatTable:(NSString *)tableName formatStr:(NSString *)format {
-    if ([self isTableExistWithTableName:tableName]) {
-        NSLog(@"%@ 表已存在", tableName);
-        return;
-    }
-    // 创建表
-    [self.fmdb open];
-    BOOL success = [self.fmdb executeUpdate:format];
-    if (!success) {
-        NSLog(@"%@ 创建失败", tableName);
-    }
-    [self.fmdb close];
-}
-
-- (BOOL)isTableExistWithTableName:(NSString *)name {
-    [self.fmdb open];
-    FMResultSet *result = [self.fmdb executeQuery:@"select count(*) as 'count' from sqlite_master where type='table' and name=?", name];
-    int count = 0;
-    while ([result next]) {
-        count = [result intForColumn:@"count"];
-    }
-    [self.fmdb close];
-    return count == 0 ? NO : YES;
+- (void)insertConversationModel:(IMConversationModel *)model {
+    NSDictionary *jsonStr = [model.lastConversation ]
+    NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@) values('%@','%@','%f')", kConversationTableName, IMConversationModel.db_conversation_id, IMConversationModel.db_conversation_unReadCount, IMConversationModel.db_lastConversation];
 }
 
 
-#pragma mark - getter
-- (FMDatabase *)fmdb {
-    if (!_fmdb) {
-        NSString *fmdbPath = [[NSString getHomePath] stringByAppendingFormat:@"%@.sqlite", fmdbName];
-        _fmdb = [[FMDatabase alloc] initWithPath:fmdbPath];
-    
-    }
-    return _fmdb;
+
+- (void)createGroupTable {
+    NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT)", kGroupTableName, IMGroupModel.db_group_id, IMGroupModel.db_group_unReadCount, IMGroupModel.db_group_users, IMGroupModel.db_group_chats];
+    [FMDBBaseShare creatTable:kConversationTableName sqlstr:sqlStr];
 }
 
+- (void)createChatTable {
+    NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, , %@ TEXT, , %@ TEXT, , %@ TEXT, , %@ TEXT)", kChatTableName, IMChatModel.db_chat_id, IMChatModel.db_chat_time, IMChatModel.db_isRead, IMChatModel.db_chat_type, IMChatModel.db_chat_from, IMChatModel.db_chat_to, IMChatModel.db_chat_content];
+    [FMDBBaseShare creatTable:kConversationTableName sqlstr:sqlStr];
+}
 
 @end

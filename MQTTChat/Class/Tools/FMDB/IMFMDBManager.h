@@ -2,25 +2,30 @@
 //  IMFMDBManager.h
 //  MQTTChat
 //
-//  Created by rochang on 2018/9/28.
+//  Created by rochang on 2018/10/11.
 //  Copyright © 2018年 Rochang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "IMConversationModel.h"
+#import "IMGroupModel.h"
+#import "IMChatModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMFMDBManager : NSObject
+#pragma mark - conversation
+/** 创建conversation 表 */
+- (void)createConversationTable;
+- (void)insertConversationModel:(IMConversationModel *)model;
 
-+ (instancetype)shareInstance;
+#pragma mark - group
+/** 创建group 表 */
+- (void)createGroupTable;
 
-// 创建表
-- (void)creatTable:(NSString *)tableName formatStr:(NSString *)format;
-
-// 删除表
-
-
-
+#pragma mark - chat
+/** 创建 对话 表 */
+- (void)createChatTable;
 @end
 
 NS_ASSUME_NONNULL_END

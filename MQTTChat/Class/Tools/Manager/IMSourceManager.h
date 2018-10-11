@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IMSourceManager : IMBaseManager
 
+/** 上传文件 */
+- (void)upLoadFile;
+
+/** 下载文件 */
+- (void)downLoadFile;
+
 @end
 
 NS_ASSUME_NONNULL_END

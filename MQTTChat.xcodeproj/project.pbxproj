@@ -20,7 +20,7 @@
 		C0BA6F48216DE04C0097D28C /* IMBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F47216DE04C0097D28C /* IMBaseManager.m */; };
 		C0BA6F5E216DF0610097D28C /* IMConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F5D216DF0610097D28C /* IMConversationManager.m */; };
 		C0BA6F61216DF0700097D28C /* IMGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F60216DF0700097D28C /* IMGroupManager.m */; };
-		C0BA6F64216DF0FE0097D28C /* IMUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F63216DF0FE0097D28C /* IMUserManager.m */; };
+		C0BA6F64216DF0FE0097D28C /* IMChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F63216DF0FE0097D28C /* IMChatManager.m */; };
 		C0BA6F67216DF1120097D28C /* IMSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F66216DF1120097D28C /* IMSystemManager.m */; };
 		C0BA6F6A216DF1210097D28C /* IMSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F69216DF1210097D28C /* IMSourceManager.m */; };
 		C0BA6F6E216DF27D0097D28C /* IMConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F6D216DF27D0097D28C /* IMConversationModel.m */; };
@@ -28,6 +28,7 @@
 		C0BA6F74216DF69B0097D28C /* IMChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F73216DF69B0097D28C /* IMChatModel.m */; };
 		C0BA6F77216DF9A30097D28C /* IMChatContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */; };
 		C0BA6F7A216DFFC30097D28C /* IMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F79216DFFC30097D28C /* IMGroupModel.m */; };
+		C0BA6F7F216F30920097D28C /* IMFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F7E216F30920097D28C /* IMFMDBManager.m */; };
 		C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4938C215CC8CF0089BABE /* AppDelegate.m */; };
 		C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49391215CC8CF0089BABE /* Main.storyboard */; };
 		C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E49394215CC8D00089BABE /* Assets.xcassets */; };
@@ -41,7 +42,7 @@
 		C0E493F1215E0FD70089BABE /* IMMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F0215E0FD70089BABE /* IMMeViewController.m */; };
 		C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F3215E10990089BABE /* LCBaseViewController.m */; };
 		C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */; };
-		C0E493FB215E27700089BABE /* IMFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FA215E27700089BABE /* IMFMDBManager.m */; };
+		C0E493FB215E27700089BABE /* FMDBBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FA215E27700089BABE /* FMDBBase.m */; };
 		C0E493FE215E28720089BABE /* NSString+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E493FD215E28720089BABE /* NSString+LC.m */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +71,8 @@
 		C0BA6F5D216DF0610097D28C /* IMConversationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMConversationManager.m; sourceTree = "<group>"; };
 		C0BA6F5F216DF0700097D28C /* IMGroupManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMGroupManager.h; sourceTree = "<group>"; };
 		C0BA6F60216DF0700097D28C /* IMGroupManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMGroupManager.m; sourceTree = "<group>"; };
-		C0BA6F62216DF0FE0097D28C /* IMUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUserManager.h; sourceTree = "<group>"; };
-		C0BA6F63216DF0FE0097D28C /* IMUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMUserManager.m; sourceTree = "<group>"; };
+		C0BA6F62216DF0FE0097D28C /* IMChatManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMChatManager.h; sourceTree = "<group>"; };
+		C0BA6F63216DF0FE0097D28C /* IMChatManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatManager.m; sourceTree = "<group>"; };
 		C0BA6F65216DF1120097D28C /* IMSystemManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMSystemManager.h; sourceTree = "<group>"; };
 		C0BA6F66216DF1120097D28C /* IMSystemManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMSystemManager.m; sourceTree = "<group>"; };
 		C0BA6F68216DF1210097D28C /* IMSourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMSourceManager.h; sourceTree = "<group>"; };
@@ -86,6 +87,8 @@
 		C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatContentModel.m; sourceTree = "<group>"; };
 		C0BA6F78216DFFC30097D28C /* IMGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMGroupModel.h; sourceTree = "<group>"; };
 		C0BA6F79216DFFC30097D28C /* IMGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMGroupModel.m; sourceTree = "<group>"; };
+		C0BA6F7D216F30920097D28C /* IMFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMFMDBManager.h; sourceTree = "<group>"; };
+		C0BA6F7E216F30920097D28C /* IMFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMFMDBManager.m; sourceTree = "<group>"; };
 		C0E49388215CC8CF0089BABE /* MQTTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQTTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E4938B215CC8CF0089BABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0E4938C215CC8CF0089BABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,8 +116,8 @@
 		C0E493F3215E10990089BABE /* LCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBaseViewController.m; sourceTree = "<group>"; };
 		C0E493F5215E11DC0089BABE /* UIView+LCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCLayout.h"; sourceTree = "<group>"; };
 		C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LCLayout.m"; sourceTree = "<group>"; };
-		C0E493F9215E27700089BABE /* IMFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMFMDBManager.h; sourceTree = "<group>"; };
-		C0E493FA215E27700089BABE /* IMFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMFMDBManager.m; sourceTree = "<group>"; };
+		C0E493F9215E27700089BABE /* FMDBBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBBase.h; sourceTree = "<group>"; };
+		C0E493FA215E27700089BABE /* FMDBBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBBase.m; sourceTree = "<group>"; };
 		C0E493FC215E28720089BABE /* NSString+LC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LC.h"; sourceTree = "<group>"; };
 		C0E493FD215E28720089BABE /* NSString+LC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LC.m"; sourceTree = "<group>"; };
 		DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MQTTChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,8 +186,8 @@
 				C0BA6F5D216DF0610097D28C /* IMConversationManager.m */,
 				C0BA6F5F216DF0700097D28C /* IMGroupManager.h */,
 				C0BA6F60216DF0700097D28C /* IMGroupManager.m */,
-				C0BA6F62216DF0FE0097D28C /* IMUserManager.h */,
-				C0BA6F63216DF0FE0097D28C /* IMUserManager.m */,
+				C0BA6F62216DF0FE0097D28C /* IMChatManager.h */,
+				C0BA6F63216DF0FE0097D28C /* IMChatManager.m */,
 				C0BA6F65216DF1120097D28C /* IMSystemManager.h */,
 				C0BA6F66216DF1120097D28C /* IMSystemManager.m */,
 				C0BA6F68216DF1210097D28C /* IMSourceManager.h */,
@@ -447,8 +450,10 @@
 		C0E493F8215E27460089BABE /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				C0E493F9215E27700089BABE /* IMFMDBManager.h */,
-				C0E493FA215E27700089BABE /* IMFMDBManager.m */,
+				C0E493F9215E27700089BABE /* FMDBBase.h */,
+				C0E493FA215E27700089BABE /* FMDBBase.m */,
+				C0BA6F7D216F30920097D28C /* IMFMDBManager.h */,
+				C0BA6F7E216F30920097D28C /* IMFMDBManager.m */,
 			);
 			path = FMDB;
 			sourceTree = "<group>";
@@ -601,15 +606,16 @@
 				C0E493D8215CCBE00089BABE /* IMChatListViewController.m in Sources */,
 				C0BA6F36216CA1780097D28C /* UIBarButtonItem+Block.m in Sources */,
 				C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */,
-				C0BA6F64216DF0FE0097D28C /* IMUserManager.m in Sources */,
+				C0BA6F64216DF0FE0097D28C /* IMChatManager.m in Sources */,
 				C0E493EB215E0FC00089BABE /* IMContactsViewController.m in Sources */,
 				C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */,
 				C0BA6F67216DF1120097D28C /* IMSystemManager.m in Sources */,
 				C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */,
 				C0BA6F37216CA1780097D28C /* UIControl+Block.m in Sources */,
 				C0BA6F6A216DF1210097D28C /* IMSourceManager.m in Sources */,
+				C0BA6F7F216F30920097D28C /* IMFMDBManager.m in Sources */,
 				C0BA6F3C216CA3110097D28C /* IMAccountModel.m in Sources */,
-				C0E493FB215E27700089BABE /* IMFMDBManager.m in Sources */,
+				C0E493FB215E27700089BABE /* FMDBBase.m in Sources */,
 				C0BA6F45216CAC7A0097D28C /* IMTools.m in Sources */,
 				C0E493FE215E28720089BABE /* NSString+LC.m in Sources */,
 				C0BA6F48216DE04C0097D28C /* IMBaseManager.m in Sources */,

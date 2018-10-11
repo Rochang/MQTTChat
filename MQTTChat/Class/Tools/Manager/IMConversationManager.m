@@ -7,28 +7,12 @@
 //
 
 #import "IMConversationManager.h"
+#import "FMDBBase.h"
 
 @implementation IMConversationManager
 
-- (void)insertConverstaion:(IMConversationModel *)model {
-    
-}
 
-- (void)insertChat:(IMChatModel *)model withConversationId:(NSString *)conversation_id {
-    
-}
-
-- (NSArray<IMConversationModel *> *)getAllConversations {
-    
-    return nil;
-}
-
-- (NSArray<IMChatModel *> *)getAllChatsWithConversation:(NSString *)conversation_id {
-    
-    return nil;
-}
-
-- (void)readConversation:(NSString *)conversation_id {
+- (void)insertConversation:(IMConversationModel *)model {
     
 }
 
@@ -36,8 +20,9 @@
     
 }
 
-- (void)deleteChat:(NSString *)chatId withConversationId:(NSString *)conversation_id {
+- (NSArray <IMConversationModel *>*)getAllConversations {
     
-    
+    return nil;
 }
+
 @end

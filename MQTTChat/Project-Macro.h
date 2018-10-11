@@ -14,6 +14,10 @@
 #define kHost @"127.0.0.1"
 #define Kport 6969
 
+#define kConversationTableName       @"t_conversation"
+#define kGroupTableName              @"t_grooup"
+#define kChatTableName               @"t_chat"
+
 /** 信息类型 */
 typedef NS_ENUM(NSUInteger, IMMessageType) {
     IMMessageTypeText,  // 文字

@@ -22,6 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IMUserModel *chat_to; // 接收者
 @property (strong, nonatomic) IMChatContentModel *chat_content; // 会话内容
 
++ (NSString *)db_chat_id;
++ (NSString *)db_chat_time;
++ (NSString *)db_isRead;
++ (NSString *)db_chat_type;
++ (NSString *)db_chat_from;
++ (NSString *)db_chat_to;
++ (NSString *)db_chat_content;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

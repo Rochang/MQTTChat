@@ -15,9 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (copy, nonatomic) NSString *conversation_id; // 会话Id
 @property (copy, nonatomic) NSString *conversation_unReadCount; // 对话未读数
-@property (strong, nonatomic) NSArray <IMChatModel *>*conversation_chat; // 会话的对话
+@property (strong, nonatomic) IMChatModel *lastConversation; // 会话的对话
 
-
++ (NSString *)db_conversation_id;
++ (NSString *)db_conversation_unReadCount;
++ (NSString *)db_lastConversation;
 
 @end
 
