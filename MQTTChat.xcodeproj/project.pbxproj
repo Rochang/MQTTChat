@@ -29,6 +29,7 @@
 		C0BA6F77216DF9A30097D28C /* IMChatContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */; };
 		C0BA6F7A216DFFC30097D28C /* IMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F79216DFFC30097D28C /* IMGroupModel.m */; };
 		C0BA6F7F216F30920097D28C /* IMFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F7E216F30920097D28C /* IMFMDBManager.m */; };
+		C0BA6F8221704DE60097D28C /* IMP2PModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F8121704DE60097D28C /* IMP2PModel.m */; };
 		C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4938C215CC8CF0089BABE /* AppDelegate.m */; };
 		C0E49393215CC8CF0089BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E49391215CC8CF0089BABE /* Main.storyboard */; };
 		C0E49395215CC8D00089BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E49394215CC8D00089BABE /* Assets.xcassets */; };
@@ -89,6 +90,8 @@
 		C0BA6F79216DFFC30097D28C /* IMGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMGroupModel.m; sourceTree = "<group>"; };
 		C0BA6F7D216F30920097D28C /* IMFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMFMDBManager.h; sourceTree = "<group>"; };
 		C0BA6F7E216F30920097D28C /* IMFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMFMDBManager.m; sourceTree = "<group>"; };
+		C0BA6F8021704DE60097D28C /* IMP2PModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMP2PModel.h; sourceTree = "<group>"; };
+		C0BA6F8121704DE60097D28C /* IMP2PModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMP2PModel.m; sourceTree = "<group>"; };
 		C0E49388215CC8CF0089BABE /* MQTTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQTTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E4938B215CC8CF0089BABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0E4938C215CC8CF0089BABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				C0BA6F6D216DF27D0097D28C /* IMConversationModel.m */,
 				C0BA6F78216DFFC30097D28C /* IMGroupModel.h */,
 				C0BA6F79216DFFC30097D28C /* IMGroupModel.m */,
+				C0BA6F8021704DE60097D28C /* IMP2PModel.h */,
+				C0BA6F8121704DE60097D28C /* IMP2PModel.m */,
 				C0BA6F72216DF69B0097D28C /* IMChatModel.h */,
 				C0BA6F73216DF69B0097D28C /* IMChatModel.m */,
 				C0BA6F6F216DF28E0097D28C /* IMUserModel.h */,
@@ -597,6 +602,7 @@
 				C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */,
 				C0BA6F71216DF28E0097D28C /* IMUserModel.m in Sources */,
 				C0E493EE215E0FCD0089BABE /* IMDiscoverViewController.m in Sources */,
+				C0BA6F8221704DE60097D28C /* IMP2PModel.m in Sources */,
 				C0BA6F40216CA5C00097D28C /* IMMQTTManager.m in Sources */,
 				C0E4939B215CC8D00089BABE /* main.m in Sources */,
 				C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */,

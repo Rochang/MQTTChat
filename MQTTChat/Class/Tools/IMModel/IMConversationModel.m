@@ -10,4 +10,16 @@
 
 @implementation IMConversationModel
 
++ (NSString *)db_conversation_id {
+    return @"conversation_id";
+}
+
++ (NSString *)db_conversation_unReadCount {
+    return @"conversation_unReadCount";
+}
+
++ (NSString *)db_Conversation_last {
+    return @"conversation_last";
+}
+
 @end

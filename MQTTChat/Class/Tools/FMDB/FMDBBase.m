@@ -95,7 +95,7 @@ static NSString *fmdbName = @"chatIM";
     }
 }
 
-- (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_alue:(NSString *)value db_result:(resultBlock)db_result {
+- (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_value:(NSString *)value db_result:(resultBlock)db_result {
     if ([self.fmdb open]) {
         NSString *sql = [NSString stringWithFormat:@"select * from '%@' where %@ = '%@';", tableName, key, value];
         FMResultSet *result = [self.fmdb executeQuery:sql];
@@ -106,9 +106,11 @@ static NSString *fmdbName = @"chatIM";
     }
 }
 
-- (void)insertDatasWithTable:(NSString *)tableName sqlStr:(NSString *)sqlstr {
+- (void)FMDBBaseExecuteUpdateSqlStr:(NSString *)sqlstr {
     if ([self.fmdb open]) {
-        [self.fmdb executeUpdate:sqlstr];
+        if (![self.fmdb executeUpdate:sqlstr]) {
+            NSLog(@"FMDB 执行更新失败");
+        }
         [self.fmdb close];
     }
 }

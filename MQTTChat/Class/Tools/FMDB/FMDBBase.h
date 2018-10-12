@@ -38,13 +38,10 @@ typedef void(^resultBlock)(FMResultSet *result);
 - (void)queryAllDatasWithTable:(NSString *)tableName db_result:(resultBlock)result;
 
 /** 根据条件查询数据 */
-- (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_alue:(NSString *)value db_result:(resultBlock)db_result;
+- (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_value:(NSString *)value db_result:(resultBlock)db_result;
 
-/** 增加数据 */
-- (void)insertDatasWithTable:(NSString *)tableName sqlStr:(NSString *)sqlstr;
-
-///** 删除数据 */
-//- (void)deleteDatasWhthTable:(NSString *)tableName sqlStr:(NSString *)sqlstr;
+/** FMDB 执行操作语句 */
+- (void)FMDBBaseExecuteUpdateSqlStr:(NSString *)sqlstr;
 //
 ///** 改变数据 */
 //- (void)changeDatasWithTable:(NSString *)tableName sqlStr:(NSString *)sqlstr;

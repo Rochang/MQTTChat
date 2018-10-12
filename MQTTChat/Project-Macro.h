@@ -14,16 +14,27 @@
 #define kHost @"127.0.0.1"
 #define Kport 6969
 
+// 最近会话表
 #define kConversationTableName       @"t_conversation"
+// 群表
 #define kGroupTableName              @"t_grooup"
-#define kChatTableName               @"t_chat"
+// 群聊天记录表
+#define kGroupChatTableName          @"t_grooup_chat"
+// 单聊表
+#define kP2PTableName                @"t_P2P"
+// 单聊聊天记录表
+#define kP2PChatTableName            @"t_P2P_chat"
 
 /** 信息类型 */
 typedef NS_ENUM(NSUInteger, IMMessageType) {
     IMMessageTypeText,  // 文字
     IMMessageTypeSound, // 语音
+    IMMessageTypeLocation, // 地址
     IMMessageTypeFile,  // 文件
-    IMMessageTypePicture // 图片
+    IMMessageTypePicture, // 图片
+    IMMessageTypeVideo, // 短视频
+    IMMessageTypeVideoSession, // 视频会话
+    IMMessageTypeAudioSession // 语音会话
 };
 
 /** 会话形式 */
