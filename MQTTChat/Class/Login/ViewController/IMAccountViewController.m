@@ -71,7 +71,7 @@ static NSString * const cellId = @"cellId";
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [LCView tableViewWithFrame:self.view.bounds style:UITableViewStylePlain dataSource:self delegate:self];
+        _tableView = [LCView tableViewWithFrame:CGRectMake(0, 0, KScreen_W, kAccountViewController_H) style:UITableViewStylePlain dataSource:self delegate:self];
     }
     return _tableView;
 }

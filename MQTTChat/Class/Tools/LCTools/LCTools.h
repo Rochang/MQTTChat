@@ -15,5 +15,6 @@
 #import "UIBarButtonItem+Block.h"
 #import "UIControl+Block.h"
 #import "LCView.h"
+#import "LCMethod.h"
 
 #endif /* LCTools_h */

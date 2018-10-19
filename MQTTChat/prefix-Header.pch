@@ -13,5 +13,6 @@
 #import "IMTools.h"
 #import "LCBaseViewController.h"
 #import "Project-Macro.h"
+#import "MJExtension.h"
 
 #endif /* prefix_Header_h */

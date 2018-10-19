@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		03A56994F4374F5C229EEC15 /* libPods-MQTTChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */; };
+		C05D02322179C89100876E54 /* IMPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02312179C89100876E54 /* IMPresentationController.m */; };
+		C05D02352179CF0A00876E54 /* LCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02342179CF0A00876E54 /* LCMethod.m */; };
+		C05D02382179DDAB00876E54 /* IMFriendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02372179DDAB00876E54 /* IMFriendManager.m */; };
+		C05D023B2179DEC400876E54 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D023A2179DEC400876E54 /* IMManager.m */; };
 		C0BA6F29216C9CB50097D28C /* IMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */; };
 		C0BA6F2A216C9CB50097D28C /* IMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */; };
 		C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2D216C9F9B0097D28C /* IMAccountViewController.m */; };
@@ -48,6 +52,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C05D02302179C89100876E54 /* IMPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPresentationController.h; sourceTree = "<group>"; };
+		C05D02312179C89100876E54 /* IMPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPresentationController.m; sourceTree = "<group>"; };
+		C05D02332179CF0A00876E54 /* LCMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMethod.h; sourceTree = "<group>"; };
+		C05D02342179CF0A00876E54 /* LCMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMethod.m; sourceTree = "<group>"; };
+		C05D02362179DDAB00876E54 /* IMFriendManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMFriendManager.h; sourceTree = "<group>"; };
+		C05D02372179DDAB00876E54 /* IMFriendManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMFriendManager.m; sourceTree = "<group>"; };
+		C05D02392179DEC400876E54 /* IMManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
+		C05D023A2179DEC400876E54 /* IMManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
 		C0BA6F26216C9CB50097D28C /* IMLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMLoginViewController.h; sourceTree = "<group>"; };
 		C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMLoginViewController.m; sourceTree = "<group>"; };
 		C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMLoginViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +197,8 @@
 				C0BA6F47216DE04C0097D28C /* IMBaseManager.m */,
 				C0BA6F3E216CA5C00097D28C /* IMMQTTManager.h */,
 				C0BA6F3F216CA5C00097D28C /* IMMQTTManager.m */,
+				C05D02362179DDAB00876E54 /* IMFriendManager.h */,
+				C05D02372179DDAB00876E54 /* IMFriendManager.m */,
 				C0BA6F5C216DF0610097D28C /* IMConversationManager.h */,
 				C0BA6F5D216DF0610097D28C /* IMConversationManager.m */,
 				C0BA6F5F216DF0700097D28C /* IMGroupManager.h */,
@@ -195,6 +209,8 @@
 				C0BA6F66216DF1120097D28C /* IMSystemManager.m */,
 				C0BA6F68216DF1210097D28C /* IMSourceManager.h */,
 				C0BA6F69216DF1210097D28C /* IMSourceManager.m */,
+				C05D02392179DEC400876E54 /* IMManager.h */,
+				C05D023A2179DEC400876E54 /* IMManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -324,6 +340,8 @@
 		C0E493C9215CCAB30089BABE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C05D02302179C89100876E54 /* IMPresentationController.h */,
+				C05D02312179C89100876E54 /* IMPresentationController.m */,
 				C0E493F2215E10990089BABE /* LCBaseViewController.h */,
 				C0E493F3215E10990089BABE /* LCBaseViewController.m */,
 				C0E493D0215CCB360089BABE /* LCTabBarController.h */,
@@ -339,6 +357,8 @@
 			children = (
 				C0E493DC215CDEBE0089BABE /* LCTools.h */,
 				C0E493DA215CCDCD0089BABE /* Macro.h */,
+				C05D02332179CF0A00876E54 /* LCMethod.h */,
+				C05D02342179CF0A00876E54 /* LCMethod.m */,
 				C0E493F5215E11DC0089BABE /* UIView+LCLayout.h */,
 				C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */,
 				C0E493FC215E28720089BABE /* NSString+LC.h */,
@@ -607,6 +627,7 @@
 				C0E4939B215CC8D00089BABE /* main.m in Sources */,
 				C0E493D5215CCB5A0089BABE /* LCNavigationController.m in Sources */,
 				C0BA6F61216DF0700097D28C /* IMGroupManager.m in Sources */,
+				C05D02382179DDAB00876E54 /* IMFriendManager.m in Sources */,
 				C0BA6F7A216DFFC30097D28C /* IMGroupModel.m in Sources */,
 				C0BA6F74216DF69B0097D28C /* IMChatModel.m in Sources */,
 				C0E493D8215CCBE00089BABE /* IMChatListViewController.m in Sources */,
@@ -621,6 +642,7 @@
 				C0BA6F6A216DF1210097D28C /* IMSourceManager.m in Sources */,
 				C0BA6F7F216F30920097D28C /* IMFMDBManager.m in Sources */,
 				C0BA6F3C216CA3110097D28C /* IMAccountModel.m in Sources */,
+				C05D02352179CF0A00876E54 /* LCMethod.m in Sources */,
 				C0E493FB215E27700089BABE /* FMDBBase.m in Sources */,
 				C0BA6F45216CAC7A0097D28C /* IMTools.m in Sources */,
 				C0E493FE215E28720089BABE /* NSString+LC.m in Sources */,
@@ -631,6 +653,8 @@
 				C0E493F1215E0FD70089BABE /* IMMeViewController.m in Sources */,
 				C0BA6F5E216DF0610097D28C /* IMConversationManager.m in Sources */,
 				C0BA6F31216CA1510097D28C /* LCView.m in Sources */,
+				C05D023B2179DEC400876E54 /* IMManager.m in Sources */,
+				C05D02322179C89100876E54 /* IMPresentationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MQTTChat/prefix-Header.pch";
 				INFOPLIST_FILE = MQTTChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -794,6 +819,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MQTTChat/prefix-Header.pch";
 				INFOPLIST_FILE = MQTTChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

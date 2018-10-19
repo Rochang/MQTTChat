@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "IMAccountModel.h"
 
+#define kAccountViewController_H 300
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMAccountViewController : UIViewController

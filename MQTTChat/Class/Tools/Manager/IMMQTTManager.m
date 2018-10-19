@@ -46,12 +46,12 @@
     [self.session unsubscribeAndWaitTopic:topic timeout:10];
 }
 
-- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic retain:(BOOL)retainFlag {
-    [self.session publishDataAtMostOnce:data onTopic:topic retain:retainFlag];
+- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic {
+    [self.session publishDataAtMostOnce:data onTopic:topic retain:NO];
 }
 
-- (void)publishDataAtLeastOnce:(NSData *)data onTopic:(NSString *)topic retain:(BOOL)retainFlag {
-    [self.session publishDataAtLeastOnce:data onTopic:topic retain:retainFlag];
+- (void)publishDataAtLeastOnce:(NSData *)data onTopic:(NSString *)topic {
+    [self.session publishDataAtLeastOnce:data onTopic:topic retain:NO];
 }
 
 #pragma mark - MQTTSessionDelegate
@@ -71,6 +71,19 @@
                              @(MQTTSessionEventConnectionClosedByBroker) : @"连接 : ConnectionClosedByBroker"
                              };
     NSLog(@"%@", states[@(eventCode)]);
+}
+
+- (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid {
+    NSLog(@"%@", [data mj_JSONString]);
+    /**
+     SIMCommandTypeNone         = 0,   //None
+     SIMCommandTypeChat         = 1,   //1:聊天
+     SIMCommandTypeNotification = 2,   //2:通知
+     SIMCommandTypeOrder        = 3,   //3:指令
+     SIMCommandTypeFeedback     = 4,   //4:反馈
+     SIMCommandResponse         = 6,   //6:响应
+     SIMCommandBroadcast        = 7    //7:广播
+     */
 }
 
 #pragma mark - getter

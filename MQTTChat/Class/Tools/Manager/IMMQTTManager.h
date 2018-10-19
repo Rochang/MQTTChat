@@ -17,7 +17,7 @@
 
 @end
 
-#define IMMQTTManagerShare [IMMQTTManager shareInstance]
+#define MQTTShare [IMMQTTManager shareInstance]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,10 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)unSubscribeTopic:(NSString *)topic;
 
 /** 发布(至少一次) */
-- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic retain:(BOOL)retainFlag;
+- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic;
 
 /** 发布(至多一次) */
-- (void)publishDataAtLeastOnce:(NSData *)data onTopic:(NSString *)topic retain:(BOOL)retainFlag;
+- (void)publishDataAtLeastOnce:(NSData *)data onTopic:(NSString *)topic;
 
 @end
 

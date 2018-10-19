@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMLoginViewController">
             <connections>
-                <outlet property="countField" destination="rvy-7N-bQd" id="HCE-SP-I0X"/>
+                <outlet property="acountField" destination="rvy-7N-bQd" id="GIK-3o-xDG"/>
                 <outlet property="passWordField" destination="VMY-Tp-KVR" id="OK9-Gg-wyB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

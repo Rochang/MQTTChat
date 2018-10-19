@@ -9,10 +9,13 @@
 #ifndef Project_Macro_h
 #define Project_Macro_h
 
-//#define kHost @"106.14.93.204"
-//#define Kport 1883
-#define kHost @"127.0.0.1"
-#define Kport 6969
+#define kHost @"106.14.93.204"
+#define Kport 1883
+//#define kHost @"127.0.0.1"
+//#define Kport 6969
+
+#define kUserName @"accountName"
+#define kUserPassWard @"passWard"
 
 // 最近会话表
 #define kConversationTableName       @"t_conversation"
@@ -24,6 +27,17 @@
 #define kP2PTableName                @"t_P2P"
 // 单聊聊天记录表
 #define kP2PChatTableName            @"t_P2P_chat"
+
+// 指令类型
+typedef NS_ENUM(NSInteger, SIMCommandType) {
+    SIMCommandTypeNone         = 0,   //None
+    SIMCommandTypeChat         = 1,   //1:聊天
+    SIMCommandTypeNotification = 2,   //2:通知
+    SIMCommandTypeOrder        = 3,   //3:指令
+    SIMCommandTypeFeedback     = 4,   //4:反馈
+    SIMCommandResponse         = 6,   //6:响应
+    SIMCommandBroadcast        = 7    //7:广播
+};
 
 /** 信息类型 */
 typedef NS_ENUM(NSUInteger, IMMessageType) {
@@ -42,5 +56,22 @@ typedef NS_ENUM(NSUInteger, IMChatType) {
     IMChatTypeP2P,   // 私聊
     IMChatTypeGroup  // 群聊
 };
+
+static NSString * const KuserMessageListTopic =             @"im/api/v1/message/user/list";
+static NSString * const KuserAccountSearchTopic =           @"im/api/v1/search";
+static NSString * const KgroupMessageListTopic =            @"im/api/v1/message/group/list";
+static NSString * const KfriendsListTopic =                 @"im/api/v1/user/friend/list";
+static NSString * const KremoveFriendTopic =                @"im/api/v1/user/friend/delete";
+static NSString * const KaddFriendTopic =                   @"im/api/v1/user/friend/request";
+static NSString * const KacceptOrRejectFriendTopic =        @"im/api/v1/user/friend/response";
+static NSString * const KgroupersListTopic =                @"im/api/v1/user/group/list";
+static NSString * const KquitGroupTopic =                   @"im/api/v1/user/group/delete";
+static NSString * const KaddGroupTopic =                    @"im/api/v1/user/group/request";
+static NSString * const KacceptOrRejectGroupApplyTopic =    @"im/api/v1/user/group/response";
+static NSString * const KcreateGroupTopic =                 @"im/api/v1/group/create";
+static NSString * const KdeleteGroupTopic =                 @"im/api/v1/group/delete";
+static NSString * const KaddGroupMemberTopic =              @"im/api/v1/group/member/create";
+static NSString * const KdeleteGroupMemberTopic =           @"im/api/v1/group/member/delete";
+static NSString * const KgroupMemberListTopic =             @"im/api/v1/group/member/list";
 
 #endif /* Project_Macro_h */
