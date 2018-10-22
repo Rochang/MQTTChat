@@ -78,7 +78,7 @@
     return @{@"coords" : IMBrushCoordModel.class};
 }
 
-- (instancetype)initWithType:(IMDirectiveActionType)type width:(int)width uiColor:(UIColor*)uiColor beginPoint:(IMBrushCoordModel *)beginPoint {
+- (instancetype)initWithType:(IMDrawBoardActionType)type width:(int)width uiColor:(UIColor*)uiColor beginPoint:(IMBrushCoordModel *)beginPoint {
     if(!(self = [super init])) return nil;
     
     [self setWidthAndOriginWidth:width];
@@ -146,12 +146,12 @@
     _type = type;
     if(!_type) return;
     switch (type.integerValue) {
-        case DrawingBoardActionEraser:{ //设置成橡皮擦
+        case IMDrawBoardActionTypeEraser:{ //设置成橡皮擦
             [self setColorWithUIColor:[UIColor colorWithRGBA:0xFFFFFFFF]];
             [self setWidthAndOriginWidth:EarserWidth];
         }
             break;
-        case DrawingBoardActionBrushes:{ //设置成画笔
+        case IMDrawBoardActionTypeBrushes:{ //设置成画笔
             [self setColorWithUIColor:[UIColor colorWithRGBA:0x000000FF]];
             [self setWidthAndOriginWidth:BrushrWidth];
         }
@@ -160,54 +160,48 @@
     }
 }
 
-- (DrawingBoardActionType)drawingBoardActionType {
-    if(!_type) return DrawingBoardActionBrushes;
-    return _type.integerValue;
-}
-
 @end
 
 
 #pragma mark - IMDrawBoardModel
 @implementation IMDrawBoardModel
 
-+ (SIMDrawingBoard *)defaultDrawingBoard {
-    SIMDrawingBoard *board = [SIMDrawingBoard new];
-    board.type = @(DrawingBoardOrderBrushes);
-    board.brush = [SIMBrush defaultBrush];
++ (IMDrawBoardModel *)defaultDrawingBoard {
+    IMDrawBoardModel *board = [IMDrawBoardModel new];
+    board.type = IMDrawBoardOrderTypeBrushes;
+    board.brush = [IMDrawBoardModel defaultBrush];
     return board;
 }
 //橡皮擦擦除
-+ (SIMDrawingBoard *)erasureDrawingBoard {
-    SIMDrawingBoard *board = [SIMDrawingBoard new];
-    board.type = @(DrawingBoardOrderBrushes);
-    [board.brush setDrawingBoardOrderType:@(DrawingBoardActionEraser)];
++ (IMDrawBoardModel *)erasureDrawingBoard {
+    IMDrawBoardModel *board = [IMDrawBoardModel new];
+    board.type = IMDrawBoardOrderTypeBrushes;
+    [board.brush setDrawingBoardOrderType:IMDrawBoardOrderTypeEraser];
     return board;
 }
 //清屏
-+ (SIMDrawingBoard *)clearDrawingBoard {
-    SIMDrawingBoard *board = [SIMDrawingBoard new];
-    board.type = @(DrawingBoardOrderClear);
++ (IMDrawBoardModel *)clearDrawingBoard {
+    IMDrawBoardModel *board = [IMDrawBoardModel new];
+    board.type = IMDrawBoardOrderTypeClear;
     return board;
 }
+
 //撤销
-+ (SIMDrawingBoard *)cancelDrawingBoard {
-    SIMDrawingBoard *board = [SIMDrawingBoard new];
-    board.type = @(DrawingBoardOrderRepeal);
++ (IMDrawBoardModel *)cancelDrawingBoard {
+    IMDrawBoardModel *board = [IMDrawBoardModel new];
+    board.type = IMDrawBoardOrderTypeRepeal;
     return board;
 }
+
 //恢复
-+ (SIMDrawingBoard *)recoverDrawingBoard {
-    SIMDrawingBoard *board = [SIMDrawingBoard new];
-    board.type = @(DrawingBoardOrderRecover);
++ (IMDrawBoardModel *)recoverDrawingBoard {
+    IMDrawBoardModel *board = [IMDrawBoardModel new];
+    board.type = IMDrawBoardOrderTypeRecover;
     return board;
 }
-- (DrawingBoardOrderType)drawingBoardOrderType {
-    if(!_type) return DrawingBoardOrderBrushes;
-    return _type.integerValue;
-}
+
 //更新画笔信息，不带坐标点
-- (void)update:(SIMDrawingBoard *)drawingBoard {
+- (void)update:(IMDrawBoardModel *)drawingBoard {
     if(!drawingBoard) return;
     _type = drawingBoard.type;
     if(!drawingBoard.brush) return;

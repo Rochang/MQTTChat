@@ -74,7 +74,7 @@
 }
 
 - (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid {
-    NSLog(@"%@", [data yy_modelToJSONString]);
+    NSLog(@"%@", JsonStr(data));
     /**
      SIMCommandTypeNone         = 0,   //None
      SIMCommandTypeChat         = 1,   //1:聊天

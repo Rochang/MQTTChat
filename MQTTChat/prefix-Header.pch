@@ -14,6 +14,6 @@
 #import "LCBaseViewController.h"
 #import "Project-Macro.h"
 //#import "MJExtension.h"
-#import "YYModel.h"
+#import "YYKit.h"
 
 #endif /* prefix_Header_h */

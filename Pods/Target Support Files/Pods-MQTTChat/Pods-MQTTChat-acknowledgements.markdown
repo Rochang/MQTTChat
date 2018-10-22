@@ -289,7 +289,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-## YYModel
+## YYKit
 
 The MIT License (MIT)
 

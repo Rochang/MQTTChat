@@ -10,7 +10,6 @@ target 'MQTTChat' do
 pod 'MJExtension'
 pod 'FMDB'
 pod 'MQTTClient'
-pod 'YYModel'
-
+pod 'YYKit'
 
 end

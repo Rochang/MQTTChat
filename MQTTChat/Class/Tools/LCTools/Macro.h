@@ -19,25 +19,26 @@
 
 #pragma mark - easy
 /************************* easy ***************************/
-#define __WEAKSELF(X) __weak typeof(X) weakSelf = X;
-#define WEAKSELF __weak typeof(self) weakSelf = self;
+#define __WEAKSELF(X)               __weak typeof(X) weakSelf = X;
+#define WEAKSELF                    __weak typeof(self) weakSelf = self;
 
-#define UserDefaultsSet(value,key) [[NSUserDefaults standardUserDefaults] setValue:value forKey:key]
-#define UserDefaultsGet(key) [[NSUserDefaults standardUserDefaults] valueForKey:key]
+#define UserDefaultsSet(value,key)  [[NSUserDefaults standardUserDefaults] setValue:value forKey:key]
+#define UserDefaultsGet(key)        [[NSUserDefaults standardUserDefaults] valueForKey:key]
 
-#define Image(nameStr)        [UIImage imageNamed:nameStr]
-#define Url(urlStr)           [NSURL URLWithString:urlStr]
-#define Bundle(bundleName, pic) [UIImage imageWithContentsOfFile:[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"]] pathForResource:pic ofType:@"png"]]
+#define Image(nameStr)              [UIImage imageNamed:nameStr]
+#define Url(urlStr)                 [NSURL URLWithString:urlStr]
+#define Bundle(bundleName, pic)     [UIImage imageWithContentsOfFile:[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"]] pathForResource:pic ofType:@"png"]]
+#define JsonStr(data)               [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]
 
 #pragma mark - UI
 /************************* UI ***************************/
-#define KScreen_H [UIScreen mainScreen].bounds.size.height
-#define KScreen_W [UIScreen mainScreen].bounds.size.width
-#define KStatusBar_H [[UIApplication sharedApplication] statusBarFrame].size.height
-#define KNavBar_H self.navigationController.navigationBar.frame.size.height
-#define KTopBar_H (Height_StatusBar+Height_NavBar)
-#define KIsiPhoneX_ ((int)((KScreen_H/KScreen_W)*100) == 216)?YES:NO
-#define KTabBar_H   KIsIphone_X_series?83:49
+#define KScreen_H                   [UIScreen mainScreen].bounds.size.height
+#define KScreen_W                   [UIScreen mainScreen].bounds.size.width
+#define KStatusBar_H                [[UIApplication sharedApplication] statusBarFrame].size.height
+#define KNavBar_H                   self.navigationController.navigationBar.frame.size.height
+#define KTopBar_H                   (Height_StatusBar+Height_NavBar)
+#define KIsiPhoneX_                 ((int)((KScreen_H/KScreen_W)*100) == 216)?YES:NO
+#define KTabBar_H                   KIsIphone_X_series?83:49
 
 #define KIs4_inch CGSizeEqualToSize(CGSizeMake(320, 568), [UIScreen mainScreen].bounds.size) ? YES : NO
 #define KIs4_7_inch CGSizeEqualToSize(CGSizeMake(375, 667), [UIScreen mainScreen].bounds.size) ? YES : NO
