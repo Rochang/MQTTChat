@@ -183,6 +183,21 @@ typedef NS_ENUM(NSUInteger, IMTalkbackType){
     IMTalkbackTypeUI  = 2   // 有UI
 };
 
+// 画笔类型
+typedef NS_ENUM(NSInteger, IMDrawBoardActionType) {
+    IMDrawBoardActionTypeBrushes = 1, // 画笔
+    IMDrawBoardActionTypeEraser  = 2  // 橡皮擦
+};
+
+// 画笔操作
+typedef NS_ENUM(NSInteger, IMDrawBoardOrderType) {
+    IMDrawBoardOrderTypeBrushes  = 1, // 画笔
+    IMDrawBoardOrderTypeRepeal   = 2, // 撤销
+    IMDrawBoardOrderTyperRecover  = 3, // 恢复
+    IMDrawBoardOrderTypeClear    = 4  // 清屏
+};
+
+
 static NSString * const KuserMessageListTopic =             @"im/api/v1/message/user/list";
 static NSString * const KuserAccountSearchTopic =           @"im/api/v1/search";
 static NSString * const KgroupMessageListTopic =            @"im/api/v1/message/group/list";

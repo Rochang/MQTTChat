@@ -30,6 +30,7 @@
 		C05D026A217DB39E00876E54 /* IMAgoraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D0269217DB39E00876E54 /* IMAgoraModel.m */; };
 		C05D026F217DBF1D00876E54 /* IMTalkbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D026E217DBF1D00876E54 /* IMTalkbackModel.m */; };
 		C05D0272217DC02500876E54 /* IMAVModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D0271217DC02500876E54 /* IMAVModel.m */; };
+		C05D0275217DC22200876E54 /* IMDrawBoardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D0274217DC22200876E54 /* IMDrawBoardModel.m */; };
 		C0BA6F29216C9CB50097D28C /* IMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */; };
 		C0BA6F2A216C9CB50097D28C /* IMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */; };
 		C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2D216C9F9B0097D28C /* IMAccountViewController.m */; };
@@ -114,6 +115,8 @@
 		C05D026E217DBF1D00876E54 /* IMTalkbackModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMTalkbackModel.m; sourceTree = "<group>"; };
 		C05D0270217DC02500876E54 /* IMAVModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMAVModel.h; sourceTree = "<group>"; };
 		C05D0271217DC02500876E54 /* IMAVModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMAVModel.m; sourceTree = "<group>"; };
+		C05D0273217DC22200876E54 /* IMDrawBoardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMDrawBoardModel.h; sourceTree = "<group>"; };
+		C05D0274217DC22200876E54 /* IMDrawBoardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMDrawBoardModel.m; sourceTree = "<group>"; };
 		C0BA6F26216C9CB50097D28C /* IMLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMLoginViewController.h; sourceTree = "<group>"; };
 		C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMLoginViewController.m; sourceTree = "<group>"; };
 		C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMLoginViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				C05D0269217DB39E00876E54 /* IMAgoraModel.m */,
 				C05D025F217DA68000876E54 /* IMNavigationModel.h */,
 				C05D0260217DA68000876E54 /* IMNavigationModel.m */,
+				C05D0273217DC22200876E54 /* IMDrawBoardModel.h */,
+				C05D0274217DC22200876E54 /* IMDrawBoardModel.m */,
 			);
 			path = "消息内容Model";
 			sourceTree = "<group>";
@@ -718,6 +723,7 @@
 			files = (
 				C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */,
 				C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */,
+				C05D0275217DC22200876E54 /* IMDrawBoardModel.m in Sources */,
 				C0BA6F71216DF28E0097D28C /* IMUserModel.m in Sources */,
 				18253575217C839100816F93 /* IMVoiceModel.m in Sources */,
 				C0E493EE215E0FCD0089BABE /* IMDiscoverViewController.m in Sources */,

@@ -17,7 +17,8 @@
 #import "IMLocationModel.h"
 #import "IMLiveModel.h"
 #import "IMMediaModel.h"
-
+#import "IMTalkbackModel.h"
+#import "IMDrawBoardModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IMLiveModel *live;// 直播
 @property (nonatomic, strong) IMMediaModel *video_dialog;// 视频会话
 @property (nonatomic, strong) IMMediaModel *voice_dialog;// 音频会话
+@property (nonatomic, strong) IMTalkbackModel *intercom;// 对讲
+@property (nonatomic, assign) BOOL display_now; // 立即显示
+@property (nonatomic, strong) IMDrawBoardModel *wb;// 画板
 
 
 + (NSString *)db_chat_id;
