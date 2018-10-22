@@ -9,30 +9,17 @@
 /**
  Include this file to use MQTTClient classes in your application
  
- @author Christoph Krey c@ckrey.de
+ @author Christoph Krey krey.christoph@gmail.com
  @see http://mqtt.org
  */
 
 #import <Foundation/Foundation.h>
 
 #import <MQTTClient/MQTTSession.h>
-#import <MQTTClient/MQTTDecoder.h>
 #import <MQTTClient/MQTTSessionLegacy.h>
 #import <MQTTClient/MQTTSessionSynchron.h>
-#import <MQTTClient/MQTTProperties.h>
 #import <MQTTClient/MQTTMessage.h>
 #import <MQTTClient/MQTTTransport.h>
 #import <MQTTClient/MQTTCFSocketTransport.h>
 #import <MQTTClient/MQTTCoreDataPersistence.h>
 #import <MQTTClient/MQTTSSLSecurityPolicyTransport.h>
-
-#if __has_include(<MQTTClient/MQTTSessionManager.h>)
-#import <MQTTClient/MQTTSessionManager.h>
-#endif
-
-//! Project version number for MQTTClient.
-FOUNDATION_EXPORT double MQTTClientVersionNumber;
-
-//! Project version string for MQTTClient&lt;.
-FOUNDATION_EXPORT const unsigned char MQTTClientVersionString[];
-

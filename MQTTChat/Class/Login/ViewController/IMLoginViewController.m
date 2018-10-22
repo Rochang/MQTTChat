@@ -11,7 +11,7 @@
 #import "IMMQTTManager.h"
 #import "LCTabBarController.h"
 #import "IMPresentationController.h"
-#import "IMManager.h"
+#import "IMSDKManager.h"
 
 @interface IMLoginViewController ()<UIViewControllerTransitioningDelegate>
 

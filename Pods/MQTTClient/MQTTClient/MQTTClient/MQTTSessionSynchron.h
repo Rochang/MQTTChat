@@ -6,7 +6,7 @@
 /**
  Synchronous API
  
- @author Christoph Krey c@ckrey.de
+ @author Christoph Krey krey.christoph@gmail.com
  @copyright Copyright © 2013-2017, Christoph Krey. All rights reserved.
 
  */
@@ -56,8 +56,7 @@
  */
 - (BOOL)connectAndWaitToHost:(NSString *)host
                         port:(UInt32)port
-                    usingSSL:(BOOL)usingSSL
-__attribute__((deprecated));
+                    usingSSL:(BOOL)usingSSL;
 
 /** connects to the specified MQTT server synchronously
  
@@ -82,8 +81,7 @@ __attribute__((deprecated));
 - (BOOL)connectAndWaitToHost:(NSString *)host
                         port:(UInt32)port
                     usingSSL:(BOOL)usingSSL
-                     timeout:(NSTimeInterval)timeout
-__attribute__((deprecated));
+                     timeout:(NSTimeInterval)timeout;
 
 /** subscribes to a topic at a specific QoS level synchronously
  

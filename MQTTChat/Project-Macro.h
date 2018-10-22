@@ -28,15 +28,34 @@
 // 单聊聊天记录表
 #define kP2PChatTableName            @"t_P2P_chat"
 
-// 指令类型
-typedef NS_ENUM(NSInteger, SIMCommandType) {
-    SIMCommandTypeNone         = 0,   //None
-    SIMCommandTypeChat         = 1,   //1:聊天
-    SIMCommandTypeNotification = 2,   //2:通知
-    SIMCommandTypeOrder        = 3,   //3:指令
-    SIMCommandTypeFeedback     = 4,   //4:反馈
-    SIMCommandResponse         = 6,   //6:响应
-    SIMCommandBroadcast        = 7    //7:广播
+// 消息类型
+typedef NS_ENUM(NSInteger, IMCommandType) {
+    IMCommandTypeNone         = 0,   //None
+    IMCommandTypeChat         = 1,   //1:聊天
+    IMCommandTypeNotification = 2,   //2:通知
+    IMCommandTypeOrder        = 3,   //3:指令
+    IMCommandTypeFeedback     = 4,   //4:反馈
+    IMCommandResponse         = 6,   //6:响应
+    IMCommandBroadcast        = 7    //7:广播
+};
+
+// 对话类型
+typedef NS_ENUM(NSUInteger, IMChatType) {
+    IMChatTypeNone                        = 0,  // None
+    IMChatTypeText                        = 1,  // 文本聊天
+    IMChatTypeVoice                       = 2,  // 语音
+    IMChatTypePictore                     = 3,  // 图片
+    IMChatTypeVideo                       = 4,  // 视频
+    IMChatTypeFile                        = 5,  // 文件
+    IMChatTypeInlinePicture               = 6,  // 内嵌图片
+    IMChatTypeLoction                     = 7,  // 位置
+    IMChatTypeVideoSession                = 8,  // 视频会话
+    IMChatTypeVoiceSession                = 9,  // 音频会话
+    IMChatTypeLive                        = 10, // 直播
+    IMChatTypeEvent                       = 11, // 事件
+    IMChatTypeIntercom                    = 12, // 对讲
+    IMChatTypeDrawingBoard                = 13, // 画板
+    IMChatTypeAlarm                       = 14  // 报警
 };
 
 /** 信息类型 */
@@ -49,12 +68,6 @@ typedef NS_ENUM(NSUInteger, IMMessageType) {
     IMMessageTypeVideo, // 短视频
     IMMessageTypeVideoSession, // 视频会话
     IMMessageTypeAudioSession // 语音会话
-};
-
-/** 会话形式 */
-typedef NS_ENUM(NSUInteger, IMChatType) {
-    IMChatTypeP2P,   // 私聊
-    IMChatTypeGroup  // 群聊
 };
 
 static NSString * const KuserMessageListTopic =             @"im/api/v1/message/user/list";

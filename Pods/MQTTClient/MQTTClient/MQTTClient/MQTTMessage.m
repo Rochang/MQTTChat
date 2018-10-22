@@ -18,7 +18,6 @@
 //
 
 #import "MQTTMessage.h"
-#import "MQTTProperties.h"
 
 #import "MQTTLog.h"
 
@@ -34,17 +33,7 @@
                                     willMsg:(NSData *)willMsg
                                     willQoS:(MQTTQosLevel)willQoS
                                  willRetain:(BOOL)willRetainFlag
-                              protocolLevel:(MQTTProtocolVersion)protocolLevel
-                      sessionExpiryInterval:(NSNumber *)sessionExpiryInterval
-                                 authMethod:(NSString *)authMethod
-                                   authData:(NSData *)authData
-                  requestProblemInformation:(NSNumber *)requestProblemInformation
-                          willDelayInterval:(NSNumber *)willDelayInterval
-                 requestResponseInformation:(NSNumber *)requestResponseInformation
-                             receiveMaximum:(NSNumber *)receiveMaximum
-                          topicAliasMaximum:(NSNumber *)topicAliasMaximum
-                               userProperty:(NSDictionary<NSString *,NSString *> *)userProperty
-                          maximumPacketSize:(NSNumber *)maximumPacketSize {
+                              protocolLevel:(UInt8)protocolLevel {
     /*
      * setup flags w/o basic plausibility checks
      *
@@ -76,88 +65,38 @@
 
     switch (protocolLevel) {
         case MQTTProtocolVersion50:
-            [data appendMQTTString:@"MQTT"];
-            [data appendByte:MQTTProtocolVersion50];
-            break;
+        [data appendMQTTString:@"MQTT"];
+        [data appendByte:MQTTProtocolVersion50];
+        break;
 
         case MQTTProtocolVersion311:
-            [data appendMQTTString:@"MQTT"];
-            [data appendByte:MQTTProtocolVersion311];
-            break;
+        [data appendMQTTString:@"MQTT"];
+        [data appendByte:MQTTProtocolVersion311];
+        break;
 
         case MQTTProtocolVersion31:
-            [data appendMQTTString:@"MQIsdp"];
-            [data appendByte:MQTTProtocolVersion31];
-            break;
+        [data appendMQTTString:@"MQIsdp"];
+        [data appendByte:MQTTProtocolVersion31];
+        break;
 
-        case MQTTProtocolVersion0:
-            [data appendMQTTString:@""];
-            [data appendByte:protocolLevel];
-            break;
+        case 0:
+        [data appendMQTTString:@""];
+        [data appendByte:protocolLevel];
+        break;
 
         default:
-            [data appendMQTTString:@"MQTT"];
-            [data appendByte:protocolLevel];
-            break;
+        [data appendMQTTString:@"MQTT"];
+        [data appendByte:protocolLevel];
+        break;
     }
     [data appendByte:flags];
     [data appendUInt16BigEndian:keepAlive];
-
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (sessionExpiryInterval) {
-            [properties appendByte:MQTTSessionExpiryInterval];
-            [properties appendUInt32BigEndian:sessionExpiryInterval.unsignedIntValue];
-        }
-        if (authMethod) {
-            [properties appendByte:MQTTAuthMethod];
-            [properties appendMQTTString:authMethod];
-        }
-        if (authData) {
-            [properties appendByte:MQTTAuthData];
-            [properties appendBinaryData:authData];
-        }
-        if (requestProblemInformation) {
-            [properties appendByte:MQTTRequestProblemInformation];
-            [properties appendByte:requestProblemInformation.unsignedIntValue];
-        }
-        if (willDelayInterval) {
-            [properties appendByte:MQTTWillDelayInterval];
-            [properties appendUInt32BigEndian:willDelayInterval.unsignedIntValue];
-        }
-        if (requestResponseInformation) {
-            [properties appendByte:MQTTRequestResponseInformation];
-            [properties appendByte:requestResponseInformation.unsignedIntValue];
-        }
-        if (receiveMaximum) {
-            [properties appendByte:MQTTReceiveMaximum];
-            [properties appendUInt16BigEndian:receiveMaximum.unsignedIntValue];
-        }
-        if (topicAliasMaximum) {
-            [properties appendByte:MQTTTopicAliasMaximum];
-            [properties appendUInt16BigEndian:topicAliasMaximum.unsignedIntValue];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        if (maximumPacketSize) {
-            [properties appendByte:MQTTMaximumPacketSize];
-            [properties appendUInt32BigEndian:maximumPacketSize.unsignedIntValue];
-        }
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
-
     [data appendMQTTString:clientId];
     if (willTopic) {
         [data appendMQTTString:willTopic];
     }
     if (willMsg) {
-        [data appendUInt16BigEndian:willMsg.length];
+        [data appendUInt16BigEndian:[willMsg length]];
         [data appendData:willMsg];
     }
     if (userName) {
@@ -176,58 +115,14 @@
     return [[MQTTMessage alloc] initWithType:MQTTPingreq];
 }
 
-+ (MQTTMessage *)disconnectMessage:(MQTTProtocolVersion)protocolLevel
-                        returnCode:(MQTTReturnCode)returnCode
-             sessionExpiryInterval:(NSNumber *)sessionExpiryInterval
-                      reasonString:(NSString *)reasonString
-                      userProperty:(NSDictionary<NSString *,NSString *> *)userProperty {
-    NSMutableData* data = [NSMutableData data];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (sessionExpiryInterval) {
-            [properties appendByte:MQTTSessionExpiryInterval];
-            [properties appendUInt32BigEndian:sessionExpiryInterval.unsignedIntValue];
-        }
-        if (reasonString) {
-            [properties appendByte:MQTTReasonString];
-            [properties appendMQTTString:reasonString];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        if (returnCode != MQTTSuccess || properties.length > 0) {
-            [data appendByte:returnCode];
-        }
-        if (properties.length > 0) {
-            [data appendVariableLength:properties.length];
-            [data appendData:properties];
-        }
-    }
-    MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTDisconnect
-                                                    data:data];
-    return msg;
++ (MQTTMessage *)disconnectMessage {
+    return [[MQTTMessage alloc] initWithType:MQTTDisconnect];
 }
 
 + (MQTTMessage *)subscribeMessageWithMessageId:(UInt16)msgId
-                                        topics:(NSDictionary *)topics
-                                 protocolLevel:(MQTTProtocolVersion)protocolLevel
-                        subscriptionIdentifier:(NSNumber *)subscriptionIdentifier {
+                                        topics:(NSDictionary *)topics {
     NSMutableData* data = [NSMutableData data];
     [data appendUInt16BigEndian:msgId];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (subscriptionIdentifier) {
-            [properties appendByte:MQTTSubscriptionIdentifier];
-            [properties appendVariableLength:subscriptionIdentifier.unsignedLongValue];
-        }
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
-
     for (NSString *topic in topics.allKeys) {
         [data appendMQTTString:topic];
         [data appendByte:[topics[topic] intValue]];
@@ -240,8 +135,7 @@
 }
 
 + (MQTTMessage *)unsubscribeMessageWithMessageId:(UInt16)msgId
-                                          topics:(NSArray *)topics
-                                   protocolLevel:(MQTTProtocolVersion)protocolLevel {
+                                          topics:(NSArray *)topics {
     NSMutableData* data = [NSMutableData data];
     [data appendUInt16BigEndian:msgId];
     for (NSString *topic in topics) {
@@ -259,54 +153,10 @@
                                     qos:(MQTTQosLevel)qosLevel
                                   msgId:(UInt16)msgId
                              retainFlag:(BOOL)retain
-                                dupFlag:(BOOL)dup
-                          protocolLevel:(MQTTProtocolVersion)protocolLevel
-                 payloadFormatIndicator:(NSNumber *)payloadFormatIndicator
-              publicationExpiryInterval:(NSNumber *)publicationExpiryInterval
-                             topicAlias:(NSNumber *)topicAlias
-                          responseTopic:(NSString *)responseTopic
-                        correlationData:(NSData *)correlationData
-                           userProperty:(NSDictionary<NSString *,NSString *> *)userProperty
-                            contentType:(NSString *)contentType {
+                                dupFlag:(BOOL)dup {
     NSMutableData *data = [[NSMutableData alloc] init];
     [data appendMQTTString:topic];
     if (msgId) [data appendUInt16BigEndian:msgId];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (payloadFormatIndicator) {
-            [properties appendByte:MQTTPayloadFormatIndicator];
-            [properties appendByte:payloadFormatIndicator.unsignedIntValue];
-        }
-        if (publicationExpiryInterval) {
-            [properties appendByte:MQTTPublicationExpiryInterval];
-            [properties appendUInt32BigEndian:publicationExpiryInterval.unsignedIntValue];
-        }
-        if (topicAlias) {
-            [properties appendByte:MQTTTopicAlias];
-            [properties appendUInt16BigEndian:topicAlias.unsignedIntValue];
-        }
-        if (responseTopic) {
-            [properties appendByte:MQTTResponseTopic];
-            [properties appendMQTTString:responseTopic];
-        }
-        if (correlationData) {
-            [properties appendByte:MQTTCorrelationData];
-            [properties appendBinaryData:correlationData];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        if (contentType) {
-            [properties appendByte:MQTTContentType];
-            [properties appendMQTTString:contentType];
-        }
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
     [data appendData:payload];
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPublish
                                                      qos:qosLevel
@@ -317,90 +167,27 @@
     return msg;
 }
 
-+ (MQTTMessage *)pubackMessageWithMessageId:(UInt16)msgId
-                              protocolLevel:(MQTTProtocolVersion)protocolLevel
-                                 returnCode:(MQTTReturnCode)returnCode
-                               reasonString:(NSString *)reasonString
-                               userProperty:(NSDictionary<NSString *,NSString *> *)userProperty {
++ (MQTTMessage *)pubackMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
     [data appendUInt16BigEndian:msgId];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (reasonString) {
-            [properties appendByte:MQTTReasonString];
-            [properties appendMQTTString:reasonString];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        [data appendByte:returnCode];
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPuback
                                                     data:data];
     msg.mid = msgId;
     return msg;
 }
 
-+ (MQTTMessage *)pubrecMessageWithMessageId:(UInt16)msgId
-                              protocolLevel:(MQTTProtocolVersion)protocolLevel
-                                 returnCode:(MQTTReturnCode)returnCode
-                               reasonString:(NSString *)reasonString
-                               userProperty:(NSDictionary<NSString *,NSString *> *)userProperty {
++ (MQTTMessage *)pubrecMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
     [data appendUInt16BigEndian:msgId];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (reasonString) {
-            [properties appendByte:MQTTReasonString];
-            [properties appendMQTTString:reasonString];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        [data appendByte:returnCode];
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPubrec
                                                     data:data];
     msg.mid = msgId;
     return msg;
 }
 
-+ (MQTTMessage *)pubrelMessageWithMessageId:(UInt16)msgId
-                              protocolLevel:(MQTTProtocolVersion)protocolLevel
-                                 returnCode:(MQTTReturnCode)returnCode
-                               reasonString:(NSString *)reasonString
-                               userProperty:(NSDictionary<NSString *,NSString *> *)userProperty {
++ (MQTTMessage *)pubrelMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
     [data appendUInt16BigEndian:msgId];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (reasonString) {
-            [properties appendByte:MQTTReasonString];
-            [properties appendMQTTString:reasonString];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        [data appendByte:returnCode];
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPubrel
                                                      qos:1
                                                     data:data];
@@ -408,30 +195,9 @@
     return msg;
 }
 
-+ (MQTTMessage *)pubcompMessageWithMessageId:(UInt16)msgId
-                               protocolLevel:(MQTTProtocolVersion)protocolLevel
-                                  returnCode:(MQTTReturnCode)returnCode
-                                reasonString:(NSString *)reasonString
-                                userProperty:(NSDictionary<NSString *,NSString *> *)userProperty {
++ (MQTTMessage *)pubcompMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
     [data appendUInt16BigEndian:msgId];
-    if (protocolLevel == MQTTProtocolVersion50) {
-        NSMutableData *properties = [[NSMutableData alloc] init];
-        if (reasonString) {
-            [properties appendByte:MQTTReasonString];
-            [properties appendMQTTString:reasonString];
-        }
-        if (userProperty) {
-            for (NSString *key in userProperty.allKeys) {
-                [properties appendByte:MQTTUserProperty];
-                [properties appendMQTTString:key];
-                [properties appendMQTTString:userProperty[key]];
-            }
-        }
-        [data appendByte:returnCode];
-        [data appendVariableLength:properties.length];
-        [data appendData:properties];
-    }
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPubcomp
                                                     data:data];
     msg.mid = msgId;
@@ -500,7 +266,18 @@
         header |= 0x01;
     }
     [buffer appendBytes:&header length:1];
-    [buffer appendVariableLength:self.data.length];
+
+    // encode remaining length
+    NSInteger length = self.data.length;
+    do {
+        UInt8 digit = length % 128;
+        length /= 128;
+        if (length > 0) {
+            digit |= 0x80;
+        }
+        [buffer appendBytes:&digit length:1];
+    }
+    while (length > 0);
 
     // encode message data
     if (self.data != nil) {
@@ -514,7 +291,7 @@
     return buffer;
 }
 
-+ (MQTTMessage *)messageFromData:(NSData *)data protocolLevel:(MQTTProtocolVersion)protocolLevel {
++ (MQTTMessage *)messageFromData:(NSData *)data {
     MQTTMessage *message = nil;
     if (data.length >= 2) {
         UInt8 header;
@@ -594,60 +371,19 @@
                     if (type == MQTTPuback ||
                         type == MQTTPubrec ||
                         type == MQTTPubrel ||
-                        type == MQTTPubcomp) {
-                        if (protocolLevel != MQTTProtocolVersion50) {
-                            if (message.data.length > 2) {
-                                DDLogWarn(@"[MQTTMessage] unexpected payload after packet identifier");
-                                message = nil;
-                            }
-                        } else {
-                            if (message.data.length < 3) {
-                                DDLogWarn(@"[MQTTMessage] no returncode");
-                                message = nil;
-                            } else {
-                                const UInt8 *bytes = message.data.bytes;
-                                message.returnCode = [NSNumber numberWithInt:bytes[2]];
-                                if (message.data.length >= 3) {
-                                    message.properties = [[MQTTProperties alloc] initFromData:
-                                                          [message.data subdataWithRange:NSMakeRange(3, message.data.length - 3)]];
-                                }
-                            }
-
-                        }
-                    }
-                    if (type == MQTTUnsuback ) {
+                        type == MQTTPubcomp ||
+                        type == MQTTUnsuback ) {
                         if (message.data.length > 2) {
                             DDLogWarn(@"[MQTTMessage] unexpected payload after packet identifier");
                             message = nil;
                         }
                     }
                     if (type == MQTTPingreq ||
-                        type == MQTTPingresp) {
-                        if (message.data.length > 0) {
+                        type == MQTTPingresp ||
+                        type == MQTTDisconnect) {
+                        if (message.data.length > 2) {
                             DDLogWarn(@"[MQTTMessage] unexpected payload");
                             message = nil;
-                        }
-                    }
-                    if (type == MQTTDisconnect) {
-                        if (protocolLevel == MQTTProtocolVersion50) {
-                            if (message.data.length == 0) {
-                                message.properties = nil;
-                                message.returnCode = @(MQTTSuccess);
-                            } else if (message.data.length == 1) {
-                                message.properties = nil;
-                                const UInt8 *bytes = message.data.bytes;
-                                message.returnCode = [NSNumber numberWithUnsignedInt:bytes[0]];
-                            } else if (message.data.length > 1) {
-                                const UInt8 *bytes = message.data.bytes;
-                                message.returnCode = [NSNumber numberWithUnsignedInt:bytes[0]];
-                                message.properties = [[MQTTProperties alloc] initFromData:
-                                                      [message.data subdataWithRange:NSMakeRange(1, message.data.length - 1)]];
-                            }
-                        } else {
-                            if (message.data.length != 2) {
-                                DDLogWarn(@"[MQTTMessage] unexpected payload");
-                                message = nil;
-                            }
                         }
                     }
                     if (type == MQTTConnect) {
@@ -657,25 +393,9 @@
                         }
                     }
                     if (type == MQTTConnack) {
-                        if (protocolLevel == MQTTProtocolVersion50) {
-                            if (message.data.length < 3) {
-                                DDLogWarn(@"[MQTTMessage] missing connack variable header");
-                                message = nil;
-                            }
-                        } else {
-                            if (message.data.length != 2) {
-                                DDLogWarn(@"[MQTTMessage] missing connack variable header");
-                                message = nil;
-                            }
-                        }
-                        if (message) {
-                            const UInt8 *bytes = message.data.bytes;
-                            message.connectAcknowledgeFlags = [NSNumber numberWithUnsignedInt:bytes[0]];
-                            message.returnCode = [NSNumber numberWithUnsignedInt:bytes[1]];
-                            if (protocolLevel == MQTTProtocolVersion50) {
-                                message.properties = [[MQTTProperties alloc] initFromData:
-                                                      [message.data subdataWithRange:NSMakeRange(2, message.data.length - 2)]];
-                            }
+                        if (message.data.length != 2) {
+                            DDLogWarn(@"[MQTTMessage] missing connack variable header");
+                            message = nil;
                         }
                     }
                     if (type == MQTTSubscribe) {
@@ -715,45 +435,39 @@
 
 @implementation NSMutableData (MQTT)
 
-- (void)appendByte:(UInt8)byte {
+- (void)appendByte:(UInt8)byte
+{
     [self appendBytes:&byte length:1];
 }
 
-- (void)appendUInt16BigEndian:(UInt16)val {
+- (void)appendUInt16BigEndian:(UInt16)val
+{
     [self appendByte:val / 256];
     [self appendByte:val % 256];
 }
 
-- (void)appendUInt32BigEndian:(UInt32)val {
-    [self appendByte:(val / (256 * 256 * 256))];
-    [self appendByte:(val / (256 * 256)) & 0xff];
-    [self appendByte:(val / 256) & 0xff];
-    [self appendByte:val % 256];
-}
-
-- (void)appendVariableLength:(unsigned long)length {
-    do {
-        UInt8 digit = length % 128;
-        length /= 128;
-        if (length > 0) {
-            digit |= 0x80;
-        }
-        [self appendBytes:&digit length:1];
-    }
-    while (length > 0);
-}
-
-- (void)appendMQTTString:(NSString *)string {
+- (void)appendMQTTString:(NSString *)string
+{
     if (string) {
-        NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-        [self appendUInt16BigEndian:data.length];
-        [self appendData:data];
-    }
-}
+        //        UInt8 buf[2];
+        //        if (DEBUGMSG) NSLog(@"String=%@", string);
+        //        const char* utf8String = [string UTF8String];
+        //        if (DEBUGMSG) NSLog(@"UTF8=%s", utf8String);
+        //
+        //        size_t strLen = strlen(utf8String);
+        //        buf[0] = strLen / 256;
+        //        buf[1] = strLen % 256;
+        //        [self appendBytes:buf length:2];
+        //        [self appendBytes:utf8String length:strLen];
 
-- (void)appendBinaryData:(NSData *)data {
-    if (data) {
-        [self appendUInt16BigEndian:data.length];
+        // This updated code allows for all kind or UTF characters including 0x0000
+        NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+        UInt8 buf[2];
+        UInt16 len = data.length;
+        buf[0] = len / 256;
+        buf[1] = len % 256;
+
+        [self appendBytes:buf length:2];
         [self appendData:data];
     }
 }

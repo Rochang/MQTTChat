@@ -32,6 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** 用户广播 */
 + (NSString *)broadcastTopic;
 
+/** 消息时间 */
++ (NSString *)showTime:(NSTimeInterval)msglastTime showDetail:(BOOL)showDetail;
+
+/** 文件大小 */
++ (long long)fileSizeAtPath:(NSString*)filePath;
+
+/** 语音时长 */
++ (NSUInteger)voiceDuration:(NSString *)filePath;
+
+/** 视频尺寸 */
++ (CGSize)videoSizeWithSourcePath:(NSString *)filePath;
 
 @end
 

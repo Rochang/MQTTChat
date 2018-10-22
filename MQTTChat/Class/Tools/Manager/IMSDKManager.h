@@ -1,5 +1,5 @@
 //
-//  IMManager.h
+//  IMSDKManager.h
 //  MQTTChat
 //
 //  Created by rochang on 2018/10/19.
@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "IMFriendManager.h"
 
-#define IMShare [IMManager shareInstance]
+#define IMShare [IMSDKManager shareInstance]
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IMManager : NSObject
+@interface IMSDKManager : NSObject
 
 @property (strong, nonatomic) IMFriendManager *friendManager;
 

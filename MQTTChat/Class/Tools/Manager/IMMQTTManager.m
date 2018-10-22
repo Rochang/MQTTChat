@@ -74,7 +74,7 @@
 }
 
 - (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid {
-    NSLog(@"%@", [data mj_JSONString]);
+    NSLog(@"%@", [data yy_modelToJSONString]);
     /**
      SIMCommandTypeNone         = 0,   //None
      SIMCommandTypeChat         = 1,   //1:聊天
@@ -84,6 +84,16 @@
      SIMCommandResponse         = 6,   //6:响应
      SIMCommandBroadcast        = 7    //7:广播
      */
+    NSDictionary * object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//    SIMModel *simModel = [SIMModel modelWithJSON:object];
+//    switch (<#expression#>) {
+//        case <#constant#>:
+//            <#statements#>
+//            break;
+//            
+//        default:
+//            break;
+//    }
 }
 
 #pragma mark - getter

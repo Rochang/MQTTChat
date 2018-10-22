@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		03A56994F4374F5C229EEC15 /* libPods-MQTTChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8B9B3DB83D269C9C0E6CFE /* libPods-MQTTChat.a */; };
+		1825356D217C738F00816F93 /* IMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825356C217C738F00816F93 /* IMModel.m */; };
+		18253575217C839100816F93 /* IMChatVoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18253574217C839100816F93 /* IMChatVoiceModel.m */; };
+		18253578217D481400816F93 /* IMChatImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18253577217D481400816F93 /* IMChatImageModel.m */; };
 		C05D02322179C89100876E54 /* IMPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02312179C89100876E54 /* IMPresentationController.m */; };
 		C05D02352179CF0A00876E54 /* LCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02342179CF0A00876E54 /* LCMethod.m */; };
 		C05D02382179DDAB00876E54 /* IMFriendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02372179DDAB00876E54 /* IMFriendManager.m */; };
-		C05D023B2179DEC400876E54 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D023A2179DEC400876E54 /* IMManager.m */; };
+		C05D023B2179DEC400876E54 /* IMSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D023A2179DEC400876E54 /* IMSDKManager.m */; };
 		C0BA6F29216C9CB50097D28C /* IMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */; };
 		C0BA6F2A216C9CB50097D28C /* IMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */; };
 		C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BA6F2D216C9F9B0097D28C /* IMAccountViewController.m */; };
@@ -52,14 +55,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1825356B217C738F00816F93 /* IMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMModel.h; sourceTree = "<group>"; };
+		1825356C217C738F00816F93 /* IMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMModel.m; sourceTree = "<group>"; };
+		18253573217C839100816F93 /* IMChatVoiceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMChatVoiceModel.h; sourceTree = "<group>"; };
+		18253574217C839100816F93 /* IMChatVoiceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatVoiceModel.m; sourceTree = "<group>"; };
+		18253576217D481400816F93 /* IMChatImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMChatImageModel.h; sourceTree = "<group>"; };
+		18253577217D481400816F93 /* IMChatImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMChatImageModel.m; sourceTree = "<group>"; };
 		C05D02302179C89100876E54 /* IMPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPresentationController.h; sourceTree = "<group>"; };
 		C05D02312179C89100876E54 /* IMPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPresentationController.m; sourceTree = "<group>"; };
 		C05D02332179CF0A00876E54 /* LCMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMethod.h; sourceTree = "<group>"; };
 		C05D02342179CF0A00876E54 /* LCMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMethod.m; sourceTree = "<group>"; };
 		C05D02362179DDAB00876E54 /* IMFriendManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMFriendManager.h; sourceTree = "<group>"; };
 		C05D02372179DDAB00876E54 /* IMFriendManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMFriendManager.m; sourceTree = "<group>"; };
-		C05D02392179DEC400876E54 /* IMManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
-		C05D023A2179DEC400876E54 /* IMManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMManager.m; sourceTree = "<group>"; };
+		C05D02392179DEC400876E54 /* IMSDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMSDKManager.h; sourceTree = "<group>"; };
+		C05D023A2179DEC400876E54 /* IMSDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMSDKManager.m; sourceTree = "<group>"; };
 		C0BA6F26216C9CB50097D28C /* IMLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMLoginViewController.h; sourceTree = "<group>"; };
 		C0BA6F27216C9CB50097D28C /* IMLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMLoginViewController.m; sourceTree = "<group>"; };
 		C0BA6F28216C9CB50097D28C /* IMLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMLoginViewController.xib; sourceTree = "<group>"; };
@@ -152,6 +161,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18253572217C81FE00816F93 /* 消息内容Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0BA6F75216DF9A30097D28C /* IMChatContentModel.h */,
+				C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */,
+				18253573217C839100816F93 /* IMChatVoiceModel.h */,
+				18253574217C839100816F93 /* IMChatVoiceModel.m */,
+				18253576217D481400816F93 /* IMChatImageModel.h */,
+				18253577217D481400816F93 /* IMChatImageModel.m */,
+			);
+			path = "消息内容Model";
+			sourceTree = "<group>";
+		};
 		66CA445EAB6A65120F5ED824 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,8 +231,8 @@
 				C0BA6F66216DF1120097D28C /* IMSystemManager.m */,
 				C0BA6F68216DF1210097D28C /* IMSourceManager.h */,
 				C0BA6F69216DF1210097D28C /* IMSourceManager.m */,
-				C05D02392179DEC400876E54 /* IMManager.h */,
-				C05D023A2179DEC400876E54 /* IMManager.m */,
+				C05D02392179DEC400876E54 /* IMSDKManager.h */,
+				C05D023A2179DEC400876E54 /* IMSDKManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -237,8 +259,9 @@
 				C0BA6F73216DF69B0097D28C /* IMChatModel.m */,
 				C0BA6F6F216DF28E0097D28C /* IMUserModel.h */,
 				C0BA6F70216DF28E0097D28C /* IMUserModel.m */,
-				C0BA6F75216DF9A30097D28C /* IMChatContentModel.h */,
-				C0BA6F76216DF9A30097D28C /* IMChatContentModel.m */,
+				1825356B217C738F00816F93 /* IMModel.h */,
+				1825356C217C738F00816F93 /* IMModel.m */,
+				18253572217C81FE00816F93 /* 消息内容Model */,
 			);
 			path = IMModel;
 			sourceTree = "<group>";
@@ -621,6 +644,7 @@
 				C0E493D2215CCB360089BABE /* LCTabBarController.m in Sources */,
 				C0BA6F2E216C9F9B0097D28C /* IMAccountViewController.m in Sources */,
 				C0BA6F71216DF28E0097D28C /* IMUserModel.m in Sources */,
+				18253575217C839100816F93 /* IMChatVoiceModel.m in Sources */,
 				C0E493EE215E0FCD0089BABE /* IMDiscoverViewController.m in Sources */,
 				C0BA6F8221704DE60097D28C /* IMP2PModel.m in Sources */,
 				C0BA6F40216CA5C00097D28C /* IMMQTTManager.m in Sources */,
@@ -632,11 +656,13 @@
 				C0BA6F74216DF69B0097D28C /* IMChatModel.m in Sources */,
 				C0E493D8215CCBE00089BABE /* IMChatListViewController.m in Sources */,
 				C0BA6F36216CA1780097D28C /* UIBarButtonItem+Block.m in Sources */,
+				18253578217D481400816F93 /* IMChatImageModel.m in Sources */,
 				C0E493F7215E11DC0089BABE /* UIView+LCLayout.m in Sources */,
 				C0BA6F64216DF0FE0097D28C /* IMChatManager.m in Sources */,
 				C0E493EB215E0FC00089BABE /* IMContactsViewController.m in Sources */,
 				C0E493F4215E10990089BABE /* LCBaseViewController.m in Sources */,
 				C0BA6F67216DF1120097D28C /* IMSystemManager.m in Sources */,
+				1825356D217C738F00816F93 /* IMModel.m in Sources */,
 				C0E4938D215CC8CF0089BABE /* AppDelegate.m in Sources */,
 				C0BA6F37216CA1780097D28C /* UIControl+Block.m in Sources */,
 				C0BA6F6A216DF1210097D28C /* IMSourceManager.m in Sources */,
@@ -653,7 +679,7 @@
 				C0E493F1215E0FD70089BABE /* IMMeViewController.m in Sources */,
 				C0BA6F5E216DF0610097D28C /* IMConversationManager.m in Sources */,
 				C0BA6F31216CA1510097D28C /* LCView.m in Sources */,
-				C05D023B2179DEC400876E54 /* IMManager.m in Sources */,
+				C05D023B2179DEC400876E54 /* IMSDKManager.m in Sources */,
 				C05D02322179C89100876E54 /* IMPresentationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
  Using MQTT in your Objective-C application
  This file contains definitions for mqttio-OBJC backward compatibility
  
- @author Christoph Krey c@ckrey.de
+ @author Christoph Krey krey.christoph@gmail.com
  @copyright Copyright © 2013-2017, Christoph Krey. All rights reserved.
  
  based on Copyright (c) 2011, 2013, 2lemetry LLC
@@ -37,8 +37,10 @@
  @param willQoS see willQos for description.
  @param willRetainFlag see willRetainFlg for description.
  @param protocolLevel see protocolLevel for description.
- @param queue see queue for description.
+ @param runLoop see runLoop for description.
+ @param runLoopMode see runLoopMode for description.
  @return the initialised MQTTSession object
+ @exception NSInternalInconsistencyException if the parameters are invalid
  */
 - (MQTTSession *)initWithClientId:(NSString *)clientId
                          userName:(NSString *)userName
@@ -51,7 +53,8 @@
                           willQoS:(MQTTQosLevel)willQoS
                    willRetainFlag:(BOOL)willRetainFlag
                     protocolLevel:(UInt8)protocolLevel
-                            queue:(dispatch_queue_t)queue;
+                          runLoop:(NSRunLoop *)runLoop
+                          forMode:(NSString *)runLoopMode;
 
 /** alternative initializer
  @param clientId see initWithClientId for description.
@@ -65,9 +68,11 @@
  @param willQoS see initWithClientId for description.
  @param willRetainFlag see initWithClientId for description.
  @param protocolLevel see initWithClientId for description.
- @param queue see initWithClientId for description.
+ @param runLoop see initWithClientId for description.
+ @param runLoopMode see initWithClientId for description.
  @param securityPolicy see initWithClientId for description.
  @return the initialised MQTTSession object
+ @exception NSInternalInconsistencyException if the parameters are invalid
  */
 - (MQTTSession *)initWithClientId:(NSString *)clientId
                          userName:(NSString *)userName
@@ -80,7 +85,8 @@
                           willQoS:(MQTTQosLevel)willQoS
                    willRetainFlag:(BOOL)willRetainFlag
                     protocolLevel:(UInt8)protocolLevel
-                            queue:(dispatch_queue_t)queue
+                          runLoop:(NSRunLoop *)runLoop
+                          forMode:(NSString *)runLoopMode
                    securityPolicy:(MQTTSSLSecurityPolicy *) securityPolicy;
 
 /** initialises the MQTT session
@@ -113,10 +119,12 @@
  * @param willQoS specifies the QoS level to be used when publishing the Will Message. If the Will Flag is set to NO, then the Will QoS MUST be set to 0. If the Will Flag is set to YES, the value of Will QoS can be 0 (0x00), 1 (0x01), or 2 (0x02).
  * @param willRetainFlag indicates if the server should publish the Will Messages with retainFlag. If the Will Flag is set to NO, then the Will Retain Flag MUST be set to NO . If the Will Flag is set to YES: If Will Retain is set to NO, the Server MUST publish the Will Message as a non-retained publication [MQTT-3.1.2-14]. If Will Retain is set to YES, the Server MUST publish the Will Message as a retained publication [MQTT-3.1.2-15].
  * @param protocolLevel specifies the protocol to be used. The value of the Protocol Level field for the version 3.1.1 of the protocol is 4. The value for the version 3.1 is 3.
- * @param queue The queue where the streams are scheduled.
+ * @param runLoop The runLoop where the streams are scheduled. If nil, defaults to [NSRunLoop currentRunLoop].
+ * @param runLoopMode The runLoopMode where the streams are scheduled. If nil, defaults to NSRunLoopCommonModes.
  * @param securityPolicy The security policy used to evaluate server trust for secure connections.
  * @param certificates An identity certificate used to reply to a server requiring client certificates according to the description given for SSLSetCertificate(). You may build the certificates array yourself or use the sundry method clientCertFromP12
  * @return the initialised MQTTSession object
+ * @exception NSInternalInconsistencyException if the parameters are invalid
  *
  * @code
  #import "MQTTClient.h"
@@ -138,7 +146,8 @@
  willQoS:2
  willRetainFlag:YES
  protocolLevel:4
- queue:dispatch_queue_get_main_queue()
+ runLoop:[NSRunLoop currentRunLoop]
+ forMode:NSRunLoopCommonModes
  securityPolicy:securityPolicy
  certificates:certificates];
  
@@ -156,7 +165,8 @@
                           willQoS:(MQTTQosLevel)willQoS
                    willRetainFlag:(BOOL)willRetainFlag
                     protocolLevel:(UInt8)protocolLevel
-                            queue:(dispatch_queue_t)queue
+                          runLoop:(NSRunLoop *)runLoop
+                          forMode:(NSString *)runLoopMode
                    securityPolicy:(MQTTSSLSecurityPolicy *) securityPolicy
                      certificates:(NSArray *)certificates;
 
@@ -166,16 +176,18 @@
 * @return the initialised MQTTSession object
 * All other parameters are set to defaults
 */
-- (instancetype)initWithClientId:(NSString *)theClientId;
+- (id)initWithClientId:(NSString *)theClientId;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
- @param queue see initWithClientId for description.
+ @param theRunLoop see initWithClientId for description.
+ @param theRunLoopMode see initWithClientId for description.
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-                           queue:(dispatch_queue_t)queue;
+- (id)initWithClientId:(NSString*)theClientId
+               runLoop:(NSRunLoop*)theRunLoop
+               forMode:(NSString*)theRunLoopMode;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
@@ -184,22 +196,24 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-                        userName:(NSString *)theUsername
-                        password:(NSString *)thePassword;
+- (id)initWithClientId:(NSString*)theClientId
+              userName:(NSString*)theUsername
+              password:(NSString*)thePassword;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
  @param theUserName see initWithClientId for description.
  @param thePassword see initWithClientId for description.
- @param queue see initWithClientId for description.
+ @param theRunLoop see initWithClientId for description.
+ @param theRunLoopMode see initWithClientId for description.
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-                        userName:(NSString *)theUserName
-                        password:(NSString *)thePassword
-                           queue:(dispatch_queue_t)queue;
+- (id)initWithClientId:(NSString*)theClientId
+              userName:(NSString*)theUserName
+              password:(NSString*)thePassword
+               runLoop:(NSRunLoop*)theRunLoop
+               forMode:(NSString*)theRunLoopMode;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
@@ -210,9 +224,9 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-              userName:(NSString *)theUsername
-              password:(NSString *)thePassword
+- (id)initWithClientId:(NSString*)theClientId
+              userName:(NSString*)theUsername
+              password:(NSString*)thePassword
              keepAlive:(UInt16)theKeepAliveInterval
           cleanSession:(BOOL)cleanSessionFlag;
 
@@ -222,16 +236,18 @@
  @param thePassword see initWithClientId for description.
  @param theKeepAlive see initWithClientId for description.
  @param theCleanSessionFlag see initWithClientId for description.
- @param queue see initWithClientId for description.
+ @param theRunLoop see initWithClientId for description.
+ @param theMode see initWithClientId for description.
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-                        userName:(NSString *)theUsername
-                        password:(NSString *)thePassword
-                       keepAlive:(UInt16)theKeepAlive
-                    cleanSession:(BOOL)theCleanSessionFlag
-                           queue:(dispatch_queue_t)queue;
+- (id)initWithClientId:(NSString*)theClientId
+              userName:(NSString*)theUsername
+              password:(NSString*)thePassword
+             keepAlive:(UInt16)theKeepAlive
+          cleanSession:(BOOL)theCleanSessionFlag
+               runLoop:(NSRunLoop*)theRunLoop
+               forMode:(NSString*)theMode;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
@@ -246,15 +262,15 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-                        userName:(NSString *)theUserName
-                        password:(NSString *)thePassword
-                       keepAlive:(UInt16)theKeepAliveInterval
-                    cleanSession:(BOOL)theCleanSessionFlag
-                       willTopic:(NSString *)willTopic
-                         willMsg:(NSData *)willMsg
-                         willQoS:(UInt8)willQoS
-                  willRetainFlag:(BOOL)willRetainFlag;
+- (id)initWithClientId:(NSString*)theClientId
+              userName:(NSString*)theUserName
+              password:(NSString*)thePassword
+             keepAlive:(UInt16)theKeepAliveInterval
+          cleanSession:(BOOL)theCleanSessionFlag
+             willTopic:(NSString*)willTopic
+               willMsg:(NSData*)willMsg
+               willQoS:(UInt8)willQoS
+        willRetainFlag:(BOOL)willRetainFlag;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
@@ -266,33 +282,37 @@
  @param willMsg see initWithClientId for description.
  @param willQoS see initWithClientId for description.
  @param willRetainFlag see initWithClientId for description.
- @param queue see initWithClientId for description.
+ @param theRunLoop see initWithClientId for description.
+ @param theRunLoopMode see initWithClientId for description.
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString *)theClientId
-                        userName:(NSString *)theUserName
-                        password:(NSString *)thePassword
-                       keepAlive:(UInt16)theKeepAliveInterval
-                    cleanSession:(BOOL)theCleanSessionFlag
-                       willTopic:(NSString *)willTopic
-                         willMsg:(NSData *)willMsg
-                         willQoS:(UInt8)willQoS
-                  willRetainFlag:(BOOL)willRetainFlag
-                           queue:(dispatch_queue_t)queue;
+- (id)initWithClientId:(NSString*)theClientId
+              userName:(NSString*)theUserName
+              password:(NSString*)thePassword
+             keepAlive:(UInt16)theKeepAliveInterval
+          cleanSession:(BOOL)theCleanSessionFlag
+             willTopic:(NSString*)willTopic
+               willMsg:(NSData*)willMsg
+               willQoS:(UInt8)willQoS
+        willRetainFlag:(BOOL)willRetainFlag
+               runLoop:(NSRunLoop*)theRunLoop
+               forMode:(NSString*)theRunLoopMode;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
  @param theKeepAliveInterval see initWithClientId for description.
  @param theConnectMessage has to be constructed using MQTTMessage connectMessage...
- @param queue see initWithClientId for description.
+ @param theRunLoop see initWithClientId for description.
+ @param theRunLoopMode see initWithClientId for description.
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (instancetype)initWithClientId:(NSString*)theClientId
-                       keepAlive:(UInt16)theKeepAliveInterval
-                  connectMessage:(MQTTMessage*)theConnectMessage
-                           queue:(dispatch_queue_t)queue;
+- (id)initWithClientId:(NSString*)theClientId
+             keepAlive:(UInt16)theKeepAliveInterval
+        connectMessage:(MQTTMessage*)theConnectMessage
+               runLoop:(NSRunLoop*)theRunLoop
+               forMode:(NSString*)theRunLoopMode;
 
 /** connects to the specified MQTT server
  
@@ -302,7 +322,8 @@
  @param connectHandler identifies a block which is executed on successfull or unsuccessfull connect. Might be nil
  error is nil in the case of a successful connect
  sessionPresent indicates in MQTT 3.1.1 if persistent session data was present at the server
- returns nothing and returns immediately. To check the connect results, register as an MQTTSessionDelegate and
+ 
+ @return nothing and returns immediately. To check the connect results, register as an MQTTSessionDelegate and
  - watch for events
  - watch for connect or connectionRefused messages
  - watch for error messages
@@ -322,6 +343,7 @@
  }];
  @endcode
  
+ @deprecated as not all connection parameters are supported, use connect
  */
 
 - (void)connectToHost:(NSString *)host
@@ -334,8 +356,10 @@
  @param host see connectToHost for description
  @param port see connectToHost for description
  @param usingSSL see connectToHost for description
- returns see connectToHost for description
-
+ 
+ @return see connectToHost for description
+ @deprecated as not all connection parameters are supported, use connect
+ 
  */
 - (void)connectToHost:(NSString *)host port:(UInt32)port usingSSL:(BOOL)usingSSL;
 
@@ -345,7 +369,7 @@
  @param port see connectToHost for description
  @deprecated as not all connection parameters are supported, use connect
  */
-- (void)connectToHost:(NSString*)ip port:(UInt32)port __attribute__((deprecated));
+- (void)connectToHost:(NSString*)ip port:(UInt32)port;
 
 /** for mqttio-OBJC backward compatibility
  @param ip see connectToHost for description
@@ -355,11 +379,10 @@
  @deprecated as not all connection parameters are supported, use connect
 
  */
-- (void)connectToHost:(NSString *)ip
+- (void)connectToHost:(NSString*)ip
                  port:(UInt32)port
 withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler
-       messageHandler:(void (^)(NSData* data, NSString* topic))messHandler
-__attribute__((deprecated));
+       messageHandler:(void (^)(NSData* data, NSString* topic))messHandler;
 
 /** for mqttio-OBJC backward compatibility
  @param ip see connectToHost for description

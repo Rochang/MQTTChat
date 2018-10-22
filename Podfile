@@ -7,8 +7,10 @@ target 'MQTTChat' do
 
   # Pods for MQTTChat
 
-pod 'MJExtension', '~> 3.0.15.1'
-pod 'FMDB', '~> 2.7.2'
-pod 'MQTTClient', '~> 0.14.0'
+pod 'MJExtension'
+pod 'FMDB'
+pod 'MQTTClient'
+pod 'YYModel'
+
 
 end
