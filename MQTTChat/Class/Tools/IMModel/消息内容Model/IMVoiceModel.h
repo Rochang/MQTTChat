@@ -1,5 +1,5 @@
 //
-//  IMChatVoiceModel.h
+//  IMVoiceModel.h
 //  MQTTChat
 //
 //  Created by Rochang on 2018/10/21.
@@ -10,8 +10,8 @@
 #import "IMChatContentModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface IMChatVoiceModel : IMChatContentModel
+// 语音
+@interface IMVoiceModel : IMChatContentModel
 
 @property(nonatomic,strong) NSNumber *duration; // 时长；单位：毫秒
 
