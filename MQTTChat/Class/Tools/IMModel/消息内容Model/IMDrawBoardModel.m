@@ -102,8 +102,8 @@
 }
 
 + (IMBrushModel *)defaultBrush {
-    IMBrushModel *brush = [IMBrushModel new];
-    brush.type = IMDrawBoardActionTypeBrushes;
+    IMBrushModel *brush = [[IMBrushModel alloc] init];
+    brush.actionType = IMDrawBoardActionTypeBrushes;
     [brush setWidthAndOriginWidth:BrushrWidth];
     [brush setColorWithUIColor:[UIColor colorWithRGB:BrushBlueColor]];
     return brush;
@@ -142,10 +142,9 @@
     }
 }
 
-- (void)setDrawingBoardOrderType:(NSNumber *)type {
-    _type = type;
-    if(!_type) return;
-    switch (type.integerValue) {
+- (void)setActionType:(IMDrawBoardActionType)actionType {
+    _actionType = actionType;
+    switch (actionType) {
         case IMDrawBoardActionTypeEraser:{ //设置成橡皮擦
             [self setColorWithUIColor:[UIColor colorWithRGBA:0xFFFFFFFF]];
             [self setWidthAndOriginWidth:EarserWidth];
@@ -158,6 +157,7 @@
         default:
             break;
     }
+    
 }
 
 @end

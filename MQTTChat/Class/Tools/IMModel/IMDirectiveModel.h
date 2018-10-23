@@ -10,9 +10,8 @@
 #import "IMVideoModel.h"
 #import "IMLiveModel.h"
 #import "IMNavigationModel.h"
-
-
-NS_ASSUME_NONNULL_BEGIN
+#import "IMAVModel.h"
+#import "IMTalkbackModel.h"
 
 @interface IMDirectiveModel : NSObject
 
@@ -20,9 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IMDirectiveType directiveType;
 // 是否静默操作
 @property (nonatomic, assign) BOOL is_silence;
-// 设备ID数组(N) -> type=4时为(Y)
-@property (nonatomic, strong) NSArray *device_ids;
-// Int:操作;0所有信息，1在线状态，2位置
+// 操作;1所有信息，2在线状态，3位置
 @property (nonatomic, assign) IMDirectiveActionType actionType;
 /**
  Int:摄像头ID(摄像头索引命名规则为“方位代号+序数”;
@@ -39,92 +36,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSArray *camera_ids;
 // 视频信息
-@property (nonatomic, strong) IMVideoModel *video;
+@property (nonatomic, strong) IMVideoModel *videoModel;
+// 音频信息
+@property (nonatomic, strong) IMVideoModel *audioModel;
 // 直播信息
-@property (nonatomic, strong) IMLiveModel *live;
+@property (nonatomic, strong) IMLiveModel *liveModel;
 // 导航信息
-@property (nonatomic, strong) IMNavigationModel *navigation;
+@property (nonatomic, strong) IMNavigationModel *navigationModel;
 // 是否需要文字反馈
-@property (nonatomic,assign) BOOL is_need_text_feedback;
+@property (nonatomic,assign) BOOL isFeedback;
 
+/** 构造方法 */
++ (instancetype)directiveModelWithType:(IMDirectiveType)directiveType is_silence:(BOOL)is_silence actionType:(IMDirectiveActionType)actionType camera_id:(NSNumber *)camera_id camera_ids:(NSArray *)camera_ids videoModel:(IMVideoModel *)videoModel liveModel:(IMLiveModel *)liveModel navigationModel:(IMNavigationModel *)navigationModel isFeedback:(BOOL)isFeedback;
 
-/**
- * 指令内容类构造方法
- *  拍照
- *  @param isSilence Yes 静默 No 非静默
- @param cameraId 摄像头ID
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSInteger)cameraId;
-/**
- * 指令内容类构造方法
- *  录像
- *  @param isSilence Yes 静默 No 非静默
- @param cameraId 摄像头ID
- @param video 录像内容
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSInteger)cameraId video:(IMVideoModel *)video;
-/**
- * 指令内容类构造方法
- *  直播
- @param isSilence Yes 静默 No 非静默
- @param cameraId 摄像头ID
- @param live 直播内容
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSInteger)cameraId live:(IMLiveModel *)live;
-/**
- * 指令内容类构造方法
- *  状态
- @param cameraIds 摄像头ID数组
- */
-+ (instancetype)directiveWithCameraIds:(NSArray<NSNumber *> *)cameraIds action:(IMDirectiveActionType)action;
-/**
- * 指令内容类构造方法
- *  预约导航
- @param navigation 导航内容
- */
-+ (instancetype)directiveWithNavigation:(IMNavigationModel *)navigation;
-/**
- * 指令内容类构造方法
- *  上报日志
- @param log 日志内容
- */
-+ (instancetype)directiveWithLog:(SIMDirectiveLog *)log;
-/**
- * 指令内容类构造方法
- *  上报位置
- */
+/** 拍照 */
++ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSNumber *)cameraId;
+/** 录像 */
++ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSNumber *)cameraId video:(IMVideoModel *)video;
+/** 直播 */
++ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSNumber *)cameraId live:(IMLiveModel *)live;
+/** 预约导航 */
++ (instancetype)directivenWithNavigation:(IMNavigationModel *)navigation;
+/** 上报位置 */
 + (instancetype)directiveWithLocation;
-/**
- * 指令内容类构造方法
- *  视频会话
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSInteger)cameraId videoDialog:(SIMVoiceDialog *)videoDialog;
-/**
- * 指令内容类构造方法
- *  音频会话
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSInteger)cameraId voiceDialog:(SIMVoiceDialog *)voiceDialog;
-/**
- * 指令内容类构造方法
- *  语音对讲
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence intercom:(SIMDirIntercom *)intercom;
-/**
- * 指令内容类构造方法
- *  会话控制
- */
-+ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSInteger)cameraId dialogControl:(SIMDialogControl *)dialogControl;
-//控制设备方向指令
+/** 视频会话 */
++ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSNumber *)cameraId videoModel:(IMAVModel *)videoModel;
+/** 音频会话 */
++ (instancetype)directiveWithIsSilence:(BOOL)isSilence cameraId:(NSNumber *)cameraId audioModel:(IMAVModel *)audioModel;
+/** 语音对讲  */
++ (instancetype)directiveWithIsSilence:(BOOL)isSilence talkbackModel:(IMTalkbackModel *)talkbackModel;
+/** 控制设备方向指令 */
 + (instancetype)directiveWithDirection:(NSInteger)diretion;
-
-//获取文件列表指令
+/** 获取文件列表指令 */
 + (instancetype)directiveFileListWithType:(NSInteger)type splitInterval:(float)splitInterval startTime:(NSDate *)startTime endTime:(NSDate *)endTime;
-
-//获取文件指令
+/**  获取文件指令 */
 + (instancetype)directiveGetFileWithPath:(NSString *)path ftpDir:(NSString *)ftpDir ftpName:(NSString *)ftpName ftpPass:(NSString *)ftpPass;
-//发送sip指令
+/** sip指令 */
 + (instancetype)directiveSipInfoWithExit:(NSNumber *)exit imid:(NSString *)imid sipid:(NSString *)sipid ssrc:(NSNumber *)ssrc;
 
 @end
-
-NS_ASSUME_NONNULL_END

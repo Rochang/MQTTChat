@@ -36,7 +36,7 @@
 // 画笔Model
 @interface IMBrushModel : NSObject
 
-@property (nonatomic, assign) IMDrawBoardActionType type;//Int:画笔类型;1画笔，2橡皮擦
+@property (nonatomic, assign) IMDrawBoardActionType actionType;//Int:画笔类型;1画笔，2橡皮擦
 @property (nonatomic, strong) NSString *color; // 画笔颜色;字符串形式的16进制色值(不含#)
 @property (nonatomic, strong) NSNumber *width; // 画笔宽度
 @property (nonatomic, strong) NSMutableArray <IMBrushCoordModel *>*coords; // 画笔路径集合
@@ -45,10 +45,8 @@
 + (IMBrushModel *)defaultBrush;
 - (instancetype)initWithType:(IMDrawBoardActionType)type width:(int)width uiColor:(UIColor *)uiColor beginPoint:(IMBrushCoordModel *)beginPoint;
 - (int)getOriginalWidth;
-- (IMDrawBoardActionType)drawingBoardActionType;
 - (UIColor *)uiColor;
 - (void)setColorWithUIColor:(UIColor *)uiColor;
-- (void)setDrawingBoardOrderType:(NSNumber *)type;
 
 @end
 

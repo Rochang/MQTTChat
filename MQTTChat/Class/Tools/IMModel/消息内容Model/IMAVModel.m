@@ -15,7 +15,7 @@
 @implementation IMAVModel
 
 + (instancetype)mediaWithSDKType:(IMMediaSDKType)SDKType actionType:(IMMediaActionType)actionType callStatus:(IMCallStatus)callStatus duration:(NSNumber *)duration {
-    IMMediaModel *model = [[IMMediaModel alloc] init];
+    IMAVModel *model = [[IMAVModel alloc] init];
     model.SDKType = SDKType;
     model.actionType = actionType;
     model.callStatus = callStatus;

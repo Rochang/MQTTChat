@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IMMediaModel : NSObject
 
 @property (nonatomic, assign) IMMediaSDKType SDKType; //  服务类型;1为SIP,2为声网
-@property (nonatomic, assign) IMMediaActionType *actionType; // 指令类型；1.发起请求，0取消
+@property (nonatomic, assign) IMMediaActionType actionType; // 指令类型；1.发起请求，0取消
 @property (nonatomic, assign) IMCallStatus callStatus; // 会话状态；1已取消，2已拒绝，3已接听
 @property (nonatomic, strong) NSNumber *duration; // 时长；单位：毫秒
 @property (nonatomic, assign) IMMediaType mediaType; // 类型;1为仅视频,2为带聊天界面的视频;当前只支持仅视频类型,3画板功能,4带全景和白板的视频通话

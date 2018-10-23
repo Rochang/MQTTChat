@@ -19,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
 @interface IMAVModel : IMMediaModel
-// 是否自动接听   true的话 直接接听 false弹出是否接听的对话框
-@property (nonatomic, assign) BOOL is_auto_answer;
+
 @property (nonatomic, strong) SIMRtmpModel *video;
 
 + (instancetype)mediaWithSDKType:(IMMediaSDKType)SDKType actionType:(IMMediaActionType)actionType callStatus:(IMCallStatus)callStatus duration:(NSNumber *)duration;

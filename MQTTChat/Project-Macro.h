@@ -127,7 +127,7 @@ typedef NS_ENUM(NSInteger, IMDirectiveType) {
     IMDirectiveTypeVideo          = 2,     //2:录像
     IMDirectiveTypeLive           = 3,     //3:直播
     IMDirectiveTypeDeviceState    = 4,     //4:状态(设备状态)
-    IMDirectiveTypeReservationNav = 5,     //5:预约导航
+    IMDirectiveTypeNavigation     = 5,     //5:预约导航
     IMDirectiveTypeUploadLog      = 6,     //6:上报日志
     IMDirectiveTypeUploadLoction  = 7,     //7:上报位置
     IMDirectiveTypeVideoSession   = 8,     //8:视频会话
@@ -142,10 +142,10 @@ typedef NS_ENUM(NSInteger, IMDirectiveType) {
 
 // 指令操作类型
 typedef NS_ENUM(NSInteger, IMDirectiveActionType) {
-    IMDirectiveActionTypeNone         = 0,     // None
-    IMDirectiveActionTypeMessage      = 0,     // 所有信息
-    SIMDirectiveActionTypeOnLine      = 1,     // 在线状态
-    IMDirectiveActionTypeLocation     = 2      // 位置
+    IMDirectiveActionTypeNone         = 0
+    IMDirectiveActionTypeMessage      = 1,     // 所有信息
+    SIMDirectiveActionTypeOnLine      = 2,     // 在线状态
+    IMDirectiveActionTypeLocation     = 3      // 位置
 };
 
 // 媒体接收操作
