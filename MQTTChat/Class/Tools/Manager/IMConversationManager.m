@@ -7,22 +7,28 @@
 //
 
 #import "IMConversationManager.h"
+#import "IMSDKManager.h"
 #import "FMDBBase.h"
+
+@interface IMConversationManager ()
+
+// 当前聊天室的对方ID
+@property (nonatomic, copy) NSString *currentFriendId;
+
+
+@end
 
 @implementation IMConversationManager
 
-
-- (void)insertConversation:(IMConversationModel *)model {
+- (void)insertConversation:(IMModel *)model {
+    if ([model isTalkingWithFirend:self.currentFriendId]) {
+        model.isRead = YES;
+    } else { // 提示
+        [IMShare.notificationManager notification:model];
+    }
+    // 存入数据库
     
 }
 
-- (void)deleteConversation:(NSString *)conversation_id {
-    
-}
-
-- (NSArray <IMConversationModel *>*)getAllConversations {
-    
-    return nil;
-}
 
 @end

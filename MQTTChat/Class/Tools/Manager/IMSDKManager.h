@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "IMFriendManager.h"
+#import "IMConversationManager.h"
+#import "IMNotificationManager.h"
 
 #define IMShare [IMSDKManager shareInstance]
 
@@ -16,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IMSDKManager : NSObject
 
 @property (strong, nonatomic) IMFriendManager *friendManager;
+@property (strong, nonatomic) IMNotificationManager *notificationManager;
+@property (strong, nonatomic) IMConversationManager *conversationManager;
 
 + (instancetype)shareInstance;
 

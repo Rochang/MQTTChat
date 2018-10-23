@@ -26,4 +26,19 @@
     }
     return _friendManager;
 }
+
+- (IMConversationManager *)conversationManager {
+    if (!_conversationManager) {
+        _conversationManager = [[IMConversationManager alloc] init];
+    }
+    return _conversationManager;
+}
+
+- (IMNotificationManager *)notificationManager {
+    if (!_notificationManager) {
+        _notificationManager = [[IMNotificationManager alloc] init];
+    }
+    return _notificationManager;
+}
+    
 @end

@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, IMChatType) {
     IMChatTypeInlinePicture               = 6,  // 内嵌图片
     IMChatTypeLoction                     = 7,  // 位置
     IMChatTypeVideoSession                = 8,  // 视频会话
-    IMChatTypeVoiceSession                = 9,  // 音频会话
+    IMChatTypeAudioSession                = 9,  // 音频会话
     IMChatTypeLive                        = 10, // 直播
     IMChatTypeEvent                       = 11, // 事件
     IMChatTypeIntercom                    = 12, // 对讲
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSInteger, IMNotificationType){
 typedef NS_ENUM(NSInteger, IMDirectiveType) {
     IMDirectiveTypeNone           = 0,     //None
     IMDirectiveTypeTakePhoto      = 1,     //1:拍照
-    IMDirectiveTypeVideo          = 2,     //2:录像
+    IMDirectiveTypeVideoRecord    = 2,     //2:录像
     IMDirectiveTypeLive           = 3,     //3:直播
     IMDirectiveTypeDeviceState    = 4,     //4:状态(设备状态)
     IMDirectiveTypeNavigation     = 5,     //5:预约导航
@@ -142,7 +142,7 @@ typedef NS_ENUM(NSInteger, IMDirectiveType) {
 
 // 指令操作类型
 typedef NS_ENUM(NSInteger, IMDirectiveActionType) {
-    IMDirectiveActionTypeNone         = 0
+    IMDirectiveActionTypeNone         = 0,
     IMDirectiveActionTypeMessage      = 1,     // 所有信息
     SIMDirectiveActionTypeOnLine      = 2,     // 在线状态
     IMDirectiveActionTypeLocation     = 3      // 位置

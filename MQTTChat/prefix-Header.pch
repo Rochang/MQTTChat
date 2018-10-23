@@ -13,6 +13,7 @@
 #import "IMTools.h"
 #import "LCBaseViewController.h"
 #import "Project-Macro.h"
+#import "IMModel.h"
 //#import "MJExtension.h"
 #import "YYKit.h"
 

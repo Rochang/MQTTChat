@@ -157,7 +157,6 @@
         default:
             break;
     }
-    
 }
 
 @end
@@ -169,14 +168,14 @@
 + (IMDrawBoardModel *)defaultDrawingBoard {
     IMDrawBoardModel *board = [IMDrawBoardModel new];
     board.type = IMDrawBoardOrderTypeBrushes;
-    board.brush = [IMDrawBoardModel defaultBrush];
+    board.brush = [IMBrushModel defaultBrush];
     return board;
 }
-//橡皮擦擦除
+// 橡皮擦擦除
 + (IMDrawBoardModel *)erasureDrawingBoard {
     IMDrawBoardModel *board = [IMDrawBoardModel new];
     board.type = IMDrawBoardOrderTypeBrushes;
-    [board.brush setDrawingBoardOrderType:IMDrawBoardOrderTypeEraser];
+    board.brush.actionType = IMDrawBoardActionTypeEraser;
     return board;
 }
 //清屏
@@ -196,7 +195,7 @@
 //恢复
 + (IMDrawBoardModel *)recoverDrawingBoard {
     IMDrawBoardModel *board = [IMDrawBoardModel new];
-    board.type = IMDrawBoardOrderTypeRecover;
+    board.type = IMDrawBoardOrderTyperRecover;
     return board;
 }
 

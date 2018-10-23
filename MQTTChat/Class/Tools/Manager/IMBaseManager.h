@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+// 实现多播代理
 @interface IMBaseManager : NSObject
 
 - (void)addDelegate:(id<NSObject>)delegate;

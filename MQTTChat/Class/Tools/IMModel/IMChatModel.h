@@ -42,13 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IMDrawBoardModel *wb;// 画板
 
 
-+ (NSString *)db_chat_id;
-+ (NSString *)db_chat_time;
-+ (NSString *)db_isRead;
-+ (NSString *)db_chat_type;
-+ (NSString *)db_chat_from;
-+ (NSString *)db_chat_to;
-+ (NSString *)db_chat_content;
+//+ (NSString *)db_chat_id;
+//+ (NSString *)db_chat_time;
+//+ (NSString *)db_isRead;
+//+ (NSString *)db_chat_type;
+//+ (NSString *)db_chat_from;
+//+ (NSString *)db_chat_to;
+//+ (NSString *)db_chat_content;
 
 
 @end

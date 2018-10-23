@@ -7,6 +7,7 @@
 //
 
 #import "IMMQTTManager.h"
+#import "IMSDKManager.h"
 
 @interface IMMQTTManager ()<MQTTSessionDelegate>
 
@@ -74,26 +75,76 @@
 }
 
 - (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid {
-    NSLog(@"%@", JsonStr(data));
     /**
-     SIMCommandTypeNone         = 0,   //None
-     SIMCommandTypeChat         = 1,   //1:聊天
-     SIMCommandTypeNotification = 2,   //2:通知
-     SIMCommandTypeOrder        = 3,   //3:指令
-     SIMCommandTypeFeedback     = 4,   //4:反馈
-     SIMCommandResponse         = 6,   //6:响应
-     SIMCommandBroadcast        = 7    //7:广播
+     IMCommandTypeNone         = 0,   //None
+     IMCommandTypeChat         = 1,   //1:聊天
+     IMCommandTypeNotification = 2,   //2:通知
+     IMCommandTypeOrder        = 3,   //3:指令
+     IMCommandTypeFeedback     = 4,   //4:反馈
+     IMCommandResponse         = 6,   //6:响应
+     IMCommandBroadcast        = 7    //7:广播
      */
-    NSDictionary * object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//    SIMModel *simModel = [SIMModel modelWithJSON:object];
-//    switch (<#expression#>) {
-//        case <#constant#>:
-//            <#statements#>
-//            break;
-//            
-//        default:
-//            break;
-//    }
+    IMModel *model =  [IMModel modelWithJSON:JsonStr(data)];
+    if (model.is_myself) return;
+    if ([topic rangeOfString:@"user"].location != NSNotFound) { // 私聊
+        switch (model.commandType) {
+            case IMCommandTypeChat: {
+                if (model.chat.type == IMChatTypeDrawingBoard) { // 画板
+                    
+                } else {
+                    [IMShare.conversationManager insertConversation:model];
+                }
+            }
+                break;
+            case IMCommandTypeNotification: {
+                
+            }
+                break;
+            case IMCommandTypeOrder: {
+                
+            }
+                break;
+            case IMCommandTypeFeedback: {
+                
+            }
+                break;
+            case IMCommandBroadcast: {
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else if ([topic rangeOfString:@"group"].location != NSNotFound)  { // 群聊
+        switch (model.commandType) {
+            case IMCommandTypeChat: {
+                
+            }
+                break;
+            case IMCommandTypeNotification: {
+                
+            }
+                break;
+            case IMCommandTypeOrder: {
+                
+            }
+                break;
+            case IMCommandTypeFeedback: {
+                
+            }
+                break;
+            case IMCommandBroadcast: {
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+
 }
 
 #pragma mark - getter

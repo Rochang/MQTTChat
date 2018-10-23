@@ -7,20 +7,19 @@
 //
 
 #import "IMBaseManager.h"
-#import "IMConversationModel.h"
-
+@class IMModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMConversationManager : IMBaseManager
 
-/** 保存会话 */
-- (void)insertConversation:(IMConversationModel *)model;
-
-/** 删除会话 */
-- (void)deleteConversation:(NSString *)conversation_id;
-
-/** 获取最近所有会话 */
-- (NSArray <IMConversationModel *>*)getAllConversations;
+/** 插入会话 */
+- (void)insertConversation:(IMModel *)model;
+//
+///** 删除会话 */
+//- (void)deleteConversation:(NSString *)conversation_id;
+//
+///** 获取最近所有会话 */
+//- (NSArray <IMConversationModel *>*)getAllConversations;
 
 ///** 根据会话Id保存聊天记录 */
 //- (void)insertChat:(IMChatModel *)model withConversationId:(NSString *)conversation_id;

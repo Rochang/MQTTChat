@@ -66,7 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (IMDrawBoardModel *)cancelDrawingBoard;
 //恢复
 + (IMDrawBoardModel *)recoverDrawingBoard;
-- (IMDrawBoardActionType)drawingBoardOrderType;
 - (void)update:(IMDrawBoardModel *)drawingBoard;
 - (void)clearCustomValues;
 
