@@ -12,18 +12,21 @@
 #define FMDBBaseShare [FMDBBase shareInstance]
 
 NS_ASSUME_NONNULL_BEGIN
+
 typedef void(^resultBlock)(FMResultSet *result);
+typedef void (^completeBlock)(BOOL flag);
 
 @interface FMDBBase : NSObject
 
 @property (nonatomic ,copy) NSString *path; //sqlite所在位置
 @property (nonatomic ,copy) NSString *dataBaseName;  //sqlite的名称
+@property (nonatomic ,copy) NSString *fmdbPath;  // 数据库全路径
 
 + (instancetype)shareInstance;
 - (void)setFMDBPath:(NSString *)path dataBaseName:(NSString *)dataName;
 
 /** 创建表 */
-- (void)creatTable:(NSString *)tableName sqlstr:(NSString *)sqlstr;
+- (BOOL)creatTable:(NSString *)tableName sqlstr:(NSString *)sqlstr;
 
 /** 判断表是否存在 */
 - (BOOL)isTableExistWithTableName:(NSString *)name;
@@ -40,8 +43,15 @@ typedef void(^resultBlock)(FMResultSet *result);
 /** 根据条件查询数据 */
 - (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_value:(NSString *)value db_result:(resultBlock)db_result;
 
+/** 根据条件删除数据 */
+- (BOOL)deleteDatasWithTable:(NSString *)tableName Key:(NSString *)key value:(NSString *)value;
+
 /** FMDB 执行操作语句 */
-- (void)FMDBBaseExecuteUpdateSqlStr:(NSString *)sqlstr;
+- (BOOL)executeUpdateSqlStr:(NSString *)sqlstr;
+
+/** 判断数据是否存在 */
+- (void)dataIsExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed;
+
 //
 ///** 改变数据 */
 //- (void)changeDatasWithTable:(NSString *)tableName sqlStr:(NSString *)sqlstr;

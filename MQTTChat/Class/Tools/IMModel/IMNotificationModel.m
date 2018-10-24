@@ -10,4 +10,12 @@
 
 @implementation IMNotificationModel
 
++ (NSString *)dbkey_type {
+    return @"type";
+}
+
++ (NSString *)dbkey_message {
+    return @"message";
+}
+
 @end

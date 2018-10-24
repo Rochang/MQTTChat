@@ -9,8 +9,100 @@
 #import "IMFMDBManager.h"
 #import "FMDBBase.h"
 #import "MJExtension.h"
+#import "IMUserModel.h"
+#import "IMNotificationModel.h"
+#import "IMChatModel.h"
+#import "IMConversationModel.h"
+
+static const NSString *DBTIME = @"dbTime";
 
 @implementation IMFMDBManager
+
++ (instancetype)shareInstance {
+    static dispatch_once_t onceToken;
+    static IMFMDBManager *_instance;
+    dispatch_once(&onceToken, ^{
+        _instance = [[self alloc] init];
+    });
+    return _instance;
+}
+
+- (void)resetAllTable {
+    if (self.fmdbPath.length) {
+        [[NSFileManager defaultManager] removeItemAtPath:self.fmdbPath error:nil];
+        [self createTableIfNotExists];
+    }
+}
+
+- (void)createTableIfNotExists {
+    // 好友表
+    if (![self isTableExistWithTableName:kFirendTableName]) {
+        NSString *formatStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT)",kFirendTableName, DBTIME, IMUserModel.dbKey_Imid, IMUserModel.dbKey_name, IMUserModel.dbKey_nick, IMUserModel.dbKey_avator];
+        [self creatTable:kFirendTableName sqlstr:formatStr];
+    }
+    // 通知表
+    if (![self isTableExistWithTableName:kNotificationTableName]) {
+        NSString *formatStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ INTEGER, %@ INTEGER, %@ INTEGER, %@ TEXT)", kNotificationTableName, DBTIME, IMModel.dbkey_time, IMModel.dbkey_fromUserId, IMModel.dbkey_groupId, IMModel.dbkey_touserId, IMModel.dbkey_info, IMModel.dbkey_isRead, IMModel.dbkey_isDispose, IMNotificationModel.dbkey_type, IMNotificationModel.dbkey_message];
+        [self creatTable:kNotificationTableName sqlstr:formatStr];
+    }
+    // 信息表
+    if (![self isTableExistWithTableName:kSessionTableName]) {
+        NSString *formatStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ INTEGER, %@ INTEGER, %@ TEXT)", kSessionTableName, DBTIME, IMModel.dbkey_time, IMModel.dbkey_fromUserId, IMModel.dbkey_touserId, IMModel.dbkey_groupId, IMModel.dbkey_info, IMModel.dbkey_isRead, IMChatModel.dbkey_type, IMChatModel.dbkey_message_id];
+        [self creatTable:kSessionTableName sqlstr:formatStr];
+    }
+    // 会话表
+    if (![self isTableExistWithTableName:kConversationTableName]) {
+        NSString *formatStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ INTEGER, %@ INTEGER, %@ TEXT, %@ TEXT, %@ TEXT)", kConversationTableName, DBTIME, IMConversationModel.dbkey_sessionType, IMConversationModel.dbkey_unReadCount, IMConversationModel.dbkey_sessionId, IMConversationModel.dbkey_messageIds, IMConversationModel.dbkey_lastSession];
+        [self creatTable:kConversationTableName sqlstr:formatStr];
+    }
+}
+
+- (void)addFirend:(IMUserModel *)firend {
+    // 判断是否已存在
+    [self dataIsExistsInTable:kFirendTableName key:IMUserModel.dbKey_Imid value:firend.Id completed:^(BOOL flag) {
+        if (!flag) {
+            NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@, %@, %@) values('%@','%@','%@','%@','%@')", kFirendTableName, DBTIME, IMUserModel.dbKey_Imid, IMUserModel.dbKey_name, IMUserModel.dbKey_nick, IMUserModel.dbKey_avator, [NSString timestamp], firend.Id, firend.name, firend.nick, firend.avator];
+            [self executeUpdateSqlStr:sqlStr];
+        }
+    }];
+}
+
+- (void)addFirends:(NSArray<IMUserModel *> *)firends {
+    for (IMUserModel *model in firends) {
+        [self addFirend:model];
+    }
+}
+
+- (NSMutableArray *)getFirendList {
+    __block NSMutableArray *models = [NSMutableArray array];
+    [self queryAllDatasWithTable:kFirendTableName db_result:^(FMResultSet * _Nonnull result) {
+        IMUserModel *model = [IMUserModel modelWithFMResultSet:result];
+        [models addObject:model];
+    }];
+    return models;
+}
+
+- (IMUserModel *)FirendWithId:(NSString *)firendId {
+    __block IMUserModel *model = [[IMUserModel alloc] init];
+    [self queryDatasWithTable:kFirendTableName db_key:IMUserModel.dbKey_Imid db_value:firendId db_result:^(FMResultSet * _Nonnull result) {
+        model = [IMUserModel modelWithFMResultSet:result];
+    }];
+    return model;
+}
+
+- (void)removeFirendWithId:(NSString *)firendId {
+    [self deleteDatasWithTable:kFirendTableName Key:IMUserModel.dbKey_Imid value:firendId];
+}
+
+- (void)addNotification:(IMModel *)model {
+    NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@, %@, %@, %@, %@, %@, %@) values('%@','%@','%@','%@','%@','%@','%@','%@','%@')", kNotificationTableName, DBTIME, IMModel.dbkey_time, IMModel.dbkey_fromUserId, IMModel.dbkey_groupId, IMModel.dbkey_touserId, IMModel.dbkey_info, IMModel.dbkey_isRead, IMModel.dbkey_isDispose, IMNotificationModel.dbkey_type, IMNotificationModel.dbkey_message, [NSString timestamp], model.time, model.from_user, model.group, model.];
+    [self executeUpdateSqlStr:sqlStr];
+}
+
+- (void)addNotifications:(NSArray<IMModel *> *)models {
+    
+}
+
 //#pragma mark - conversation
 //- (void)createConversationTable {
 //     NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT)", kConversationTableName, IMConversationModel.db_conversation_id, IMConversationModel.db_conversation_unReadCount, IMConversationModel.db_onversation_last];

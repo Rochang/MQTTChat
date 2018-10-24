@@ -17,21 +17,27 @@
 #define kUserName @"accountName"
 #define kUserPassWard @"passWard"
 
-// 最近会话表
-#define kConversationTableName       @"t_conversation"
-// 群表
-#define kGroupTableName              @"t_grooup"
-// 群聊天记录表
-#define kGroupChatTableName          @"t_grooup_chat"
-// 单聊表
-#define kP2PTableName                @"t_P2P"
-// 单聊聊天记录表
-#define kP2PChatTableName            @"t_P2P_chat"
+
+#define kConversationTableName       @"t_conversation"  // 会话表
+#define kFirendTableName             @"t_firend"        // 好友表
+#define kNotificationTableName       @"t_notification"  // 通知表
+#define kSessionTableName            @"t_session"       // 信息表
+
+//#define kGroupTableName              @"t_grooup"        // 群表
+//#define kGroupChatTableName          @"t_grooup_chat"   // 群聊天记录表
+//#define kP2PTableName                @"t_P2P"           // 单聊表
+//#define kP2PChatTableName            @"t_P2P_chat"      // 单聊聊天记录表
 
 // 地图类型
 typedef NS_ENUM(NSInteger, IMMapType) {
-    IMMapBaidu = 1,
-    IMMapGaode = 2
+    IMMapBaidu = 1, // 百度
+    IMMapGaode = 2  // 高德
+};
+
+// 地图类型
+typedef NS_ENUM(NSInteger, IMConversationType) {
+    IMConversationTypeP2P = 1,  // 私聊
+    IMConversationTypeGroup = 2   // 群聊
 };
 
 // 消息类型

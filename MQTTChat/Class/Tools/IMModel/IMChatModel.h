@@ -41,15 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL display_now; // 立即显示
 @property (nonatomic, strong) IMDrawBoardModel *wb;// 画板
 
-
-//+ (NSString *)db_chat_id;
-//+ (NSString *)db_chat_time;
-//+ (NSString *)db_isRead;
-//+ (NSString *)db_chat_type;
-//+ (NSString *)db_chat_from;
-//+ (NSString *)db_chat_to;
-//+ (NSString *)db_chat_content;
-
++ (NSString *)dbkey_type;
++ (NSString *)dbkey_message_id;
 
 @end
 

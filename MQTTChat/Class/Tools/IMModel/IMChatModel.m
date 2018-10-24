@@ -10,4 +10,12 @@
 
 @implementation IMChatModel
 
++ (NSString *)dbkey_type {
+    return @"type";
+}
+
++ (NSString *)dbkey_message_id {
+    return @"message_id";
+}
+
 @end

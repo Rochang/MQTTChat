@@ -34,18 +34,13 @@ static NSString *fmdbName = @"chatIM";
     _dataBaseName = dataName;
 }
 
-- (void)creatTable:(NSString *)tableName sqlstr:(NSString *)sqlstr {
+- (BOOL)creatTable:(NSString *)tableName sqlstr:(NSString *)sqlstr {
     if ([self isTableExistWithTableName:tableName]) {
         NSLog(@"%@ 表已存在", tableName);
-        return;
+        return YES;
     }
     // 创建表
-    [self.fmdb open];
-    BOOL success = [self.fmdb executeUpdate:sqlstr];
-    if (!success) {
-        NSLog(@"%@ 创建失败", tableName);
-    }
-    [self.fmdb close];
+    return [self executeUpdateSqlStr:sqlstr];
 }
 
 - (BOOL)isTableExistWithTableName:(NSString *)name {
@@ -60,29 +55,13 @@ static NSString *fmdbName = @"chatIM";
 }
 
 - (BOOL)deleteTable:(NSString *)tableName {
-    BOOL flag = YES;
-    if ([self.fmdb open]) {
-        NSString *sqlstr = [NSString stringWithFormat:@"DROP TABLE %@", tableName];
-        if (![self.fmdb executeUpdate:sqlstr]) {
-            NSLog(@"删表失败: %@", tableName);
-            flag = NO;
-        }
-        [self.fmdb close];
-    }
-    return flag;
+    NSString *sqlstr = [NSString stringWithFormat:@"DROP TABLE %@", tableName];
+    return [self executeUpdateSqlStr:sqlstr];
 }
 
 - (BOOL)resetTable:(NSString *)tableName {
-    BOOL flag = YES;
-    if([self.fmdb open]) {
-        NSString *sqlstr = [NSString stringWithFormat:@"DELETE FROM %@", tableName];
-        if (![self.fmdb executeUpdate:sqlstr])  {
-            NSLog(@"清除表失败: %@", tableName);
-            flag = NO;
-        }
-        [self.fmdb close];
-    }
-    return flag;
+    NSString *sqlstr = [NSString stringWithFormat:@"DELETE FROM %@", tableName];
+    return [self executeUpdateSqlStr:sqlstr];
 }
 
 - (void)queryAllDatasWithTable:(NSString *)tableName db_result:(resultBlock)result {
@@ -93,6 +72,11 @@ static NSString *fmdbName = @"chatIM";
         }
         [self.fmdb close];
     }
+}
+
+- (BOOL)deleteDatasWithTable:(NSString *)tableName Key:(NSString *)key value:(NSString *)value {
+    NSString *sql = [NSString stringWithFormat:@"delete from %@ where %@ = '%@'", tableName, key, value];
+    return [self executeUpdateSqlStr:sql];
 }
 
 - (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_value:(NSString *)value db_result:(resultBlock)db_result {
@@ -106,10 +90,22 @@ static NSString *fmdbName = @"chatIM";
     }
 }
 
-- (void)FMDBBaseExecuteUpdateSqlStr:(NSString *)sqlstr {
+- (BOOL)executeUpdateSqlStr:(NSString *)sqlstr {
     if ([self.fmdb open]) {
-        if (![self.fmdb executeUpdate:sqlstr]) {
-            NSLog(@"FMDB 执行更新失败");
+        BOOL flag = [self.fmdb executeUpdate:sqlstr];
+        [self.fmdb close];
+        if (!flag)  NSLog(@"FMDB 执行失败 : %@", sqlstr)
+        return flag;
+    }
+    return NO;
+}
+
+- (void)dataIsExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed {
+    if ([self.fmdb open]) {
+        NSString *sql = [NSString stringWithFormat:@"select * from '%@' where %@ = '%@';", tableName, key, value];
+        FMResultSet *set = [self.fmdb executeQuery:sql];
+        if (completed) {
+            completed([set next]);
         }
         [self.fmdb close];
     }
@@ -118,10 +114,10 @@ static NSString *fmdbName = @"chatIM";
 #pragma mark - getter
 - (FMDatabase *)fmdb {
     if (!_fmdb) {
-        NSString *path = self.path.length ? self.path : [NSString getHomePath];
-        NSString *dataBaseName = self.dataBaseName.length ? self.dataBaseName : @"IMChat";
-        NSString *fmdbPath = [path stringByAppendingFormat:@"%@.sqlite", dataBaseName];
-        _fmdb = [[FMDatabase alloc] initWithPath:fmdbPath];
+        self.path = self.path.length ? self.path : [NSString homePath];
+        self.dataBaseName = self.dataBaseName.length ? self.dataBaseName : @"IMChat";
+        self.fmdbPath = [self.path stringByAppendingFormat:@"%@.sqlite", self.dataBaseName];
+        _fmdb = [[FMDatabase alloc] initWithPath:self.fmdbPath];
     
     }
     return _fmdb;

@@ -18,6 +18,28 @@
     return self.group.Id.length;
 }
 
++ (NSString *)dbkey_time {
+    return @"time";
+}
++ (NSString *)dbkey_fromUserId {
+    return @"fromUserId";
+}
++ (NSString *)dbkey_touserId {
+    return @"toUserId";
+}
++ (NSString *)dbkey_groupId {
+    return @"groupId";
+}
++ (NSString *)dbkey_info {
+    return @"info";
+}
++ (NSString *)dbkey_isRead {
+    return @"isRead";
+}
++ (NSString *)dbkey_isDispose {
+    return @"isDispose";
+}
+
 /**
  IMChatTypeNone                        = 0,  // None
  IMChatTypeText                        = 1,  // 文本聊天

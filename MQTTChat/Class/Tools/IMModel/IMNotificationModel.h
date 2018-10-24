@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) IMDetailModel *detail;
 
+
++ (NSString *)dbkey_type;
++ (NSString *)dbkey_message;
+
 @end
 
 NS_ASSUME_NONNULL_END

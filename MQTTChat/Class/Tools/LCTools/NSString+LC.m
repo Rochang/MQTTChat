@@ -11,27 +11,27 @@
 
 @implementation NSString (LC)
 
-+ (NSString *)getHomePath {
++ (NSString *)homePath {
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
 }
 
-+ (NSString *)getIOSVersion {
++ (NSString *)IOSVersion {
     return [NSString stringWithFormat:@"%f",[[[UIDevice currentDevice] systemVersion] floatValue]];
 }
 
-+ (NSString *)getUUID {
++ (NSString *)UUID {
     return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 }
 
-+ (NSString *)getBuildNumber {
++ (NSString *)BuildNumber {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 }
 
-+ (NSString *)getVersionNumber {
++ (NSString *)VersionNumber {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
 
-+ (NSString *)getBundleId {
++ (NSString *)BundleId {
     return [[NSBundle mainBundle] bundleIdentifier];
 }
 
@@ -78,7 +78,7 @@
     return string;
 }
 
-+ (NSString *)getJsonStrFromData:(id)data {
++ (NSString *)jsonStrFromData:(id)data {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
     NSString *jsonString = nil;
@@ -90,4 +90,7 @@
     return jsonString;
 }
 
++ (NSString *)timestamp {
+    return [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970] * 1000]; // 毫秒
+}
 @end

@@ -37,6 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic, readonly) BOOL is_group; // 自己发送
 @property (copy, nonatomic, readonly) NSString *disPlayMessage; // 通知显示文字
 
++ (NSString *)dbkey_time;
++ (NSString *)dbkey_fromUserId;
++ (NSString *)dbkey_touserId;
++ (NSString *)dbkey_groupId;
++ (NSString *)dbkey_info;
++ (NSString *)dbkey_isRead;
++ (NSString *)dbkey_isDispose;
+
 
 /** 是否正在聊天 */
 - (BOOL)isTalkingWithFirend:(NSString *)friendId;
