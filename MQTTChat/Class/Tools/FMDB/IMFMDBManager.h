@@ -43,6 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addNotification:(IMModel *)model;
 - (void)addNotifications:(NSArray <IMModel *>*)models;
 
+/** 标记通知已读 */
+- (void)makeNotificationRead:(IMModel *)model;
+
 
 @end
 

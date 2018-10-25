@@ -16,7 +16,7 @@
 }
 
 + (NSString *)clientId {
-    return [NSString stringWithFormat:@"[2]_[%@]_[%@]_[%@]", @"com.sly.simsdk", [NSString getUUID], [self userId]];
+    return [NSString stringWithFormat:@"[2]_[%@]_[%@]_[%@]", @"com.sly.simsdk", [NSString UUID], [self userId]];
 }
 
 + (NSString *)userTopic {

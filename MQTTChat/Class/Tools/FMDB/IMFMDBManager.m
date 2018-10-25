@@ -8,7 +8,6 @@
 
 #import "IMFMDBManager.h"
 #import "FMDBBase.h"
-#import "MJExtension.h"
 #import "IMUserModel.h"
 #import "IMNotificationModel.h"
 #import "IMChatModel.h"
@@ -95,12 +94,20 @@ static const NSString *DBTIME = @"dbTime";
 }
 
 - (void)addNotification:(IMModel *)model {
-    NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@, %@, %@, %@, %@, %@, %@) values('%@','%@','%@','%@','%@','%@','%@','%@','%@')", kNotificationTableName, DBTIME, IMModel.dbkey_time, IMModel.dbkey_fromUserId, IMModel.dbkey_groupId, IMModel.dbkey_touserId, IMModel.dbkey_info, IMModel.dbkey_isRead, IMModel.dbkey_isDispose, IMNotificationModel.dbkey_type, IMNotificationModel.dbkey_message, [NSString timestamp], model.time, model.from_user, model.group, model.];
+    IMNotificationModel *notiModel = model.notification;
+    NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@, %@, %@, %@, %@, %@, %@) values('%@','%@','%@','%@','%@','%@','%d','%ld','%@')", kNotificationTableName, DBTIME, IMModel.dbkey_time, IMModel.dbkey_fromUserId, IMModel.dbkey_groupId, IMModel.dbkey_touserId, IMModel.dbkey_info, IMModel.dbkey_isRead, IMNotificationModel.dbkey_type, IMNotificationModel.dbkey_message, [NSString timestamp], model.time, model.from_user, model.group, model.to_user, [model modelToJSONString], model.isRead, (long)notiModel.type, notiModel.message];
     [self executeUpdateSqlStr:sqlStr];
 }
 
 - (void)addNotifications:(NSArray<IMModel *> *)models {
-    
+    for (IMModel *model in models) {
+        [self addNotification:model];
+    }
+}
+
+- (void)makeNotificationRead:(IMModel *)model {
+    NSString *sql = [NSString stringWithFormat:@"update %@ set %@ = 1 where %@ = %@;", kNotificationTableName, IMModel.dbkey_isRead, IMModel.dbkey_time, model.time];
+    [self executeUpdateSqlStr:sql];
 }
 
 //#pragma mark - conversation
