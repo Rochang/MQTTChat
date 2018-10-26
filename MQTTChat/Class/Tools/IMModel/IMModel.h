@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) IMCommandType          commandType;// 指令类型
 @property(nonatomic, strong) NSNumber               *time;// 时间戳
 @property (nonatomic, assign) BOOL                  isRead; // 是否已读
+@property (nonatomic, assign) BOOL                  isDispose; // 是否处理
 
 @property(nonatomic, strong) IMUserModel          *from_user;// 发出方
 @property(nonatomic, strong) IMUserModel          *to_user;// 接收方

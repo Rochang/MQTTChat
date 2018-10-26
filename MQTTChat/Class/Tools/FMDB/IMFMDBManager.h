@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 数据库初始化检查 */
 - (void)createTableIfNotExists;
 
+#pragma mark - 好友
+
 /** 添加好友 */
 - (void)addFirend:(IMUserModel *)firend;
 - (void)addFirends:(NSArray <IMUserModel *>*)firends;
@@ -45,6 +47,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 标记通知已读 */
 - (void)makeNotificationRead:(IMModel *)model;
+
+/** 查询所有的通知 */
+- (NSMutableArray *)getNotificationList;
+
+#pragma mark - 会话
+/** 添加聊天信息 */
+- (void)addChatConversation:(IMModel *)model;
 
 
 @end
