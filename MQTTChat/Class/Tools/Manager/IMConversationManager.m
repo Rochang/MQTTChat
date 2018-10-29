@@ -27,7 +27,7 @@
         [IMShare.notificationManager notification:model];
     }
     // 存入数据库
-    [];
+    
 }
 
 

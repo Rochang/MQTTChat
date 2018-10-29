@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否正在聊天 */
 - (BOOL)isTalkingWithFirend:(NSString *)friendId;
 
+/** 获取对方的Id */
+- (NSString *)getOppositeId;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -58,7 +58,7 @@ static const NSString *DBTIME = @"dbTime";
 
 - (void)addFirend:(IMUserModel *)firend {
     // 判断是否已存在
-    [self dataIsExistsInTable:kFirendTableName key:IMUserModel.dbKey_Imid value:firend.Id completed:^(BOOL flag) {
+    [self dataIsExistsInTable:kFirendTableName key:IMUserModel.dbKey_Imid value:firend.Id completed:^(BOOL flag, FMResultSet * _Nonnull result) {
         if (!flag) {
             NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@, %@, %@) values('%@','%@','%@','%@','%@')", kFirendTableName, DBTIME, IMUserModel.dbKey_Imid, IMUserModel.dbKey_name, IMUserModel.dbKey_nick, IMUserModel.dbKey_avator, [NSString timestamp], firend.Id, firend.name, firend.nick, firend.avator];
             [self executeUpdateSqlStr:sqlStr];
@@ -132,7 +132,23 @@ static const NSString *DBTIME = @"dbTime";
 }
 
 - (void)updateConversation:(IMModel *)model {
-    [self dataIsExistsInTable:kConversationTableName key:IMConversationModel.dbkey_sessionId value:<#(nonnull NSString *)#> completed:<#^(BOOL flag)completed#>]
+    [self dataIsExistsInTable:kConversationTableName key:IMConversationModel.dbkey_sessionId value:[model getOppositeId] completed:^(BOOL flag, FMResultSet * _Nonnull result) {
+        if (flag) { // 如果有, 更新
+            NSString *sql = [NSString stringWithFormat:@"update %@ set %@=%@", kConversationTableName, DBTIME, [NSString timestamp]];
+            [self carParams2:&sql key:IMConversationModel.dbkey_messageIds value:<#(id)#>];
+        } else { // 如果没有, 添加converstaion
+            
+        }
+    }];
+}
+
+- (void)catParams:(NSString **)dbKey dbValue:(NSString **)dbValue key:(NSString *)key value:(id)value {
+    *dbKey = [*dbKey stringByAppendingString:[NSString stringWithFormat:@",%@", key]];
+    *dbValue = [*dbValue stringByAppendingString:[NSString stringWithFormat:@",'%@'", value]];
+}
+
+- (void)carParams2:(NSString **)aql key:(NSString *)key value:(id)value {
+    *aql = [*aql stringByAppendingString:[NSString stringWithFormat:@",%@='%@'", key, value]];
 }
 
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IMConversationModel : IMBaseManager
 
-@property (nonatomic, assign) IMConversationType *conversationType;
+@property (nonatomic, assign) IMConversationType conversationType;
 @property (nonatomic, strong) NSString *sessionId;
 @property (nonatomic, strong) NSString *messageIds;
 @property (nonatomic, strong) IMModel *lastSession;

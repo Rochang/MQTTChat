@@ -111,4 +111,8 @@
     }
 }
 
+- (NSString *)getOppositeId {
+    return [_from_user.Id isEqual:[IMTools userId]] ? _to_user.Id : _from_user.Id;
+}
+
 @end

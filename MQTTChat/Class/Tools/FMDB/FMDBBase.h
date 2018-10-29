@@ -14,7 +14,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^resultBlock)(FMResultSet *result);
-typedef void (^completeBlock)(BOOL flag);
+//typedef void (^completeBlock)(BOOL flag);
+typedef void (^completeBlock)(BOOL flag, FMResultSet *result);
 
 @interface FMDBBase : NSObject
 

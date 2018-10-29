@@ -105,7 +105,7 @@ static NSString *fmdbName = @"chatIM";
         NSString *sql = [NSString stringWithFormat:@"select * from '%@' where %@ = '%@';", tableName, key, value];
         FMResultSet *set = [self.fmdb executeQuery:sql];
         if (completed) {
-            completed([set next]);
+            completed([set next], set);
         }
         [self.fmdb close];
     }
