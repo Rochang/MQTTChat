@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 好友
 
 /** 插入好友 */
-- (void)addFirend:(IMUserModel *)firend;
-- (void)addFirends:(NSArray <IMUserModel *>*)firends;
+- (void)insertFirend:(IMUserModel *)firend;
+- (void)insertFirends:(NSArray <IMUserModel *>*)firends;
 
 /** 查询用户列表 */
 - (NSMutableArray *)getFirendList;

@@ -56,7 +56,7 @@ static NSString *DBTIME = @"dbTime";
     }
 }
 
-- (void)addFirend:(IMUserModel *)firend {
+- (void)insertFirend:(IMUserModel *)firend {
     // 判断是否已存在
     [self dataIsExistsInTable:kFirendTableName key:IMUserModel.db_Id value:firend.Id completed:^(BOOL flag, FMResultSet * _Nonnull result) {
         if (!flag) {
@@ -74,7 +74,7 @@ static NSString *DBTIME = @"dbTime";
     }];
 }
 
-- (void)addFirends:(NSArray<IMUserModel *> *)firends {
+- (void)insertFirends:(NSArray<IMUserModel *> *)firends {
     for (IMUserModel *model in firends) {
         [self addFirend:model];
     }

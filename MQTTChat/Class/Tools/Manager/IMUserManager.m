@@ -25,8 +25,7 @@
     // 获取好友列表
     if ([topic isEqualToString:KfriendsListTopic]) {
         if (!model.response.data.items.count) return;
-        [IMShare.fmdbManager addFirends:model.response.data.items];
-            
+        [IMShare.fmdbManager insertFirends:model.response.data.items];
     }
     // 模糊查询
     else if ([topic isEqualToString:KuserAccountSearchTopic]) {
