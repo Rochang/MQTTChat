@@ -13,7 +13,7 @@
 #import "IMChatModel.h"
 #import "IMConversationModel.h"
 
-static const NSString *DBTIME = @"dbTime";
+static NSString *DBTIME = @"dbTime";
 
 @implementation IMFMDBManager
 
@@ -36,7 +36,7 @@ static const NSString *DBTIME = @"dbTime";
 - (void)createTableIfNotExists {
     // 好友表
     if (![self isTableExistWithTableName:kFirendTableName]) {
-        NSString *formatStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT)",kFirendTableName, DBTIME, IMUserModel.dbKey_Imid, IMUserModel.dbKey_name, IMUserModel.dbKey_nick, IMUserModel.dbKey_avator];
+        NSString *formatStr = [NSString stringWithFormat:@"create table if not exists %@ (id integer primary key autoincrement, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT)",kFirendTableName, DBTIME, IMUserModel.db_Id, IMUserModel.db_name, IMUserModel.db_nick, IMUserModel.db_avator];
         [self creatTable:kFirendTableName sqlstr:formatStr];
     }
     // 通知表
@@ -58,10 +58,18 @@ static const NSString *DBTIME = @"dbTime";
 
 - (void)addFirend:(IMUserModel *)firend {
     // 判断是否已存在
-    [self dataIsExistsInTable:kFirendTableName key:IMUserModel.dbKey_Imid value:firend.Id completed:^(BOOL flag, FMResultSet * _Nonnull result) {
+    [self dataIsExistsInTable:kFirendTableName key:IMUserModel.db_Id value:firend.Id completed:^(BOOL flag, FMResultSet * _Nonnull result) {
         if (!flag) {
-            NSString *sqlStr = [NSString stringWithFormat:@"insert into %@(%@, %@, %@, %@, %@) values('%@','%@','%@','%@','%@')", kFirendTableName, DBTIME, IMUserModel.dbKey_Imid, IMUserModel.dbKey_name, IMUserModel.dbKey_nick, IMUserModel.dbKey_avator, [NSString timestamp], firend.Id, firend.name, firend.nick, firend.avator];
-            [self executeUpdateSqlStr:sqlStr];
+            NSString *sql = [NSString stringWithFormat:@"insert into %@", kFirendTableName];
+            NSString *dbkeys = [@"(" addStr:DBTIME];
+            NSString *dbvalues = [@" values (" addStr:[NSString timestamp]];
+            [self jointParamsdbKeys:&dbkeys dbValues:&dbvalues key:IMUserModel.db_Id value:firend.Id];
+            [self jointParamsdbKeys:&dbkeys dbValues:&dbvalues key:IMUserModel.db_name value:firend.name];
+            [self jointParamsdbKeys:&dbkeys dbValues:&dbvalues key:IMUserModel.db_nick value:firend.nick];
+            [self jointParamsdbKeys:&dbkeys dbValues:&dbvalues key:IMUserModel.db_avator value:firend.avator];
+            [self jointParamsdbKeys:&dbkeys dbValues:&dbvalues key:IMUserModel.db_is_online value:@(firend.is_online)];
+            sql = [sql addStrs:@[dbkeys, @")", dbvalues, @")"]];
+            [self executeUpdateSqlStr:sql];
         }
     }];
 }
@@ -83,14 +91,14 @@ static const NSString *DBTIME = @"dbTime";
 
 - (IMUserModel *)FirendWithId:(NSString *)firendId {
     __block IMUserModel *model = [[IMUserModel alloc] init];
-    [self queryDatasWithTable:kFirendTableName db_key:IMUserModel.dbKey_Imid db_value:firendId db_result:^(FMResultSet * _Nonnull result) {
+    [self queryDatasWithTable:kFirendTableName db_key:IMUserModel.db_Id db_value:firendId db_result:^(FMResultSet * _Nonnull result) {
         model = [IMUserModel modelWithFMResultSet:result];
     }];
     return model;
 }
 
 - (void)removeFirendWithId:(NSString *)firendId {
-    [self deleteDatasWithTable:kFirendTableName Key:IMUserModel.dbKey_Imid value:firendId];
+    [self deleteDatasWithTable:kFirendTableName Key:IMUserModel.db_Id value:firendId];
 }
 
 - (void)addNotification:(IMModel *)model {
@@ -132,23 +140,18 @@ static const NSString *DBTIME = @"dbTime";
 }
 
 - (void)updateConversation:(IMModel *)model {
-    [self dataIsExistsInTable:kConversationTableName key:IMConversationModel.dbkey_sessionId value:[model getOppositeId] completed:^(BOOL flag, FMResultSet * _Nonnull result) {
-        if (flag) { // 如果有, 更新
-            NSString *sql = [NSString stringWithFormat:@"update %@ set %@=%@", kConversationTableName, DBTIME, [NSString timestamp]];
-            [self carParams2:&sql key:IMConversationModel.dbkey_messageIds value:<#(id)#>];
-        } else { // 如果没有, 添加converstaion
-            
-        }
+    [self dataIsExistsInTable:kConversationTableName key:IMConversationModel.dbkey_sessionId value:[model oppositeId] completed:^(BOOL flag, FMResultSet * _Nonnull result) {
+        
     }];
 }
 
-- (void)catParams:(NSString **)dbKey dbValue:(NSString **)dbValue key:(NSString *)key value:(id)value {
-    *dbKey = [*dbKey stringByAppendingString:[NSString stringWithFormat:@",%@", key]];
-    *dbValue = [*dbValue stringByAppendingString:[NSString stringWithFormat:@",'%@'", value]];
+- (void)jointParamsdbKeys:(NSString **)dbKeys dbValues:(NSString **)dbValues key:(NSString *)key value:(id)value {
+    *dbKeys = [*dbKeys stringByAppendingString:[NSString stringWithFormat:@",%@", key]];
+    *dbValues = [*dbValues stringByAppendingString:[NSString stringWithFormat:@",'%@'", value]];
 }
 
-- (void)carParams2:(NSString **)aql key:(NSString *)key value:(id)value {
-    *aql = [*aql stringByAppendingString:[NSString stringWithFormat:@",%@='%@'", key, value]];
+- (void)jointSql:(NSString **)sql key:(NSString *)key value:(id)value {
+    *sql = [*sql stringByAppendingString:[NSString stringWithFormat:@",%@='%@'", key, value]];
 }
 
 

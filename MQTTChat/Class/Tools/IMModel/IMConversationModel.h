@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)dbkey_unReadCount;
 + (NSString *)dbkey_lastSession;
 
++ (IMConversationModel *)modelWithIMModel:(IMModel *)imModel;
++ (IMConversationModel *)modelWithResultSet:(FMResultSet *)set;
+- (void)db_updateModel:(IMModel *)model unReadCount:(NSInteger)unReadCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

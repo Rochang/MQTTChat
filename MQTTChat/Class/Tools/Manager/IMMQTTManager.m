@@ -84,10 +84,12 @@
      IMCommandResponse         = 6,   //6:响应
      IMCommandBroadcast        = 7    //7:广播
      */
+    NSLog(@"%@", JsonStr(data));
+    
     IMModel *model =  [IMModel modelWithJSON:JsonStr(data)];
     if (model.is_myself) return;
     if ([topic rangeOfString:@"user"].location != NSNotFound) { // 私聊
-        switch (model.commandType) {
+        switch (model.type) {
             case IMCommandTypeChat: {
                 if (model.chat.type == IMChatTypeDrawingBoard) { // 画板
                     
@@ -108,6 +110,10 @@
                 
             }
                 break;
+            case IMCommandResponse: { // 请求数据响应
+                [IMShare.friendManager handldRsponse:model];
+            }
+                break;
             case IMCommandBroadcast: {
                 
             }
@@ -118,7 +124,7 @@
         }
     }
     else if ([topic rangeOfString:@"group"].location != NSNotFound)  { // 群聊
-        switch (model.commandType) {
+        switch (model.type) {
             case IMCommandTypeChat: {
                 
             }

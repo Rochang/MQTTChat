@@ -51,6 +51,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** 获取当前时间戳 */
 + (NSString *)timestamp;
 
+/** 字符串叠加 */
+- (NSString *)addStrs:(NSArray <NSString *>*)strings;
+- (NSString *)addStr:(NSString *)string;
+
 @end
 
 NS_ASSUME_NONNULL_END

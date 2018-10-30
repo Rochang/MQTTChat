@@ -7,7 +7,6 @@
 //
 
 #import "IMConversationManager.h"
-#import "IMSDKManager.h"
 #import "FMDBBase.h"
 
 @interface IMConversationManager ()

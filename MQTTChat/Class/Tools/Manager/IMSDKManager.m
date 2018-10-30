@@ -20,11 +20,11 @@
 }
 
 #pragma mark - getter
-- (IMFriendManager *)friendManager {
-    if (!_friendManager) {
-        _friendManager = [[IMFriendManager alloc] init];
+- (IMUserManager *)userManager {
+    if (!_userManager) {
+        _userManager = [[IMUserManager alloc] init];
     }
-    return _friendManager;
+    return _userManager;
 }
 
 - (IMConversationManager *)conversationManager {
@@ -39,6 +39,13 @@
         _notificationManager = [[IMNotificationManager alloc] init];
     }
     return _notificationManager;
+}
+
+- (IMFMDBManager *)fmdbManager {
+    if (!_fmdbManager) {
+        _fmdbManager = [[IMFMDBManager alloc] init];
+    }
+    return _fmdbManager;
 }
     
 @end

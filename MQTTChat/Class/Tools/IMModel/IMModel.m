@@ -8,6 +8,19 @@
 
 #import "IMModel.h"
 
+
+@implementation IMResponseDataModel
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"items" : [IMUserModel class]};
+}
+
+@end
+
+@implementation IMResponseModel
+
+@end
+
 @implementation IMModel
 
 - (BOOL)myself {
@@ -38,6 +51,18 @@
 }
 + (NSString *)dbkey_isDispose {
     return @"isDispose";
+}
+
+- (IMConversationType)conversationType {
+    return self.is_group ? IMConversationTypeGroup : IMConversationTypeP2P;
+}
+
+- (NSString *)sessionId {
+    return self.is_group ? self.group.Id : self.oppositeId;
+}
+
+- (NSString *)oppositeId {
+    return [_from_user.Id isEqual:[IMTools userId]] ? _to_user.Id : _from_user.Id;
 }
 
 /**
@@ -109,10 +134,6 @@
     } else { // 单聊
         return [self.from_user.Id isEqualToString:friendId] ? YES : NO;
     }
-}
-
-- (NSString *)getOppositeId {
-    return [_from_user.Id isEqual:[IMTools userId]] ? _to_user.Id : _from_user.Id;
 }
 
 @end

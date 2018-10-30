@@ -203,7 +203,6 @@ typedef NS_ENUM(NSInteger, IMDrawBoardOrderType) {
     IMDrawBoardOrderTypeClear    = 4  // 清屏
 };
 
-
 static NSString * const KuserMessageListTopic =             @"im/api/v1/message/user/list";
 static NSString * const KuserAccountSearchTopic =           @"im/api/v1/search";
 static NSString * const KgroupMessageListTopic =            @"im/api/v1/message/group/list";

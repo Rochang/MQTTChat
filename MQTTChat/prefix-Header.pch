@@ -11,6 +11,7 @@
 
 #import "LCTools.h"
 #import "IMTools.h"
+#import "IMSDKManager.h"
 #import "LCBaseViewController.h"
 #import "Project-Macro.h"
 #import "IMModel.h"

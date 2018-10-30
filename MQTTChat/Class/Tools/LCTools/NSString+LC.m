@@ -93,4 +93,15 @@
 + (NSString *)timestamp {
     return [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970] * 1000]; // 毫秒
 }
+
+- (NSString *)addStr:(NSString *)string {
+    return [self stringByAppendingString:string];
+}
+
+- (NSString *)addStrs:(NSArray<NSString *> *)strings {
+    for (NSString *str in strings) {
+        [self addStr:str];
+    }
+    return self;
+}
 @end

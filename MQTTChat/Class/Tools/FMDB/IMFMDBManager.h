@@ -12,6 +12,7 @@
 #import "IMChatModel.h"
 #import "IMUserModel.h"
 
+#define FMDBShare [IMFMDBManager shareInstance]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 好友
 
-/** 添加好友 */
+/** 插入好友 */
 - (void)addFirend:(IMUserModel *)firend;
 - (void)addFirends:(NSArray <IMUserModel *>*)firends;
 

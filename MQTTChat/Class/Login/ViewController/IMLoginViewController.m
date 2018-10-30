@@ -11,7 +11,6 @@
 #import "IMMQTTManager.h"
 #import "LCTabBarController.h"
 #import "IMPresentationController.h"
-#import "IMSDKManager.h"
 
 @interface IMLoginViewController ()<UIViewControllerTransitioningDelegate>
 
@@ -80,6 +79,7 @@
     [IMShare.friendManager getFriendsList];
     
     // 获取群组列表，订阅所有群组主题
+//    [IMShare.groupManager ]
     
 //    [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc] init];
 }

@@ -17,12 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *name;     //用户名
 @property (nonatomic, copy) NSString *nick;     //备注名称
 @property (nonatomic, copy) NSString *avator;   //头像URL
-@property (nonatomic, assign) BOOL online;      //在线状态
+@property (nonatomic, assign) BOOL is_online;   //在线状态
 
-+ (NSString *)dbKey_Imid;
-+ (NSString *)dbKey_name;
-+ (NSString *)dbKey_nick;
-+ (NSString *)dbKey_avator;
++ (NSString *)db_Id;
++ (NSString *)db_name;
++ (NSString *)db_nick;
++ (NSString *)db_avator;
++ (NSString *)db_is_online;
+
 
 + (instancetype)modelWithFMResultSet:(FMResultSet *)result;
 
