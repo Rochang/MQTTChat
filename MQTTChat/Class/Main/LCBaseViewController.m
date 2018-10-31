@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
+    [self setupNavBar];
     self.view.backgroundColor = Color_white;
 }
+
+- (void)setupUI {}
+
+- (void)setupNavBar {}
 
 @end

@@ -10,6 +10,8 @@
 #import "IMUserModel.h"
 #import "IMChatModel.h"
 
+@class FMResultSet;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMGroupModel : NSObject
@@ -22,11 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (strong, nonatomic) IMChatModel *group_chat_last; // 最后一条群消息
 //@property (strong, nonatomic) NSArray <IMChatModel *>*group_chats; // 聊天记录
 
-//+ (NSString *)db_group_id;
-//+ (NSString *)db_group_unReadCount;
-//+ (NSString *)db_group_users;
-//+ (NSString *)db_group_chats;
-//+ (NSString *)db_group_chat_last;
++ (NSString *)db_Id;
++ (NSString *)db_name;
+
++ (instancetype)modelWithFMResultSet:(FMResultSet *)result;
 
 @end
 

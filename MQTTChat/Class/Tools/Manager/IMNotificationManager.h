@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IMNotificationManager : IMBaseManager
 
-- (void)notification:(IMModel *)model;
+- (void)handleNotification:(IMModel *)model;
 
 @end
 

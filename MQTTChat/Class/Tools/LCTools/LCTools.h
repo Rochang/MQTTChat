@@ -14,6 +14,7 @@
 #import "NSString+LC.h"
 #import "UIBarButtonItem+Block.h"
 #import "UIControl+Block.h"
+#import "NSData+LC.h"
 #import "LCView.h"
 #import "LCMethod.h"
 

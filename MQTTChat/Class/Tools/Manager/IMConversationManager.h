@@ -7,7 +7,7 @@
 //
 
 #import "IMBaseManager.h"
-@class IMModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMConversationManager : IMBaseManager

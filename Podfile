@@ -11,5 +11,6 @@ pod 'MJExtension'
 pod 'FMDB'
 pod 'MQTTClient'
 pod 'YYKit'
+pod 'EBBannerView'
 
 end

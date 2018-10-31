@@ -9,8 +9,6 @@
 #import "FMDBBase.h"
 #import <FMDB.h>
 
-static NSString *fmdbName = @"chatIM";
-
 @interface FMDBBase ()
 
 @property (strong, nonatomic) FMDatabase *fmdb;
@@ -32,6 +30,19 @@ static NSString *fmdbName = @"chatIM";
 - (void)setFMDBPath:(NSString *)path dataBaseName:(NSString *)dataName {
     _path = path;
     _dataBaseName = dataName;
+}
+
+- (void)deleteDatabase {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:self.fmdbPath]) {
+        [fileManager removeItemAtPath:self.fmdbPath error:nil];
+    }
+}
+
+- (NSString *)fmdbPath {
+    self.path = self.path.length ? self.path : [NSString homePath];
+    self.dataBaseName = self.dataBaseName.length ? self.dataBaseName : @"IMChat";
+    return [self.path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite", self.dataBaseName]];
 }
 
 - (BOOL)creatTable:(NSString *)tableName sqlstr:(NSString *)sqlstr {
@@ -65,6 +76,9 @@ static NSString *fmdbName = @"chatIM";
 }
 
 - (void)queryAllDatasWithTable:(NSString *)tableName db_result:(resultBlock)result {
+    if (![self isTableExistWithTableName:tableName]) {
+        return;
+    }
     if([self.fmdb open]) {
         FMResultSet *resultSet = [self.fmdb executeQuery:[NSString stringWithFormat:@"select* from %@", tableName]];
         while ([resultSet next]) {
@@ -80,6 +94,9 @@ static NSString *fmdbName = @"chatIM";
 }
 
 - (void)queryDatasWithTable:(NSString *)tableName db_key:(NSString *)key db_value:(NSString *)value db_result:(resultBlock)db_result {
+    if (![self isTableExistWithTableName:tableName]) {
+        return;
+    }
     if ([self.fmdb open]) {
         NSString *sql = [NSString stringWithFormat:@"select * from '%@' where %@ = '%@';", tableName, key, value];
         FMResultSet *result = [self.fmdb executeQuery:sql];
@@ -100,7 +117,7 @@ static NSString *fmdbName = @"chatIM";
     return NO;
 }
 
-- (void)dataIsExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed {
+- (void)isDataExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed {
     if ([self.fmdb open]) {
         NSString *sql = [NSString stringWithFormat:@"select * from '%@' where %@ = '%@';", tableName, key, value];
         FMResultSet *set = [self.fmdb executeQuery:sql];
@@ -114,11 +131,8 @@ static NSString *fmdbName = @"chatIM";
 #pragma mark - getter
 - (FMDatabase *)fmdb {
     if (!_fmdb) {
-        self.path = self.path.length ? self.path : [NSString homePath];
-        self.dataBaseName = self.dataBaseName.length ? self.dataBaseName : @"IMChat";
-        self.fmdbPath = [self.path stringByAppendingFormat:@"%@.sqlite", self.dataBaseName];
         _fmdb = [[FMDatabase alloc] initWithPath:self.fmdbPath];
-    
+        NSLog(@"数据库 : %@", self.fmdbPath);
     }
     return _fmdb;
 }

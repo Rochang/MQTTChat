@@ -37,10 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** 取消订阅 */
 - (void)unSubscribeTopic:(NSString *)topic;
 
-/** 发布(至少一次) */
-- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic;
+///** 发布(至多一次) */
+//- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic;
 
-/** 发布(至多一次) */
+/** 发布(至少一次) */
 - (void)publishDataAtLeastOnce:(NSData *)data onTopic:(NSString *)topic;
 
 @end

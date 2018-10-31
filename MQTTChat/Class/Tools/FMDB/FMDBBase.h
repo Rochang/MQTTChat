@@ -38,6 +38,9 @@ typedef void (^completeBlock)(BOOL flag, FMResultSet *result);
 /** 清除表 */
 - (BOOL)resetTable:(NSString *)tableName;
 
+/** 删除数据库 */
+- (void)deleteDatabase;
+
 /** 遍历某张表的数据 */
 - (void)queryAllDatasWithTable:(NSString *)tableName db_result:(resultBlock)result;
 
@@ -51,7 +54,7 @@ typedef void (^completeBlock)(BOOL flag, FMResultSet *result);
 - (BOOL)executeUpdateSqlStr:(NSString *)sqlstr;
 
 /** 判断数据是否存在 */
-- (void)dataIsExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed;
+- (void)isDataExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed;
 
 //
 ///** 改变数据 */

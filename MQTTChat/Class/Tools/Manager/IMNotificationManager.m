@@ -7,6 +7,7 @@
 //
 
 #import "IMNotificationManager.h"
+#import <EBBannerView.h>
 
 @interface IMNotificationManager ()
 
@@ -16,44 +17,48 @@
 
 @implementation IMNotificationManager
 
-- (void)notification:(IMModel *)model {
-    UIApplicationState state = [UIApplication sharedApplication].applicationState;
-    if (state == UIApplicationStateBackground) {
-        [self doLocalNotifitionWithMessage:model.disPlayMessage params:nil];
+- (void)handleNotification:(IMModel *)model {
+    switch (model.notification.type) {
+            // 其他设备登录
+        case IMNotificationTypeOtherLogin:{
+            [EBBannerView showWithContent:@"你的账号在其他设备上登录"];
+        }
+            // 同意接受好友申请
+        case IMNotificationTypeAcceptFriend:{
+            
+        }
+            // 拒绝接受好友申请
+        case IMNotificationTypeRejectFriend:{
+            
+        }
+            // 收到好友申请
+        case IMNotificationTypeApplyFriend:{
+            
+        }
+            // 被好友删除
+        case IMNotificationTypeRemoveFriend:{
+            
+        }
+            // 同意加群申请
+        case IMNotificationTypeAcceptGroup:{
+            
+        }
+            // 拒绝加群申请
+        case IMNotificationTypeRejectGroup:{
+            
+        }
+            // 被邀请入群
+        case IMNotificationTypeInviteGroup:{
+            
+        }
+            // 被移除出群
+        case IMNotificationTypeSelfKickOutGroup:{
+            
+        }
+            
+        default:
+            break;
     }
-    if(self.isPlaying) return;
-    // 去除铃响
-    //    AudioServicesPlaySystemSound(1312);
-    self.isPlaying = YES;
-    [self performSelector:@selector(canPlay) withObject:nil afterDelay:0.5];
-}
-
-- (void)canPlay {
-    self.isPlaying  = NO;
-}
-
-- (void)doLocalNotifitionWithMessage:(NSString *)message params:(NSDictionary *)params{
-    //初始化一个 UILocalNotification
-    UILocalNotification * notification = [[UILocalNotification alloc] init];
-    NSDate * pushDate = [NSDate dateWithTimeIntervalSinceNow:0.0f];
-    if (notification!=nil) {
-        //设置 推送时间
-        notification.fireDate= pushDate;
-        //设置 时区
-        notification.timeZone = [NSTimeZone defaultTimeZone];
-        //设置 重复间隔
-        notification.repeatInterval = 0;
-        //设置 推送 时间
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        //设置 推送提示语
-        notification.alertBody = message;
-        //设置 icon 上 红色数字
-        //            notification.applicationIconBadgeNumber = 1;
-        notification.userInfo = params;
-        //添加推送到 Application
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    }
-    NSLog(@"开启本地通知");
 }
 
 @end

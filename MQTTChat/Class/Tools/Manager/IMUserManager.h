@@ -8,18 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "IMBaseManager.h"
-#import "IMUserModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 // 个人操作manager
 @interface IMUserManager : IMBaseManager
 
+/** 处理请求响应 */
+- (void)userHandldRsponse:(IMModel *)model;
+
 /** 获取好友列表 */
 - (void)publishFriendsList;
 - (NSArray <IMUserModel *>*)getFriendsList;
 
-/** 处理请求响应 */
-- (void)handldRsponse:(IMModel *)model;
+#pragma mark - 群组
+/** 获取群组列表 */
+- (void)publishGroupsList;
+- (NSArray <IMGroupModel *>*)getGroupsList;
 
 @end
 

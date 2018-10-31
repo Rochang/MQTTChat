@@ -7,14 +7,18 @@
 //  群聊
 
 #import "IMBaseManager.h"
-#import "IMGroupModel.h"
-#import "IMChatModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMGroupManager : IMBaseManager
 /** 获取所有群 */
+- (void)publishAllGroups;
+
+/** 查询所有群 */
 - (NSArray <IMGroupModel *>*)getAllGroups;
+
+/** 处理请求响应 */
+- (void)groupHandldRsponse:(IMModel *)model;
 
 /** 开群, 返回群Id */
 - (NSString *)creatGroupWithUserId:(NSArray <NSString *>*)userIds message:(NSString *)message;

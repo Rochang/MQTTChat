@@ -95,13 +95,15 @@
 }
 
 - (NSString *)addStr:(NSString *)string {
-    return [self stringByAppendingString:string];
+    NSString *str = [self stringByAppendingString:string];
+    return str;
 }
 
 - (NSString *)addStrs:(NSArray<NSString *> *)strings {
+    NSString *result = self;
     for (NSString *str in strings) {
-        [self addStr:str];
+         result = [result addStr:str];
     }
-    return self;
+    return result;
 }
 @end

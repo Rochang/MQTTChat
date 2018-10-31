@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDBBase.h"
-#import "IMGroupModel.h"
-#import "IMChatModel.h"
-#import "IMUserModel.h"
 
 #define FMDBShare [IMFMDBManager shareInstance]
 
@@ -20,26 +17,28 @@ NS_ASSUME_NONNULL_BEGIN
 /** 单利 */
 + (instancetype)shareInstance;
 
-/** 重建数据库 */
-- (void)resetAllTable;
-
-/** 数据库初始化检查 */
-- (void)createTableIfNotExists;
-
 #pragma mark - 好友
 
 /** 插入好友 */
 - (void)insertFirend:(IMUserModel *)firend;
 - (void)insertFirends:(NSArray <IMUserModel *>*)firends;
 
-/** 查询用户列表 */
-- (NSMutableArray *)getFirendList;
+/** 查询好友列表 */
+- (NSArray <IMUserModel *>*)queryFirendList;
 
 /** 根据 userId 查询好友 */
 - (IMUserModel *)FirendWithId:(NSString *)firendId;
 
 /** 根据userId 删除好友 */
 - (void)removeFirendWithId:(NSString *)firendId;
+
+#pragma mark - 群组
+/** 插入群组 */
+- (void)insertGroup:(IMGroupModel *)group;
+- (void)insertGroups:(NSArray <IMGroupModel *>*)groups;
+
+/** 查询群列表 */
+- (NSArray <IMGroupModel *>*)queryGroupList;
 
 #pragma mark - 通知
 /** 添加通知 */
@@ -55,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 会话
 /** 添加聊天信息 */
 - (void)addChatConversation:(IMModel *)model;
+
 
 
 @end

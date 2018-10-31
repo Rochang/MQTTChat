@@ -16,23 +16,23 @@
 }
 
 + (NSString *)db_Id {
-    return @"Id";
+    return @"user_Id";
 }
 
 + (NSString *)db_name {
-    return @"name";
+    return @"user_name";
 }
 
 + (NSString *)db_nick {
-    return @"nick";
+    return @"user_nick";
 }
 
 + (NSString *)db_avator {
-    return @"avator";
+    return @"user_avator";
 }
 
 + (NSString *)db_is_online {
-    return @"is_online";
+    return @"user_is_online";
 }
 
 + (instancetype)modelWithFMResultSet:(FMResultSet *)result {

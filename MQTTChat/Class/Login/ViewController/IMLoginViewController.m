@@ -11,6 +11,7 @@
 #import "IMMQTTManager.h"
 #import "LCTabBarController.h"
 #import "IMPresentationController.h"
+#import "IMFMDBManager.h"
 
 @interface IMLoginViewController ()<UIViewControllerTransitioningDelegate>
 
@@ -59,7 +60,7 @@
 }
 
 - (IBAction)clickResetOBBtn:(id)sender {
-    
+    [FMDBShare deleteDatabase];
 }
 
 #pragma mark - LCMQTTManagerDelegate
@@ -73,15 +74,15 @@
     // 订阅系统通知主题
     [MQTTShare subscribeTopic:[IMTools systemNotificationTopic]];
     // 登录成功发送上线广播
-//    [MQTTShare ]
+    
     
      // 拉取好友列表
-    [IMShare.friendManager getFriendsList];
+    [IMShare.userManager publishFriendsList];
     
     // 获取群组列表，订阅所有群组主题
-//    [IMShare.groupManager ]
+    [IMShare.userManager publishGroupsList];
     
-//    [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc] init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc] init];
 }
 
 - (NSData *)strDataWithJsonObject:(id)object

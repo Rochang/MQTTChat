@@ -47,11 +47,13 @@
     [self.session unsubscribeAndWaitTopic:topic timeout:10];
 }
 
-- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic {
-    [self.session publishDataAtMostOnce:data onTopic:topic retain:NO];
-}
+//- (void)publishDataAtMostOnce:(NSData *)data onTopic:(NSString *)topic {
+//    NSLog(@"发布主题 : %@", topic);
+//    [self.session publishDataAtMostOnce:data onTopic:topic retain:NO];
+//}
 
 - (void)publishDataAtLeastOnce:(NSData *)data onTopic:(NSString *)topic {
+    NSLog(@"发布主题 : %@", topic);
     [self.session publishDataAtLeastOnce:data onTopic:topic retain:NO];
 }
 
@@ -64,12 +66,12 @@
 
 - (void)handleEvent:(MQTTSession *)session event:(MQTTSessionEvent)eventCode error:(NSError *)error {
     NSDictionary *states = @{
-                             @(MQTTSessionEventConnected) : @"连接 : Connected",
-                             @(MQTTSessionEventConnectionRefused) : @"连接 : ConnectionRefused",
-                             @(MQTTSessionEventConnectionClosed) : @"连接 : ConnectionClosed",
-                             @(MQTTSessionEventConnectionError) : @"连接 : ConnectionError",
-                             @(MQTTSessionEventProtocolError) : @"连接 : ProtocolError",
-                             @(MQTTSessionEventConnectionClosedByBroker) : @"连接 : ConnectionClosedByBroker"
+                             @(MQTTSessionEventConnected) : @"连接状态 : Connected",
+                             @(MQTTSessionEventConnectionRefused) : @"连接状态 : ConnectionRefused",
+                             @(MQTTSessionEventConnectionClosed) : @"连接状态 : ConnectionClosed",
+                             @(MQTTSessionEventConnectionError) : @"连接状态 : ConnectionError",
+                             @(MQTTSessionEventProtocolError) : @"连接状态 : ProtocolError",
+                             @(MQTTSessionEventConnectionClosedByBroker) : @"连接状态 : ConnectionClosedByBroker"
                              };
     NSLog(@"%@", states[@(eventCode)]);
 }
@@ -99,7 +101,7 @@
             }
                 break;
             case IMCommandTypeNotification: {
-                
+                [IMShare.notificationManager handleNotification:model];
             }
                 break;
             case IMCommandTypeOrder: {
@@ -111,7 +113,7 @@
             }
                 break;
             case IMCommandResponse: { // 请求数据响应
-                [IMShare.friendManager handldRsponse:model];
+                [IMShare.userManager userHandldRsponse:model];
             }
                 break;
             case IMCommandBroadcast: {
@@ -139,6 +141,10 @@
                 break;
             case IMCommandTypeFeedback: {
                 
+            }
+                break;
+            case IMCommandResponse: { // 请求数据响应
+                [IMShare.groupManager groupHandldRsponse:model];
             }
                 break;
             case IMCommandBroadcast: {

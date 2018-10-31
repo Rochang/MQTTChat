@@ -7,27 +7,27 @@
 //
 
 #import "IMGroupModel.h"
+#import <FMDB/FMDB.h>
 
 @implementation IMGroupModel
 
-+ (NSString *)db_group_id {
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"Id" : @"id"};
+}
+
++ (NSString *)db_Id {
     return @"group_id";
 }
 
-+ (NSString *)db_group_unReadCount {
-    return @"group_unReadCount";
++ (NSString *)db_name {
+    return @"group_name";
 }
 
-+ (NSString *)db_group_users {
-    return @"group_users";
-}
-
-+ (NSString *)db_group_chats {
-    return @"group_chats";
-}
-
-+ (NSString *)db_group_chat_last {
-    return @"group_chat_last";
++ (instancetype)modelWithFMResultSet:(FMResultSet *)result {
+    IMGroupModel *group = [[IMGroupModel alloc] init];
+    group.Id = [result stringForColumn:IMGroupModel.db_Id];
+    group.name = [result stringForColumn:IMGroupModel.db_name];
+    return group;
 }
 
 @end

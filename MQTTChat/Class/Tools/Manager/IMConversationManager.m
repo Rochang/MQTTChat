@@ -23,7 +23,7 @@
     if ([model isTalkingWithFirend:self.currentFriendId]) {
         model.isRead = YES;
     } else { // 提示
-        [IMShare.notificationManager notification:model];
+//        [IMShare.notificationManager notification:model];
     }
     // 存入数据库
     

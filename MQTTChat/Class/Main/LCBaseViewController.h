@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LCBaseViewController : UIViewController
 
+- (void)setupUI;
+- (void)setupNavBar;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,7 +11,6 @@
 #import "IMConversationManager.h"
 #import "IMNotificationManager.h"
 #import "IMGroupManager.h"
-#import "IMFMDBManager.h"
 
 #define IMShare [IMSDKManager shareInstance]
 
@@ -23,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IMNotificationManager *notificationManager; // 通知
 @property (strong, nonatomic) IMConversationManager *conversationManager; // 会话
 @property (strong, nonatomic) IMGroupManager *groupManager; // 群
-@property (strong, nonatomic) IMFMDBManager *fmdbManager; // 数据库
 
 
 + (instancetype)shareInstance;

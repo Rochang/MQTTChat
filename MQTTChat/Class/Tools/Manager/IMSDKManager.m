@@ -41,11 +41,11 @@
     return _notificationManager;
 }
 
-- (IMFMDBManager *)fmdbManager {
-    if (!_fmdbManager) {
-        _fmdbManager = [[IMFMDBManager alloc] init];
+- (IMGroupManager *)groupManager {
+    if (!_groupManager) {
+        _groupManager = [[IMGroupManager alloc] init];
     }
-    return _fmdbManager;
+    return _groupManager;
 }
     
 @end

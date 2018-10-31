@@ -13,6 +13,7 @@
 		18253578217D481400816F93 /* IMImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18253577217D481400816F93 /* IMImageModel.m */; };
 		C020A01C217F1C7F00497258 /* IMNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C020A01B217F1C7F00497258 /* IMNotificationManager.m */; };
 		C020A03721804FD500497258 /* IMConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C020A03621804FD500497258 /* IMConversationModel.m */; };
+		C020A06821894F8400497258 /* NSData+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = C020A06721894F8400497258 /* NSData+LC.m */; };
 		C05D02322179C89100876E54 /* IMPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02312179C89100876E54 /* IMPresentationController.m */; };
 		C05D02352179CF0A00876E54 /* LCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02342179CF0A00876E54 /* LCMethod.m */; };
 		C05D02382179DDAB00876E54 /* IMUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D02372179DDAB00876E54 /* IMUserManager.m */; };
@@ -79,6 +80,8 @@
 		C020A01B217F1C7F00497258 /* IMNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMNotificationManager.m; sourceTree = "<group>"; };
 		C020A03521804FD500497258 /* IMConversationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMConversationModel.h; sourceTree = "<group>"; };
 		C020A03621804FD500497258 /* IMConversationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMConversationModel.m; sourceTree = "<group>"; };
+		C020A06621894F8400497258 /* NSData+LC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+LC.h"; sourceTree = "<group>"; };
+		C020A06721894F8400497258 /* NSData+LC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+LC.m"; sourceTree = "<group>"; };
 		C05D02302179C89100876E54 /* IMPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPresentationController.h; sourceTree = "<group>"; };
 		C05D02312179C89100876E54 /* IMPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPresentationController.m; sourceTree = "<group>"; };
 		C05D02332179CF0A00876E54 /* LCMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMethod.h; sourceTree = "<group>"; };
@@ -319,12 +322,12 @@
 			children = (
 				1825356B217C738F00816F93 /* IMModel.h */,
 				1825356C217C738F00816F93 /* IMModel.m */,
+				C0BA6F6F216DF28E0097D28C /* IMUserModel.h */,
+				C0BA6F70216DF28E0097D28C /* IMUserModel.m */,
 				C0BA6F78216DFFC30097D28C /* IMGroupModel.h */,
 				C0BA6F79216DFFC30097D28C /* IMGroupModel.m */,
 				C0BA6F72216DF69B0097D28C /* IMChatModel.h */,
 				C0BA6F73216DF69B0097D28C /* IMChatModel.m */,
-				C0BA6F6F216DF28E0097D28C /* IMUserModel.h */,
-				C0BA6F70216DF28E0097D28C /* IMUserModel.m */,
 				C05D0253217D7FB700876E54 /* IMNotificationModel.h */,
 				C05D0254217D7FB700876E54 /* IMNotificationModel.m */,
 				C020A03521804FD500497258 /* IMConversationModel.h */,
@@ -456,6 +459,8 @@
 				C0E493F6215E11DC0089BABE /* UIView+LCLayout.m */,
 				C0E493FC215E28720089BABE /* NSString+LC.h */,
 				C0E493FD215E28720089BABE /* NSString+LC.m */,
+				C020A06621894F8400497258 /* NSData+LC.h */,
+				C020A06721894F8400497258 /* NSData+LC.m */,
 				C0BA6F30216CA1510097D28C /* LCView.h */,
 				C0BA6F2F216CA1510097D28C /* LCView.m */,
 				C0BA6F35216CA1780097D28C /* UIBarButtonItem+Block.h */,
@@ -677,9 +682,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MQTTChat/Pods-MQTTChat-resources.sh",
+				"${PODS_ROOT}/EBBannerView/EBBannerView/Classes/EBBannerView.xib",
+				"${PODS_ROOT}/EBBannerView/EBBannerView/Classes/EBBannerViewController.xib",
+				"${PODS_ROOT}/EBBannerView/EBBannerView/Classes/EBMuteDetector.mp3",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EBBannerView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EBBannerViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EBMuteDetector.mp3",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -764,6 +776,7 @@
 				C05D023B2179DEC400876E54 /* IMSDKManager.m in Sources */,
 				C05D02322179C89100876E54 /* IMPresentationController.m in Sources */,
 				C05D026F217DBF1D00876E54 /* IMTalkbackModel.m in Sources */,
+				C020A06821894F8400497258 /* NSData+LC.m in Sources */,
 				C05D0246217D6ED400876E54 /* IMFileModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -911,10 +924,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MQTTChat/prefix-Header.pch";
 				INFOPLIST_FILE = MQTTChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ETIDG.MQTTChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -930,10 +940,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MQTTChat/prefix-Header.pch";
 				INFOPLIST_FILE = MQTTChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ETIDG.MQTTChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

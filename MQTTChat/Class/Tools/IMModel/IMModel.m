@@ -8,8 +8,7 @@
 
 #import "IMModel.h"
 
-
-@implementation IMResponseDataModel
+@implementation UserListModel
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"items" : [IMUserModel class]};
@@ -17,7 +16,23 @@
 
 @end
 
+@implementation GroupListModel
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"items" : [IMGroupModel class]};
+}
+
+@end
+
 @implementation IMResponseModel
+
+- (UserListModel *)userList {
+    return [UserListModel modelWithJSON:self.data];
+}
+
+- (GroupListModel *)groupList {
+    return [GroupListModel modelWithJSON:self.data];
+}
 
 @end
 
@@ -65,23 +80,6 @@
     return [_from_user.Id isEqual:[IMTools userId]] ? _to_user.Id : _from_user.Id;
 }
 
-/**
- IMChatTypeNone                        = 0,  // None
- IMChatTypeText                        = 1,  // 文本聊天
- IMChatTypeVoice                       = 2,  // 语音
- IMChatTypePictore                     = 3,  // 图片
- IMChatTypeVideo                       = 4,  // 视频
- IMChatTypeFile                        = 5,  // 文件
- IMChatTypeInlinePicture               = 6,  // 内嵌图片
- IMChatTypeLoction                     = 7,  // 位置
- IMChatTypeVideoSession                = 8,  // 视频会话
- IMChatTypeVoiceSession                = 9,  // 音频会话
- IMChatTypeLive                        = 10, // 直播
- IMChatTypeEvent                       = 11, // 事件
- IMChatTypeIntercom                    = 12, // 对讲
- IMChatTypeDrawingBoard                = 13, // 画板
- IMChatTypeAlarm                       = 14  // 报警
- */
 - (NSString *)disPlayMessage {
     NSString *text = nil;
     switch (self.chat.type) {

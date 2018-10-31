@@ -22,8 +22,8 @@
 #define kFirendTableName             @"t_firend"        // 好友表
 #define kNotificationTableName       @"t_notification"  // 通知表
 #define kSessionTableName            @"t_session"       // 信息表
+#define kGroupTableName              @"t_group"        // 群表
 
-//#define kGroupTableName              @"t_grooup"        // 群表
 //#define kGroupChatTableName          @"t_grooup_chat"   // 群聊天记录表
 //#define kP2PTableName                @"t_P2P"           // 单聊表
 //#define kP2PChatTableName            @"t_P2P_chat"      // 单聊聊天记录表
@@ -87,9 +87,9 @@ typedef NS_ENUM(NSInteger, IMNotificationType){
     // None
     IMNotificationTypeNone                = 0,
     // 其它设备登录通知
-    IMNotificationTypeStateOtherLogin     = 1,
+    IMNotificationTypeOtherLogin          = 1,
     // 状态响应
-    IMNotificationTypeStateRespond        = 2,
+    IMNotificationTypeRespond             = 2,
     // 上线通知
     IMNotificationTypeOnline              = 3,
     // 离线通知
