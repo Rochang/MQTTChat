@@ -8,7 +8,12 @@
 
 #import "IMChatListViewController.h"
 
-@interface IMChatListViewController ()
+static NSString *cellId = @"cellId";
+
+@interface IMChatListViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray <IMConversationModel *>*dataSource;
 
 @end
 
@@ -16,16 +21,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [IMShare.conversationManager addDelegate:self];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupNavBar {
+    self.navigationItem.title = @"最近联系";
 }
-*/
+
+- (void)setupUI {
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+    }
+    IMConversationModel *model = self.dataSource[indexPath.row];
+    cell.textLabel.text = model.lastSession.from_user.Id;
+    cell.detailTextLabel.text = model.lastSession.chat.text;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"section:%zd, row:%zd", indexPath.section, indexPath.row);
+}
+
+#pragma mark - IMConversationManagerDelegate
+- (void)conversationManagerFinishUpdateConversationModel:(IMModel *)model {
+    IMConversationModel *conModel = [IMConversationModel modelWithIMModel:model];
+    [self.dataSource addObject:conModel];
+    [self.tableView reloadData];
+}
+
+#pragma mark - getter
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [LCView tableViewWithFrame:CGRectMake(0, KNavBar_H, self.view.width_gs, self.view.height_gs - KNavBar_H - KTabBar_H) style:0 dataSource:self delegate:self];
+    }
+    return _tableView;
+}
+
+- (NSArray<IMConversationModel *> *)dataSource {
+    if (!_dataSource) {
+        _dataSource = [IMShare.conversationManager getAllConversations].mutableCopy;
+    }
+    return _dataSource;
+}
 
 @end

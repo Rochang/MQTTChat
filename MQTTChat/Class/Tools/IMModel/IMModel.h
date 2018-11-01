@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property(nonatomic, strong) SIMBroadcastModel           *broadcast;//BASEMODEL
 
 @property (assign, nonatomic, readonly) BOOL is_myself; // 自己发送
-@property (assign, nonatomic, readonly) BOOL is_group; // 自己发送
+@property (assign, nonatomic, readonly) BOOL is_group; // 聊天类型
 @property (assign, nonatomic, readonly) IMConversationType conversationType; // 会话类型
 @property (copy, nonatomic, readonly) NSString *sessionId; // 会话Id
 @property (copy, nonatomic, readonly) NSString *oppositeId; // 对方Id

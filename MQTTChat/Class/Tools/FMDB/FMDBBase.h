@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <FMDB.h>
 
-#define FMDBBaseShare [FMDBBase shareInstance]
-
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^resultBlock)(FMResultSet *result);
-//typedef void (^completeBlock)(BOOL flag);
-typedef void (^completeBlock)(BOOL flag, FMResultSet *result);
+typedef void (^completeModelBlock)(BOOL flag, IMModel *model);
+typedef void (^completeSetBlock)(BOOL flag, FMResultSet *result);
+typedef void (^completeBlock)(BOOL flag);
 
 @interface FMDBBase : NSObject
 
@@ -54,7 +53,7 @@ typedef void (^completeBlock)(BOOL flag, FMResultSet *result);
 - (BOOL)executeUpdateSqlStr:(NSString *)sqlstr;
 
 /** 判断数据是否存在 */
-- (void)isDataExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed;
+- (void)isDataExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeSetBlock)completed;
 
 //
 ///** 改变数据 */

@@ -7,13 +7,14 @@
 //
 
 #import "IMBaseManager.h"
-#import "IMModel.h"
+
+@class FMResultSet;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMConversationModel : IMBaseManager
 
-@property (nonatomic, assign) IMConversationType conversationType;
+@property (nonatomic, assign) IMConversationType type;
 @property (nonatomic, strong) NSString *sessionId;
 @property (nonatomic, strong) NSString *messageIds;
 @property (nonatomic, strong) IMModel *lastSession;

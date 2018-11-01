@@ -75,13 +75,13 @@
     [MQTTShare subscribeTopic:[IMTools systemNotificationTopic]];
     // 登录成功发送上线广播
     
-    
      // 拉取好友列表
     [IMShare.userManager publishFriendsList];
     
     // 获取群组列表，订阅所有群组主题
     [IMShare.userManager publishGroupsList];
-    
+    // 初始化数据库
+    [FMDBShare createTableIfNotExists];
     [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc] init];
 }
 

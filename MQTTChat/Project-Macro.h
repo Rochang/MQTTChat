@@ -23,6 +23,7 @@
 #define kNotificationTableName       @"t_notification"  // 通知表
 #define kSessionTableName            @"t_session"       // 信息表
 #define kGroupTableName              @"t_group"        // 群表
+#define DBTIME                       @"dbTime"         //  数据库时间
 
 //#define kGroupChatTableName          @"t_grooup_chat"   // 群聊天记录表
 //#define kP2PTableName                @"t_P2P"           // 单聊表

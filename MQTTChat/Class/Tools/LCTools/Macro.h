@@ -38,7 +38,7 @@
 #define KNavBar_H                   self.navigationController.navigationBar.frame.size.height
 #define KTopBar_H                   (Height_StatusBar+Height_NavBar)
 #define KIsiPhoneX_                 ((int)((KScreen_H/KScreen_W)*100) == 216)?YES:NO
-#define KTabBar_H                   KIsIphone_X_series?83:49
+#define KTabBar_H                   (KIsIphone_X_series?83:49)
 
 #define KIs4_inch CGSizeEqualToSize(CGSizeMake(320, 568), [UIScreen mainScreen].bounds.size) ? YES : NO
 #define KIs4_7_inch CGSizeEqualToSize(CGSizeMake(375, 667), [UIScreen mainScreen].bounds.size) ? YES : NO

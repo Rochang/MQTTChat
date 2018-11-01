@@ -92,30 +92,36 @@
     if (model.is_myself) return;
     if ([topic rangeOfString:@"user"].location != NSNotFound) { // 私聊
         switch (model.type) {
+                // 聊天
             case IMCommandTypeChat: {
                 if (model.chat.type == IMChatTypeDrawingBoard) { // 画板
                     
                 } else {
-                    [IMShare.conversationManager insertConversation:model];
+                    [IMShare.conversationManager handleChatConversation:model];
                 }
             }
                 break;
+                // 通知
             case IMCommandTypeNotification: {
                 [IMShare.notificationManager handleNotification:model];
             }
                 break;
+                // 指令
             case IMCommandTypeOrder: {
                 
             }
                 break;
+                // 反馈
             case IMCommandTypeFeedback: {
                 
             }
                 break;
-            case IMCommandResponse: { // 请求数据响应
+                // 响应
+            case IMCommandResponse: {
                 [IMShare.userManager userHandldRsponse:model];
             }
                 break;
+                // 广播
             case IMCommandBroadcast: {
                 
             }

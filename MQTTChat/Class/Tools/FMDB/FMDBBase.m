@@ -117,7 +117,7 @@
     return NO;
 }
 
-- (void)isDataExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeBlock)completed {
+- (void)isDataExistsInTable:(NSString *)tableName key:(NSString *)key value:(NSString *)value completed:(completeSetBlock)completed {
     if ([self.fmdb open]) {
         NSString *sql = [NSString stringWithFormat:@"select * from '%@' where %@ = '%@';", tableName, key, value];
         FMResultSet *set = [self.fmdb executeQuery:sql];

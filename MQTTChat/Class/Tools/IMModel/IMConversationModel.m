@@ -7,6 +7,7 @@
 //
 
 #import "IMConversationModel.h"
+#import <FMDB.h>
 
 @implementation IMConversationModel
 
@@ -31,28 +32,34 @@
 }
 
 - (void)db_updateModel:(IMModel *)model unReadCount:(NSInteger)unReadCount {
-    _conversationType = model.group.Id.length ? IMConversationTypeGroup : IMConversationTypeP2P;
+    _type = model.is_group ? IMConversationTypeGroup : IMConversationTypeP2P;
     _lastSession = model;
     if(!_messageIds) {
         _messageIds = model.chat.message_id;
     }else if(_messageIds && model.chat.message_id && ![_messageIds containsString:model.chat.message_id]) {
         _messageIds = [_messageIds stringByAppendingString:[NSString stringWithFormat:@",%@", model.chat.message_id]];
     }
-    _unReadCount = unReadCount == -1 ? 0 : unReadCount;
+    _unReadCount = unReadCount;
 }
 
 + (IMConversationModel *)modelWithIMModel:(IMModel *)imModel {
     IMConversationModel *comModel = [[IMConversationModel alloc] init];
     comModel.unReadCount = [imModel.from_user.Id isEqualToString:IMTools.userId] || imModel.isRead ? 0 : 1;
-    comModel.conversationType = imModel.conversationType;
+    comModel.type = imModel.conversationType;
     comModel.sessionId   = imModel.sessionId;
     comModel.messageIds  = imModel.chat.message_id;
-    comModel.lastSession = imModel.copy;
+    comModel.lastSession = imModel;
     return comModel;
 }
 
 + (IMConversationModel *)modelWithResultSet:(FMResultSet *)set {
     IMConversationModel *model = [[IMConversationModel alloc] init];
+    model.type = [set intForColumn:IMConversationModel.dbkey_sessionType];
+    model.sessionId = [set stringForColumn:IMConversationModel.dbkey_sessionId];
+    model.unReadCount = [set intForColumn:IMConversationModel.dbkey_unReadCount];
+    model.lastSession = [IMModel modelWithJSON:[set stringForColumn:IMConversationModel.dbkey_lastSession]];
+    model.messageIds = [set stringForColumn:IMConversationModel.dbkey_messageIds];
+    model.dbTime = [set intForColumn:DBTIME];
     return model;
 }
 @end

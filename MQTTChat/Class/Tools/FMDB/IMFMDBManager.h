@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 单利 */
 + (instancetype)shareInstance;
 
+/** 初始化表 */
+- (void)createTableIfNotExists;
+
 #pragma mark - 好友
 
 /** 插入好友 */
@@ -52,9 +55,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSMutableArray *)getNotificationList;
 
 #pragma mark - 会话
-/** 添加聊天信息 */
-- (void)addChatConversation:(IMModel *)model;
+/** 添加聊天信息, 更新会话 */
+- (void)insertChatConversation:(IMModel *)model chatComplete:(completeModelBlock)chatComplete conversationComplete:(completeModelBlock)comComplete;
 
+/** 查询所有会话 */
+- (NSArray <IMConversationModel *>*)queryAllConversation;
+
+/** 未读数据清零 */
+- (void)resetConversationUnReadCount:(IMConversationModel *)model complete:(completeBlock)complete;
 
 
 @end

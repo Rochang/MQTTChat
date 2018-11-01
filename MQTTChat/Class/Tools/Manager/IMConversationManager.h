@@ -7,19 +7,46 @@
 //
 
 #import "IMBaseManager.h"
+#import "IMConversationModel.h"
+#import "IMFMDBManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol IMConversationManagerDelegate <NSObject>
+/** 更新会话 */
+- (void)conversationManagerFinishUpdateConversationModel:(IMModel *)model;
+
+/** 插入聊天信息 */
+- (void)conversationManagerFinishInsertChatModel:(IMModel *)model;
+
+/** 消息发送成功 */
+- (void)conversationManagerFinishSendMessageModel:(IMModel *)model;
+
+@end
+
 @interface IMConversationManager : IMBaseManager
 
-/** 插入会话 */
-- (void)insertConversation:(IMModel *)model;
+/** 聊天窗口 Id */
+@property (nonatomic, copy) NSString *currentChatId;
+
+/** 处理会话 */
+- (void)handleChatConversation:(IMModel *)model;
+
+/** 获取所有会话 */
+- (NSArray <IMConversationModel *>*)getAllConversations;
+
+//- (void)setDelegate:(id <IMConversationManagerDelegate>)delegate currentChatId:(NSString *)chatId;
+//- (void)removeDelegateAndChatId;
+
+/** 未读数清零 */
+- (void)resetUnReadCount:(IMConversationModel *)model complete:(completeBlock)complete;
+
+///** 插入聊天信息, 更新会话 */
+//- (void)insertChatConversation:(IMModel *)model;
 //
 ///** 删除会话 */
 //- (void)deleteConversation:(NSString *)conversation_id;
 //
-///** 获取最近所有会话 */
-//- (NSArray <IMConversationModel *>*)getAllConversations;
 
 ///** 根据会话Id保存聊天记录 */
 //- (void)insertChat:(IMChatModel *)model withConversationId:(NSString *)conversation_id;
