@@ -34,7 +34,7 @@
         } else { // 存库成功, 发送成功
             [self messageDidSendFinish:model];
         }
-    } conversationComplete:^(BOOL flag, IMModel * _Nonnull model) {
+    } conversationComplete:^(BOOL flag, IMConversationModel * _Nonnull model) {
         // 更新会话
         [self respondsToTargetSelector:@selector(conversationManagerFinishUpdateConversationModel:) enumerateObjectsWithOptions:^(id  _Nonnull delegate) {
             [delegate conversationManagerFinishUpdateConversationModel:model];

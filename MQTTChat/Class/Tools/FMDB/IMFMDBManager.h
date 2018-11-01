@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 会话
 /** 添加聊天信息, 更新会话 */
-- (void)insertChatConversation:(IMModel *)model chatComplete:(completeModelBlock)chatComplete conversationComplete:(completeModelBlock)comComplete;
+- (void)insertChatConversation:(IMModel *)model chatComplete:(completeModelBlock)chatComplete conversationComplete:(upConversationBlock)conComplete;
 
 /** 查询所有会话 */
 - (NSArray <IMConversationModel *>*)queryAllConversation;

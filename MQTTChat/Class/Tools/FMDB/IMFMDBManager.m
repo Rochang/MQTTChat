@@ -183,10 +183,11 @@
 }
 
 #pragma mark - 会话
-- (void)insertChatConversation:(IMModel *)model chatComplete:(completeModelBlock)chatComplete conversationComplete:(completeModelBlock)comComplete {
+- (void)insertChatConversation:(IMModel *)model chatComplete:(completeModelBlock)chatComplete conversationComplete:(upConversationBlock)conComplete {
     // 判断数据是否已存在
     [self isDataExistsInTable:kSessionTableName key:IMChatModel.dbkey_message_id value:model.chat.message_id completed:^(BOOL flag, FMResultSet * _Nonnull result) {
         if (!flag) {
+            // 插入聊天信息
             NSString *sql = [NSString stringWithFormat:@"insert into %@", kSessionTableName];
             NSString *dbkeys = [@"(" addStr:DBTIME];
             NSString *dbvalues = [NSString stringWithFormat:@" values ('%@'", [NSString timestamp]];
@@ -202,13 +203,13 @@
             if (success) {
                 // 更新会话
                 if (chatComplete) chatComplete(success, model);
-                [self updateConversation:model complete:comComplete];
+                [self updateConversation:model complete:conComplete];
             }
         }
     }];
 }
 
-- (void)updateConversation:(IMModel *)model complete:(completeModelBlock)complete {
+- (void)updateConversation:(IMModel *)model complete:(upConversationBlock)complete {
     IMConversationModel *comModel = [IMConversationModel modelWithIMModel:model];
     [self isDataExistsInTable:kConversationTableName key:IMConversationModel.dbkey_sessionId value:model.sessionId completed:^(BOOL flag, FMResultSet * _Nonnull result) {
         if (flag) { // 更新会话
@@ -223,7 +224,10 @@
             [self jointSql:&sql key:IMConversationModel.dbkey_unReadCount value:@(sqlmodel.unReadCount)];
             [self jointSql:&sql key:IMConversationModel.dbkey_lastSession value:sqlmodel.lastSession.modelToJSONString];
             [sql addStr:[NSString stringWithFormat:@" where %@ = '%@'", IMConversationModel.dbkey_sessionId, model.sessionId]];
-            [self executeUpdateSqlStr:sql];
+            BOOL success = [self executeUpdateSqlStr:sql];
+            if (success && complete) {
+                complete(success, sqlmodel);
+            }
         } else { // 插入会话
             [self isDataExistsInTable:kConversationTableName key:IMConversationModel.dbkey_sessionId value:model.chat.message_id completed:^(BOOL flag, FMResultSet * _Nonnull result) {
                 if (!flag) {

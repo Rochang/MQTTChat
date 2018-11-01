@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IMConversationManagerDelegate <NSObject>
 /** 更新会话 */
-- (void)conversationManagerFinishUpdateConversationModel:(IMModel *)model;
+- (void)conversationManagerFinishUpdateConversationModel:(IMConversationModel *)model;
 
 /** 插入聊天信息 */
 - (void)conversationManagerFinishInsertChatModel:(IMModel *)model;

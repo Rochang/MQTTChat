@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *request_id; // 请求Id
 @property(nonatomic, assign) IMCommandType type;// 指令类型
-@property(nonatomic, copy) NSString *time;// 时间戳
+@property(nonatomic, copy) NSNumber *time;// 时间戳
 @property(nonatomic, strong) IMUserModel *from_user;// 发出方
 @property(nonatomic, strong) IMUserModel *to_user;// 接收方
 @property(nonatomic, strong) IMGroupModel *group;// 群组

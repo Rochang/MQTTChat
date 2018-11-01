@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^resultBlock)(FMResultSet *result);
 typedef void (^completeModelBlock)(BOOL flag, IMModel *model);
+typedef void (^upConversationBlock)(BOOL flag, IMConversationModel *model);
 typedef void (^completeSetBlock)(BOOL flag, FMResultSet *result);
 typedef void (^completeBlock)(BOOL flag);
 

@@ -54,10 +54,21 @@ static NSString *cellId = @"cellId";
 }
 
 #pragma mark - IMConversationManagerDelegate
-- (void)conversationManagerFinishUpdateConversationModel:(IMModel *)model {
-    IMConversationModel *conModel = [IMConversationModel modelWithIMModel:model];
-    [self.dataSource addObject:conModel];
-    [self.tableView reloadData];
+- (void)conversationManagerFinishUpdateConversationModel:(IMConversationModel *)model {
+    [self.dataSource enumerateObjectsUsingBlock:^(IMConversationModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.sessionId isEqualToString:model.sessionId]) {
+            [self.dataSource replaceObjectAtIndex:idx withObject:model];
+            [self dataSourceTimeSort];
+            [self.tableView reloadData];
+            *stop = YES;
+        }
+    }];
+}
+
+- (void)dataSourceTimeSort {
+    [self.dataSource sortUsingComparator:^NSComparisonResult(IMConversationModel * _Nonnull obj1, IMConversationModel * _Nonnull obj2) {
+        return [obj1.lastSession.time compare:obj2.lastSession.time];
+    }];
 }
 
 #pragma mark - getter
